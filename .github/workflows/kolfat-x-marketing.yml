@@ -1,0 +1,76 @@
+name: KOLFAT X Marketing
+
+on:
+  schedule:
+    # GitHub cron is UTC. We wake before both CET and CEST possibilities.
+    # The Python script proceeds only when a 09:00 or 18:00 Europe/Vienna
+    # slot is due within 35 minutes, then Buffer publishes at the exact time.
+    - cron: '40 6 * * *'
+    - cron: '40 7 * * *'
+    - cron: '40 15 * * *'
+    - cron: '40 16 * * *'
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Vienna slot to preview/test'
+        required: true
+        default: '9'
+        type: choice
+        options:
+          - '9'
+          - '18'
+      dry_run:
+        description: 'Preview only; do not send to Buffer'
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kolfat-x-marketing
+  cancel-in-progress: false
+
+jobs:
+  schedule-x-post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      BUFFER_X_CHANNEL_ID: ${{ vars.BUFFER_X_CHANNEL_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Validate post library
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          posts = json.loads(Path('social_automation/posts.json').read_text(encoding='utf-8'))
+          assert isinstance(posts, list) and posts, 'Post library must not be empty.'
+          too_long = [(i + 1, len(text)) for i, text in enumerate(posts) if len(text) > 280]
+          if too_long:
+              raise SystemExit(f'Posts over 280 characters: {too_long}')
+          print(f'Validated {len(posts)} X posts; all are <= 280 characters.')
+          PY
+
+      - name: Schedule automatic post
+        if: github.event_name == 'schedule'
+        env:
+          DRY_RUN: 'false'
+        run: python social_automation/post_to_buffer.py
+
+      - name: Manual preview or test
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+          FORCE_SLOT: ${{ inputs.slot }}
+        run: python social_automation/post_to_buffer.py
