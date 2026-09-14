@@ -6,6 +6,9 @@
 
 **MEDIA KOLFAT takes care of your media.**
 
+[![X](https://img.shields.io/badge/X-%40KOLFAT__APP-000000?logo=x&logoColor=white)](https://x.com/KOLFAT_APP)
+[![YouTube](https://img.shields.io/badge/YouTube-%40KOLFAT__APP-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@KOLFAT_APP)
+
 MEDIA KOLFAT is a Windows desktop application for organizing and managing photo and video collections with a focus on practical, safe, predictable media organization and a dedicated dark interface.
 
 > **Official distribution:** MEDIA KOLFAT is now available through the Microsoft Store. This public repository does not contain the proprietary application source code or downloadable production installers.
@@ -23,6 +26,8 @@ If the application receives strong adoption, positive feedback and growing commu
 - 🛍️ Microsoft Store: https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 - 🌐 Product website: https://kolfat.app/en/Media_Kolfat/
 - 🏠 KOLFAT: https://kolfat.app/
+- 𝕏 X: https://x.com/KOLFAT_APP
+- ▶️ YouTube: https://www.youtube.com/@KOLFAT_APP
 - 🛠️ Support: https://kolfat.app/support/
 - 🐛 Bug reports: https://github.com/1n50mn14c933k/Media_Kolfat/issues
 - 🗺️ Public roadmap: [ROADMAP.md](ROADMAP.md)
