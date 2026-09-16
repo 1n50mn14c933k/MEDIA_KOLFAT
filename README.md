@@ -83,6 +83,63 @@ The current Windows release focuses on a reliable core experience:
 - ⚡ Designed and tested with large media collections
 - 💻 Windows desktop experience
 
+## Why choose MEDIA KOLFAT?
+
+MEDIA KOLFAT is designed for users who primarily want to **organize, inspect and clean up their photo and video collections** without paying for a professional editing suite they may never need.
+
+The products below are all capable applications, but they serve somewhat different audiences. This comparison is intended to make those differences clear rather than suggest that one product is the right choice for every user.
+
+| Feature | **MEDIA KOLFAT FREE** | Adobe Lightroom / Classic | ACDSee Photo Studio Home | Mylio Photos+ | ON1 Photo RAW |
+|---|---|---|---|---|---|
+| **Core pricing model** | ✅ **FREE** | 💰 Subscription | 💰 Paid license / subscription | ◐ Free app available; Photos+ is paid | 💰 Paid license / subscription |
+| **Free core edition** | ✅ **Yes — remains free** | ❌ | ❌ | ✅ Free Mylio Photos app available | ❌ |
+| **Windows desktop** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **macOS support** | ❌ | ✅ | ❌ Home edition is Windows-focused | ✅ | ✅ |
+| **iOS / Android ecosystem** | ❌ | ✅ | ◐ Mobile Sync ecosystem | ✅ | ✅ |
+| **Local-first media management** | ✅ **Core design** | ◐ Lightroom Classic supports local files; Lightroom also offers cloud-centric workflows | ✅ | ✅ **Core design** | ✅ |
+| **Cloud required for core workflow** | ✅ **No** | ◐ Depends on Lightroom workflow/product | ✅ No | ✅ No | ✅ No |
+| **Photo + video library** | ✅ | ✅ | ✅ | ✅ | ◐ Primarily photography-focused |
+| **Metadata / EXIF handling** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Date-based physical folder organization** | ✅ **Core focus** | ✅ Lightroom Classic supports local folder organization | ✅ | ◐ Preserves and works with existing folder structures | ✅ Folder-based browsing |
+| **Duplicate Finder** | ✅ | ◐ Duplicate Detection available in Lightroom on the web | ✅ | ✅ | — |
+| **Photos Health Check** | ✅ **Dedicated workflow** | — | — | — | — |
+| **Smart Rotation** | ✅ | ◐ Rotation/editing tools | ◐ Rotation/editing tools | ◐ Rotation/editing tools | ◐ Rotation/editing tools |
+| **Large-library browsing** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **RAW development** | ❌ | ✅ **Advanced** | ◐ RAW viewing/decoding in Home | ◐ Essential RAW editing | ✅ **Advanced** |
+| **Advanced photo editing** | ❌ | ✅ | ✅ | ◐ Essential editing tools | ✅ |
+| **Layers / compositing** | ❌ | ❌ Lightroom itself | ❌ Home edition | ❌ | ✅ |
+| **AI-assisted organization / search** | ❌ | ✅ | ✅ | ✅ | ✅ AI keywording |
+| **Face recognition** | ❌ | ✅ | ✅ | ✅ | — |
+| **Cross-device sync** | ❌ | ✅ | ◐ Mobile Sync ecosystem | ✅ **Strong focus** | ✅ With Cloud Sync options |
+| **Simple guided organization workflow** | ✅ **Core design** | ◐ Professional / feature-rich workflow | ◐ Feature-rich DAM workflow | ◐ Library and device-sync workflow | ◐ Professional photography workflow |
+
+**Legend:** ✅ Included · ◐ Available, partial, optional, or implemented differently · ❌ Not included · — No directly equivalent primary feature identified in the referenced product documentation
+
+### The difference in one sentence
+
+> **MEDIA KOLFAT is not trying to replace Lightroom or a professional RAW editor.**
+>
+> It is built for users who want to **organize, inspect and clean up their photo and video collection without paying for an editing suite they may never use.**
+>
+> **MEDIA KOLFAT FREE stays FREE.**
+>
+> Need professional RAW editing, AI-assisted search, cloud synchronization or mobile apps? Another product may be a better fit.
+>
+> Need a straightforward, local-first Windows tool focused on taking care of your media? That is what **MEDIA KOLFAT** is built for.
+
+### Comparison notes
+
+Competitor capabilities and commercial models can change over time. The table is based on publicly documented product information available at the time of writing and is intended as a practical feature overview, not a claim that the products are identical in scope.
+
+Official references:
+
+- Adobe Lightroom: https://www.adobe.com/products/photoshop-lightroom.html
+- Adobe Duplicate Detection: https://helpx.adobe.com/lightroom/web/share-your-work/review-and-download/duplicate-detection.html
+- ACDSee Photo Studio Home: https://www.acdsee.com/en/products/photo-studio-home/features/
+- Mylio Photos: https://mylio.com/
+- Mylio Photo DeDupe: https://support.mylio.com/find-duplicate-photos-photo-dedupe
+- ON1 Photo RAW: https://www.on1.com/products/photo-raw/features/
+
 ## MEDIA KOLFAT editions
 
 ### MEDIA KOLFAT
