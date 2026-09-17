@@ -4,11 +4,48 @@ All notable public production changes to MEDIA KOLFAT are documented here.
 
 This changelog covers public product releases. Internal development builds, private engineering changes and security-sensitive implementation details are not listed.
 
-Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packages use the Windows four-part version format, for example `1.2.0.0`.
+Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packages use the Windows four-part version format, for example `1.4.0.0`.
 
 ## [Unreleased]
 
 Future production changes will be documented here before publication.
+
+---
+
+## [1.4.0] — 2026-09-17
+
+**Microsoft Store package version:** `1.4.0.0`
+
+### Added
+
+- Added Media Folder Browser workflow
+- Added automatic computer scanning for media discovery
+- Added Duplicate Finder workflow
+- Added improved media organization guidance
+- Added improved navigation assistance for guided users
+
+### Improved
+
+- Improved folder selection experience
+- Improved support for external, network and cloud storage locations
+- Improved duplicate detection workflow and reporting
+- Improved user guidance and workflow clarity
+- Improved performance and stability for large media collections
+- Improved user interface consistency
+
+### Fixed
+
+- Fixed various user interface issues
+- Fixed workflow state and reset behavior issues
+- Fixed localization and RTL interface refinements
+- Fixed general stability and usability issues
+
+### Distribution
+
+MEDIA KOLFAT production builds are distributed through the Microsoft Store.
+
+Microsoft Store:
+https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 
 ---
 
