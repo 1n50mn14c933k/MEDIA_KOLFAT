@@ -17,6 +17,8 @@ MEDIA KOLFAT is a Windows desktop application for organizing and managing photo 
 
 **MEDIA KOLFAT is released and available on the Microsoft Store.** 🎉
 
+**Current public release:** **1.6.0** (Microsoft Store package **1.6.0.0**, published October 1, 2026). See the [v1.6.0 release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0) and [changelog](CHANGELOG.md).
+
 The current focus is delivering the best possible software experience for MEDIA KOLFAT users on Windows through stability, usability, performance and community feedback.
 
 If the application receives strong adoption, positive feedback and growing community demand, I would like to explore bringing MEDIA KOLFAT to additional desktop platforms such as **Linux** and **macOS** in the future.
@@ -29,8 +31,10 @@ If the application receives strong adoption, positive feedback and growing commu
 - 𝕏 X: https://x.com/KOLFAT_APP
 - ▶️ YouTube: https://www.youtube.com/@KOLFAT_APP
 - 🛠️ Support: https://kolfat.app/support/
-- 🐛 Bug reports: https://github.com/1n50mn14c933k/Media_Kolfat/issues
+- 🐛 Bug reports: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues
 - 🗺️ Public roadmap: [ROADMAP.md](ROADMAP.md)
+- 📋 Release notes: [MEDIA KOLFAT 1.6.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0)
+- 🗂️ Public GitHub Pages: https://1n50mn14c933k.github.io/kolfat/Media_Kolfat/
 
 ## 🔐 Why MEDIA KOLFAT is distributed through the Microsoft Store
 
@@ -70,18 +74,27 @@ MEDIA KOLFAT is designed to make those libraries easier to understand and organi
 
 ## Core capabilities
 
-The current Windows release focuses on a reliable core experience:
+### What's available in version 1.6.0
 
-- 📁 Add and manage media sources
-- 🖼️ Build and browse large photo and video libraries
-- 📅 Read and use available media date metadata
-- 🗂️ Organize media into predictable date-based structures
-- 📷 Use camera and file metadata where available
-- 🧩 Handle media without valid EXIF or other usable dates
-- 🖼️ Generate thumbnails and previews with fallback handling
-- 🌑 Dedicated dark user interface
-- ⚡ Designed and tested with large media collections
-- 💻 Windows desktop experience
+- 🧭 **Guided and Advanced experiences** for different user needs
+- 📁 **Media Folder Browser** and automatic computer scanning for photo and video discovery
+- 🔎 **Duplicate Finder** for identifying duplicate media
+- 🖼️ **Browse Library** with improved layout, previews and thumbnail fallback handling
+- 📊 **Library Overview** with media, health, duplicate and organization information
+- 🩺 **Photos Health Check** and metadata/date handling, including media without usable EXIF dates
+- 📅 **Organize by Date** for predictable file organization
+- 📋 **COPY and MOVE modes** with automatic operation reports; use COPY when originals should remain in place and select MOVE intentionally when transferring originals
+- 🕘 **Activity History** for completed scans and organization operations
+- 🔄 **Manual photo rotation**, including multi-select, batch rotation, Rotate Left, Rotate Right, 180°, and batch Undo in Browse Library
+- 🔐 **Privacy & Local Processing** information inside the app
+- 🌍 **English and Persian (Farsi)** language support, including right-to-left (RTL) interface improvements
+- 🌑 Dedicated dark interface and stability, safety and performance improvements
+
+MEDIA KOLFAT is focused on Windows. The application's normal photo and video management workflow is designed for local processing, without requiring the media library to be uploaded to KOLFAT servers.
+
+**Important when organizing files:** COPY and MOVE have different consequences for source files. Review the selected mode and destination carefully, and keep an independent backup of irreplaceable media.
+
+See the [official version 1.6.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0) for published release highlights.
 
 ## Why choose MEDIA KOLFAT?
 
@@ -103,7 +116,7 @@ The products below are all capable applications, but they serve somewhat differe
 | **Date-based physical folder organization** | ✅ **Core focus** | ✅ Lightroom Classic supports local folder organization | ✅ | ◐ Preserves and works with existing folder structures | ✅ Folder-based browsing |
 | **Duplicate Finder** | ✅ | ◐ Duplicate Detection available in Lightroom on the web | ✅ | ✅ | — |
 | **Photos Health Check** | ✅ **Dedicated workflow** | — | — | — | — |
-| **Smart Rotation** | ✅ | ◐ Rotation/editing tools | ◐ Rotation/editing tools | ◐ Rotation/editing tools | ◐ Rotation/editing tools |
+| **Manual photo rotation** | ✅ Left, right, 180° and batch Undo | ◐ Rotation/editing tools | ◐ Rotation/editing tools | ◐ Rotation/editing tools | ◐ Rotation/editing tools |
 | **Large-library browsing** | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **RAW development** | ❌ | ✅ **Advanced** | ◐ RAW viewing/decoding in Home | ◐ Essential RAW editing | ✅ **Advanced** |
 | **Advanced photo editing** | ❌ | ✅ | ✅ | ◐ Essential editing tools | ✅ |
@@ -226,7 +239,7 @@ Do **not** publish suspected security vulnerabilities in public Issues. See [SEC
 
 MEDIA KOLFAT is now publicly available through the Microsoft Store.
 
-Release notes and version history are tracked through GitHub Releases and [CHANGELOG.md](CHANGELOG.md).
+Current release: **1.6.0** (Store package **1.6.0.0**). Release notes and version history are tracked through [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
 
 ## Roadmap
 
