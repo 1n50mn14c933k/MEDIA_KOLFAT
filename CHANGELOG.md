@@ -4,11 +4,41 @@ All notable public production changes to MEDIA KOLFAT are documented here.
 
 This changelog covers public product releases. Internal development builds, private engineering changes and security-sensitive implementation details are not listed.
 
-Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packages use the Windows four-part version format, for example `1.4.0.0`.
+Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packages use the Windows four-part version format, for example `1.6.0.0`.
 
 ## [Unreleased]
 
 Future production changes will be documented here before publication.
+
+---
+
+## [1.6.0] — 2026-10-01
+
+**Microsoft Store package version:** `1.6.0.0`
+
+### Added
+
+- Guided and Advanced experiences for different user needs
+- MOVE mode to transfer originals as part of media organization
+- Automatic COPY and MOVE operation reports
+- Library Overview with media, health, duplicate and organization information
+- Activity History for completed scans and organization operations
+- In-app Privacy & Local Processing information
+- Rotate Left, Rotate Right, 180° and batch Undo controls in Browse Library
+
+### Improved
+
+- Manual photo rotation with multi-select and batch rotation
+- Browse Library layout and usability
+- English and Persian (Farsi), including RTL interface support
+- Application stability, safety, user interface and performance
+
+### Distribution
+
+MEDIA KOLFAT 1.6.0 is distributed through the Microsoft Store.
+
+- [Official Microsoft Store download](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)
+- [GitHub release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0)
 
 ---
 
