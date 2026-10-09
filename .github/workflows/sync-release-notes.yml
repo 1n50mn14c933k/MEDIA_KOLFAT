@@ -1,0 +1,54 @@
+name: Sync MEDIA KOLFAT release notes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'release-notes/v*.md'
+      - '.github/workflows/sync-release-notes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: media-kolfat-release-notes
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Update existing published release notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0; do
+            file="release-notes/${tag}.md"
+            test -s "$file" || { echo "Missing release notes: $file" >&2; exit 1; }
+            gh release view "$tag" --repo "$GH_REPO" >/dev/null
+          done
+          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0; do
+            file="release-notes/${tag}.md"
+            gh release edit "$tag" --repo "$GH_REPO" --notes-file "$file"
+            echo "Updated $tag"
+          done
+      - name: Verify published notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0; do
+            file="release-notes/${tag}.md"
+            gh release view "$tag" --repo "$GH_REPO" --json body --jq '.body' > /tmp/release-notes.txt
+            diff -u "$file" /tmp/release-notes.txt || { echo "Mismatch in $tag" >&2; exit 1; }
+          done
+          echo 'All four release notes match the committed Markdown files.'
