@@ -2,7 +2,7 @@
 
 This checklist tracks the public-facing release process. Proprietary build, signing and implementation procedures remain private.
 
-## First public release
+## Initial public release (completed)
 
 - [x] Final production build passed functional validation
 - [x] Large-library performance validation completed
@@ -26,10 +26,15 @@ This checklist tracks the public-facing release process. Proprietary build, sign
 - [x] README status updated to released
 - [x] Authoritative Microsoft Store link added
 
-## Remaining GitHub release housekeeping
+## Published release documentation
 
-- [ ] Publish the corresponding GitHub Release entry
-- [ ] Keep release notes synchronized with the production version in the Microsoft Store
+- [x] Initial GitHub release published
+- [x] Version 1.4.0 GitHub release published
+- [x] Version 1.6.0 GitHub release published on October 1, 2026
+- [x] Document latest Microsoft Store package version `1.6.0.0`
+- [x] Synchronize README, changelog and roadmap with the public 1.6.0 release
+
+Latest release: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0
 
 ## After release
 
