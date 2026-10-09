@@ -1,6 +1,6 @@
 # MEDIA KOLFAT Support
 
-MEDIA KOLFAT is now available through the Microsoft Store:
+MEDIA KOLFAT **1.6.0** (Microsoft Store package **1.6.0.0**) is available through the Microsoft Store:
 
 https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 
@@ -41,6 +41,17 @@ When diagnosing a problem, first verify:
 - Any screenshot or log is sanitized before sharing
 
 More detailed troubleshooting guidance is maintained at https://kolfat.app/support/.
+
+## Working with version 1.6.0
+
+- **Guided or Advanced:** choose the experience that suits your level of control.
+- **COPY or MOVE:** use COPY if you want to retain your originals at the source. Select MOVE intentionally when you want originals transferred; verify the destination and retain a backup of important media.
+- **Operation reports:** check the automatic COPY or MOVE report after an organization operation.
+- **Library Overview and Activity History:** review media information and past scans or organization activity.
+- **Photo rotation:** Rotate Left, Rotate Right, 180° and batch Undo are available in Browse Library, alongside multi-select and batch rotation.
+- **Language:** English and Persian (Farsi), including right-to-left layout support.
+
+For unexpected organization results, stop further file operations until you have checked the source, destination and operation report. Do not delete backups while investigating.
 
 ## Feature requests
 
