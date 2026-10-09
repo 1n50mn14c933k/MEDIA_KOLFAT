@@ -48,7 +48,8 @@ jobs:
           set -euo pipefail
           for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0; do
             file="release-notes/${tag}.md"
-            gh release view "$tag" --repo "$GH_REPO" --json body --jq '.body' > /tmp/release-notes.txt
-            diff -u "$file" /tmp/release-notes.txt || { echo "Mismatch in $tag" >&2; exit 1; }
+            expected="$(cat "$file")"
+            published="$(gh release view "$tag" --repo "$GH_REPO" --json body --jq '.body')"
+            [[ "$expected" == "$published" ]] || { echo "Mismatch in $tag" >&2; exit 1; }
           done
           echo 'All four release notes match the committed Markdown files.'
