@@ -6,25 +6,30 @@ The roadmap is directional, not contractual. Items may change, move or be remove
 
 ## Current release status
 
-MEDIA KOLFAT is **available now on the Microsoft Store**:
+MEDIA KOLFAT **1.6.0** (Microsoft Store package **1.6.0.0**) is **available now on the Microsoft Store**:
 
 https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 
 The current priority is to provide the best possible software experience for MEDIA KOLFAT users on Windows through stability, usability, performance and community feedback.
 
-## Current Windows focus
+## Delivered in the current Windows release
 
-- Reliable photo and video library handling
-- Media source management
-- Metadata and date handling
-- Predictable date-based organization workflows
-- Thumbnail and preview reliability
-- Safe handling of media without usable EXIF/date metadata
-- Dedicated dark user interface
-- Large-library performance and stability
-- Windows desktop experience
-- Microsoft Store distribution and updates
-- User-facing support, privacy and legal documentation
+- Guided and Advanced experiences
+- Media Folder Browser and automatic computer scanning
+- Duplicate Finder and Photos Health Check
+- Metadata and date handling, date-based organization, and fallback handling
+- COPY and MOVE organization with automatic operation reports
+- Library Overview and Activity History
+- Browse Library improvements and manual rotation with multi-select, batch rotation and batch Undo
+- English and Persian language support, including RTL improvements
+- Local media processing and in-app privacy information
+
+## Ongoing Windows priorities
+
+- Improve reliability, usability and performance with large libraries
+- Refine media discovery, thumbnails, metadata handling and workflow guidance
+- Address reproducible issues reported by users
+- Keep documentation, support information and release notes current
 
 ## MEDIA KOLFAT PRO
 
@@ -46,4 +51,4 @@ The Microsoft Store is the authoritative production installation and update chan
 
 ## Release history
 
-See [CHANGELOG.md](CHANGELOG.md) and GitHub Releases for public version history.
+See [CHANGELOG.md](CHANGELOG.md) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) for public version history, including [v1.6.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0).
