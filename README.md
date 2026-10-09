@@ -30,6 +30,7 @@ If the application receives strong adoption, positive feedback and growing commu
 - 🏠 KOLFAT: https://kolfat.app/
 - 𝕏 X: https://x.com/KOLFAT_APP
 - ▶️ YouTube: https://www.youtube.com/@KOLFAT_APP
+- 🎵 TikTok: https://www.tiktok.com/@kolfat.app
 - 🛠️ Support: https://kolfat.app/support/
 - 🐛 Bug reports: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues
 - 🗺️ Public roadmap: [ROADMAP.md](ROADMAP.md)
