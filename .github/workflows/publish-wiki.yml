@@ -9,7 +9,7 @@ on:
       - '.github/workflows/publish-wiki.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: media-kolfat-wiki
@@ -24,14 +24,14 @@ jobs:
           persist-credentials: false
       - name: Publish only version-controlled Wiki pages
         env:
-          GH_TOKEN: ${{ secrets.WIKI_PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ secrets.WIKI_PUBLISH_TOKEN || github.token }}
           REPO: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
           if [[ -z "${GH_TOKEN:-}" ]]; then
-            echo "::notice::Set WIKI_PUBLISH_TOKEN (fine-grained PAT with repository Contents read/write) to publish Wiki pages."
-            exit 0
+            echo "::error::GitHub Wiki authentication is not available."
+            exit 1
           fi
           export GIT_TERMINAL_PROMPT=0
           export GIT_CONFIG_COUNT=1
@@ -44,12 +44,12 @@ jobs:
               git clone -q "https://github.com/${REPO}.wiki.git" "$temp/wiki"
             else
               echo "::warning::The Wiki repository is not initialized. Create the Home page once in GitHub Wiki, then re-run this workflow."
-              exit 0
+              exit 1
             fi
           else
             echo "::warning::Wiki Git repository cannot be accessed yet. Initialize GitHub Wiki Home or check WIKI_PUBLISH_TOKEN access."
             cat "$temp/error"
-            exit 0
+            exit 1
           fi
           cd "$temp/wiki"
           git config user.name 'github-actions[bot]'
