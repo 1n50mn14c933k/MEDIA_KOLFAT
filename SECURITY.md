@@ -41,7 +41,7 @@ Do not publish:
 
 ## Supported production release
 
-The current publicly released version is **MEDIA KOLFAT 1.6.0** (Microsoft Store package **1.6.0.0**).
+The current publicly released version is **MEDIA KOLFAT 1.8.0** (Microsoft Store package **1.8.0.0**).
 
 Users should keep MEDIA KOLFAT updated through the Microsoft Store so they receive the latest production fixes and improvements. Check [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) for current release information.
 
