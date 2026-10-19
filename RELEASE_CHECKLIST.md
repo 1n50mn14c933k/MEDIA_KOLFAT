@@ -31,10 +31,12 @@ This checklist tracks the public-facing release process. Proprietary build, sign
 - [x] Initial GitHub release published
 - [x] Version 1.4.0 GitHub release published
 - [x] Version 1.6.0 GitHub release published on October 1, 2026
-- [x] Document latest Microsoft Store package version `1.6.0.0`
+- [x] Version 1.8.0 GitHub release published on October 19, 2026
+- [x] Document latest Microsoft Store package version `1.8.0.0`
 - [x] Synchronize README, changelog and roadmap with the public 1.6.0 release
+- [x] Update public-facing documentation for the 1.8.0 release
 
-Latest release: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0
+Latest release: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest
 
 ## After release
 
