@@ -53,3 +53,24 @@ jobs:
             [[ "$expected" == "$published" ]] || { echo "Mismatch in $tag" >&2; exit 1; }
           done
           echo 'All four release notes match the committed Markdown files.'
+
+      - name: Synchronize v1.8.0 release notes (including draft)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag=v1.8.0
+          file="release-notes/${tag}.md"
+          test -s "$file" || { echo "Missing release notes: $file" >&2; exit 1; }
+          # Draft releases are visible through the authenticated release list,
+          # but the releases/tags/{tag} REST endpoint can return 404 for drafts.
+          release_id="$(gh api "repos/$GH_REPO/releases?per_page=100" --jq '.[] | select(.tag_name == "v1.8.0") | .id')"
+          [[ "$release_id" =~ ^[0-9]+$ ]] || { echo "Release $tag not found or ambiguous" >&2; exit 1; }
+          gh api --method PATCH "repos/$GH_REPO/releases/$release_id" \
+            --raw-field "body=$(cat "$file")" >/dev/null
+          expected="$(cat "$file")"
+          actual="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.body')"
+          [[ "$expected" == "$actual" ]] || { echo "Mismatch in $tag release notes" >&2; exit 1; }
+          echo "Synchronized and verified $tag; draft/publication state unchanged."
