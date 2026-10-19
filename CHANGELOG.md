@@ -12,7 +12,7 @@ Future production changes will be documented here before publication.
 
 ---
 
-## [1.8.0] — Release prepared
+## [1.8.0] — 2026-10-19
 
 **Microsoft Store package version:** `1.8.0.0`
 
