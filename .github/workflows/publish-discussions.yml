@@ -2,9 +2,16 @@ name: Publish MEDIA KOLFAT Discussion starters
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'discussion-starters/**'
+      - '.github/workflows/publish-discussions.yml'
+      - '.github/scripts/publish_discussions.py'
 
 permissions:
   contents: read
+  discussions: write
 
 jobs:
   publish:
@@ -15,13 +22,13 @@ jobs:
           persist-credentials: false
       - name: Create missing discussion starters
         env:
-          GH_TOKEN: ${{ secrets.DISCUSSIONS_PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ secrets.DISCUSSIONS_PUBLISH_TOKEN || github.token }}
           GH_REPO: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
           if [[ -z "${GH_TOKEN:-}" ]]; then
-            echo "::notice::Set DISCUSSIONS_PUBLISH_TOKEN with Discussions write permission to publish starter discussions."
-            exit 0
+            echo "::error::Missing GitHub Discussions authentication."
+            exit 1
           fi
           python3 .github/scripts/publish_discussions.py
