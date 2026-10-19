@@ -6,7 +6,7 @@ The roadmap is directional, not contractual. Items may change, move or be remove
 
 ## Current release status
 
-MEDIA KOLFAT **1.6.0** (Microsoft Store package **1.6.0.0**) is **available now on the Microsoft Store**:
+MEDIA KOLFAT **1.8.0** (Microsoft Store package **1.8.0.0**) is **available now on the Microsoft Store**:
 
 https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 
@@ -22,6 +22,9 @@ The current priority is to provide the best possible software experience for MED
 - Library Overview and Activity History
 - Browse Library improvements and manual rotation with multi-select, batch rotation and batch Undo
 - English and Persian language support, including RTL improvements
+- Pause, Resume and Cancel during organization, with improved progress tracking
+- Improved MOVE safeguards and organized-file attribute visibility
+- Better activity feedback and Browse Library Select All Visible behavior
 - Local media processing and in-app privacy information
 
 ## Ongoing Windows priorities
@@ -51,4 +54,4 @@ The Microsoft Store is the authoritative production installation and update chan
 
 ## Release history
 
-See [CHANGELOG.md](CHANGELOG.md) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) for public version history, including [v1.6.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0).
+See [CHANGELOG.md](CHANGELOG.md) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) for public version history, including [v1.6.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0) and the [latest release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest).
