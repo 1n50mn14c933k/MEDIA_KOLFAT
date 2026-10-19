@@ -54,3 +54,24 @@ jobs:
           done
           echo 'All four release notes match the committed Markdown files.'
 
+      - name: Synchronize existing v1.8.0 release description
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          file="release-notes/v1.8.0.md"
+          test -s "$file" || { echo "Missing v1.8.0 release notes" >&2; exit 1; }
+          # The existing published release has a temporary untagged-* tag.
+          # Update its body by immutable release ID without altering tags or status.
+          release_id=417370501
+          name="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.name')"
+          [[ "$name" == "MEDIA KOLFAT 1.8.0 🎉" ]] || { echo "Wrong release ID" >&2; exit 1; }
+          gh api --method PATCH "repos/$GH_REPO/releases/$release_id" \
+            --raw-field "body=$(cat "$file")" >/dev/null
+          expected="$(cat "$file")"
+          actual="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.body')"
+          [[ "$expected" == "$actual" ]] || { echo "v1.8.0 description mismatch" >&2; exit 1; }
+          [[ "$actual" == *"**Published:** October 19, 2026"* ]] || { echo "Published date absent" >&2; exit 1; }
+          echo "Published date verified in live v1.8.0 release."
