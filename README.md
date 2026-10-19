@@ -18,7 +18,7 @@ MEDIA KOLFAT is a Windows desktop application for organizing and managing photo 
 
 **MEDIA KOLFAT is released and available on the Microsoft Store.** 🎉
 
-**Current public release:** **1.6.0** (Microsoft Store package **1.6.0.0**, published October 1, 2026). See the [v1.6.0 release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0) and [changelog](CHANGELOG.md).
+**Current public release:** **1.8.0** (Microsoft Store package **1.8.0.0**, published October 19, 2026). See the [latest release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest) and [changelog](CHANGELOG.md).
 
 The current focus is delivering the best possible software experience for MEDIA KOLFAT users on Windows through stability, usability, performance and community feedback.
 
@@ -35,7 +35,7 @@ If the application receives strong adoption, positive feedback and growing commu
 - 🛠️ Support: https://kolfat.app/support/
 - 🐛 Bug reports: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues
 - 🗺️ Public roadmap: [ROADMAP.md](ROADMAP.md)
-- 📋 Release notes: [MEDIA KOLFAT 1.6.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0)
+- 📋 Release notes: [MEDIA KOLFAT 1.8.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest)
 - 🗂️ Public GitHub Pages: https://1n50mn14c933k.github.io/kolfat/Media_Kolfat/
 
 ## 🔐 Why MEDIA KOLFAT is distributed through the Microsoft Store
@@ -76,7 +76,7 @@ MEDIA KOLFAT is designed to make those libraries easier to understand and organi
 
 ## Core capabilities
 
-### What's available in version 1.6.0
+### What's available in version 1.8.0
 
 - 🧭 **Guided and Advanced experiences** for different user needs
 - 📁 **Media Folder Browser** and automatic computer scanning for photo and video discovery
@@ -91,12 +91,17 @@ MEDIA KOLFAT is designed to make those libraries easier to understand and organi
 - 🔐 **Privacy & Local Processing** information inside the app
 - 🌍 **English and Persian (Farsi)** language support, including right-to-left (RTL) interface improvements
 - 🌑 Dedicated dark interface and stability, safety and performance improvements
+- ⏯️ **Pause, Resume and Cancel** controls with improved handling of interrupted operations
+- 📊 **Detailed organization progress**, including the current file, processing stage, completed items and percentage
+- 👁️ **Improved organized-file visibility**, including hidden and system attribute handling on network drives
+- 🛡️ **Additional MOVE safeguards** to help protect original files
+- ✨ Improved activity indicator, **Select All Visible** selection and error handling
 
 MEDIA KOLFAT is focused on Windows. The application's normal photo and video management workflow is designed for local processing, without requiring the media library to be uploaded to KOLFAT servers.
 
 **Important when organizing files:** COPY and MOVE have different consequences for source files. Review the selected mode and destination carefully, and keep an independent backup of irreplaceable media.
 
-See the [official version 1.6.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0) for published release highlights.
+See the [official version 1.8.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest) for published release highlights.
 
 ## Why choose MEDIA KOLFAT?
 
@@ -241,7 +246,7 @@ Do **not** publish suspected security vulnerabilities in public Issues. See [SEC
 
 MEDIA KOLFAT is now publicly available through the Microsoft Store.
 
-Current release: **1.6.0** (Store package **1.6.0.0**). Release notes and version history are tracked through [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
+Current release: **1.8.0** (Store package **1.8.0.0**). Release notes and version history are tracked through [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
 
 ## Roadmap
 
