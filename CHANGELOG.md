@@ -4,11 +4,39 @@ All notable public production changes to MEDIA KOLFAT are documented here.
 
 This changelog covers public product releases. Internal development builds, private engineering changes and security-sensitive implementation details are not listed.
 
-Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packages use the Windows four-part version format, for example `1.6.0.0`.
+Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packages use the Windows four-part version format, for example `1.8.0.0`.
 
 ## [Unreleased]
 
 Future production changes will be documented here before publication.
+
+---
+
+## [1.8.0] — Release prepared
+
+**Microsoft Store package version:** `1.8.0.0`
+
+### Improved
+
+- Guided Mode focuses on safe COPY operations; Advanced Mode offers both COPY and MOVE
+- Pause, Resume and Cancel controls, including better handling of interrupted operations
+- Progress reporting for current file, processing stage, completed items and overall percentage
+- Handling of hidden and system file attributes for organized media, including network drives
+- MOVE operation safeguards to help protect original files from accidental deletion
+- Animated activity feedback during background processing
+- Error handling, automatic reporting and general stability
+
+### Fixed
+
+- **Select All Visible** behavior in Browse Library
+- File visibility issues caused by hidden and system attributes
+
+### Distribution
+
+Production installers are provided through the Microsoft Store.
+
+- [Official Microsoft Store download](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)
+- [GitHub release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.8.0)
 
 ---
 
