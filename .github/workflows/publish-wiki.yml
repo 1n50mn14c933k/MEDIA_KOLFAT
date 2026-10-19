@@ -1,0 +1,67 @@
+name: Publish MEDIA KOLFAT Wiki
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'wiki/**'
+      - '.github/workflows/publish-wiki.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: media-kolfat-wiki
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Publish only version-controlled Wiki pages
+        env:
+          GH_TOKEN: ${{ secrets.WIKI_PUBLISH_TOKEN }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${GH_TOKEN:-}" ]]; then
+            echo "::notice::Set WIKI_PUBLISH_TOKEN (fine-grained PAT with repository Contents read/write) to publish Wiki pages."
+            exit 0
+          fi
+          export GIT_TERMINAL_PROMPT=0
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0=http.https://github.com/.extraheader
+          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          temp="$(mktemp -d)"
+          trap 'rm -rf "$temp"' EXIT
+          if git ls-remote "https://github.com/${REPO}.wiki.git" HEAD >"$temp/head" 2>"$temp/error"; then
+            if [[ -s "$temp/head" ]]; then
+              git clone -q "https://github.com/${REPO}.wiki.git" "$temp/wiki"
+            else
+              echo "::warning::The Wiki repository is not initialized. Create the Home page once in GitHub Wiki, then re-run this workflow."
+              exit 0
+            fi
+          else
+            echo "::warning::Wiki Git repository cannot be accessed yet. Initialize GitHub Wiki Home or check WIKI_PUBLISH_TOKEN access."
+            cat "$temp/error"
+            exit 0
+          fi
+          cd "$temp/wiki"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for source in "$GITHUB_WORKSPACE"/wiki/*.md; do
+            cp "$source" .
+          done
+          git add -- '*.md'
+          if git diff --cached --quiet; then
+            echo 'Wiki pages already synchronized.'
+            exit 0
+          fi
+          git commit -qm 'docs: synchronize MEDIA KOLFAT user Wiki'
+          git push -q origin HEAD
+          echo 'MEDIA KOLFAT Wiki pages published.'

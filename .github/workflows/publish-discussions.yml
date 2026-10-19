@@ -1,0 +1,27 @@
+name: Publish MEDIA KOLFAT Discussion starters
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Create missing discussion starters
+        env:
+          GH_TOKEN: ${{ secrets.DISCUSSIONS_PUBLISH_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${GH_TOKEN:-}" ]]; then
+            echo "::notice::Set DISCUSSIONS_PUBLISH_TOKEN with Discussions write permission to publish starter discussions."
+            exit 0
+          fi
+          python3 .github/scripts/publish_discussions.py
