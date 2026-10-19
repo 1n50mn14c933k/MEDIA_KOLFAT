@@ -54,37 +54,3 @@ jobs:
           done
           echo 'All four release notes match the committed Markdown files.'
 
-      - name: Synchronize v1.8.0 release notes (including draft)
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          tag=v1.8.0
-          file="release-notes/${tag}.md"
-          test -s "$file" || { echo "Missing release notes: $file" >&2; exit 1; }
-          # The original v1.8.0 draft was published with an untagged-*
-          # placeholder. Match the verified release ID rather than its tag.
-          release_id=417370501
-          original_sha=91b9a3bf4a530b23bbb4ee44e39fdf6a5563b5c6
-          release_name="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.name')"
-          [[ "$release_name" == "MEDIA KOLFAT 1.8.0 🎉" ]] || { echo "Unexpected release identity" >&2; exit 1; }
-          current_tag="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.tag_name')"
-          [[ "$current_tag" == "$tag" || "$current_tag" == untagged-* ]] || { echo "Unexpected release tag: $current_tag" >&2; exit 1; }
-          # Keep the original release target commit, rather than tagging
-          # whatever happens to be the latest documentation commit.
-          if ! gh api "repos/$GH_REPO/git/ref/tags/$tag" >/dev/null 2>&1; then
-            gh api --method POST "repos/$GH_REPO/git/refs" \
-              -f "ref=refs/tags/$tag" -f "sha=$original_sha" >/dev/null
-          fi
-          # Edit the existing release; do not create or publish a new one.
-          gh api --method PATCH "repos/$GH_REPO/releases/$release_id" \
-            -f "tag_name=$tag" --raw-field "body=$(cat "$file")" >/dev/null
-          actual_tag="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.tag_name')"
-          actual_body="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.body')"
-          [[ "$actual_tag" == "$tag" ]] || { echo "Release tag mismatch" >&2; exit 1; }
-          expected_body="$(cat "$file")"
-          [[ "$expected_body" == "$actual_body" ]] || { echo "Release description mismatch" >&2; exit 1; }
-          [[ "$actual_body" == *"**Published:** October 19, 2026"* ]] || { echo "Published line missing" >&2; exit 1; }
-          echo "v1.8.0 tag and release notes verified; publication state preserved."
