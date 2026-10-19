@@ -6,6 +6,8 @@
 
 > **Start safely:** Back up irreplaceable photos and videos before organizing. Guided Mode and COPY are the recommended starting point. MOVE is an intentional Advanced Mode choice.
 
+**New in 1.8.0:** clearer COPY/MOVE controls, Pause/Resume/Cancel, enhanced progress tracking, safer file visibility and a Browse Library selection fix. Read [[Release Notes and Updates|Release-Notes-and-Updates]] for details.
+
 ## New here?
 
 1. Read [[Getting Started|Getting-Started]] and install from the Microsoft Store.
