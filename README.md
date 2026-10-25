@@ -9,6 +9,7 @@
 [![X](https://img.shields.io/badge/X-%40KOLFAT__APP-000000?logo=x&logoColor=white)](https://x.com/KOLFAT_APP)
 [![YouTube](https://img.shields.io/badge/YouTube-%40KOLFAT__APP-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@KOLFAT_APP)
 [![TikTok](https://img.shields.io/badge/TikTok-%40kolfat.app-000000?logo=tiktok&logoColor=white)](https://www.tiktok.com/@kolfat.app)
+[![☕ Support KOLFAT](https://img.shields.io/badge/☕_Support_KOLFAT-FF812E?style=for-the-badge&labelColor=181818)](https://ko-fi.com/kolfat_app)
 
 MEDIA KOLFAT is a Windows desktop application for organizing and managing photo and video collections with a focus on practical, safe, predictable media organization and a dedicated dark interface.
 
