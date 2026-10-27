@@ -1,3 +1,19 @@
+## 2026-10-27 — Automated distribution dashboard
+
+**Purpose:** Add a dark static download dashboard at the bottom of the public README based on official GitHub release-asset counters.
+
+**Files:** README.md, docs/DOWNLOAD_DASHBOARD.md, docs/CHANGES.md, assets/download-dashboard.svg, assets/download-dashboard-history.json, assets/store-acquisitions.json, .github/scripts/update_download_dashboard.py, and .github/workflows/update-download-dashboard.yml.
+
+**Data:** GitHub EXE asset downloads collected once daily from the official API; optional validated Microsoft Partner Center acquisitions remain "Not connected" without verified data. These are not confirmed installations, and pre-tracking historical counts are not fabricated.
+
+**Privacy and safety:** No application telemetry, user identifiers, proprietary source, permanent credentials, installer changes or paid services. GitHub Actions uses its ephemeral repository token. Initial snapshot was observed on October 27, 2026.
+
+**Verification:** Review the README's rendered SVG, the GitHub Actions workflow result, and the actual release-asset counts. The workflow is required to confirm the dashboard updates automatically.
+
+**Rollback:** Disable the scheduled workflow and revert the dashboard documentation and asset changes; release artifacts remain untouched.
+
+---
+
 ## 2026-10-27 — MEDIA KOLFAT 2.0.0 public documentation update
 
 **Purpose:** Update the GitHub project README, CHANGELOG, roadmap, release checklist, security and support pages, current Wiki guides, and community starter documents to MEDIA KOLFAT 2.0.0.

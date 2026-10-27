@@ -1,0 +1,48 @@
+name: Update MEDIA KOLFAT downloads dashboard
+
+on:
+  schedule:
+    - cron: "23 7 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/update-download-dashboard.yml"
+      - ".github/scripts/update_download_dashboard.py"
+      - "assets/store-acquisitions.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: media-kolfat-download-dashboard
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect real counters and render SVG
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python3 -m py_compile .github/scripts/update_download_dashboard.py
+          python3 .github/scripts/update_download_dashboard.py
+          test -s assets/download-dashboard.svg
+          test -s assets/download-dashboard-history.json
+          grep -q "GitHub EXE downloads" assets/download-dashboard.svg
+      - name: Commit refreshed dashboard only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/download-dashboard.svg assets/download-dashboard-history.json
+          if git diff --cached --quiet; then
+            echo "Dashboard already up to date"
+            exit 0
+          fi
+          git commit -m "chore(stats): refresh official GitHub EXE download dashboard"
+          git push origin HEAD:main

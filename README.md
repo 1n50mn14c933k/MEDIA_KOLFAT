@@ -261,6 +261,14 @@ This public repository is provided for product information, community interactio
 
 See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and [CONTRIBUTING.md](CONTRIBUTING.md) for the forms of public contribution accepted here.
 
+## 📊 MEDIA KOLFAT | Distribution Dashboard
+
+![MEDIA KOLFAT distribution dashboard showing verified GitHub EXE downloads and Microsoft Store acquisition status](assets/download-dashboard.svg)
+
+**GitHub EXE downloads** are counted automatically from official GitHub Release installer assets. Microsoft Store acquisitions are shown only when independently verified from Microsoft Partner Center. These figures represent downloads/acquisitions, **not confirmed installations**. No in-app telemetry or personal information is collected for this dashboard.
+
+[Download MEDIA KOLFAT 2.0.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0) · [How dashboard statistics work](docs/DOWNLOAD_DASHBOARD.md)
+
 ---
 
 © 2026 KOLFAT · MEDIA KOLFAT
