@@ -1,6 +1,6 @@
 # 💡 What Feature Should MEDIA KOLFAT Add Next?
 
-MEDIA KOLFAT 1.8.0 already offers guided COPY, advanced COPY/MOVE, duplicate detection, photo rotation, progress controls and local library organization. I'd love to hear which improvements would solve your biggest real-world problem.
+MEDIA KOLFAT 2.0.0 already offers guided COPY, advanced COPY/MOVE, duplicate detection, photo rotation, progress controls and local library organization. I'd love to hear which improvements would solve your biggest real-world problem.
 
 Ideas to discuss (not promised features):
 

@@ -20,8 +20,8 @@ This checklist tracks the public-facing release process. Proprietary build, sign
 - [x] Support page reviewed
 - [x] Microsoft Store URL added to README
 - [x] Repository description, homepage and topics configured
-- [x] Empty/unused GitHub Wiki disabled
-- [x] Final public repository audit confirmed no proprietary source, secrets or installer artifacts
+- [x] Empty/unused GitHub Wiki disabled during initial setup (historical)
+- [x] Initial public repository audit confirmed no proprietary source, secrets or committed installer artifacts
 - [x] MEDIA KOLFAT published through the Microsoft Store
 - [x] README status updated to released
 - [x] Authoritative Microsoft Store link added
@@ -32,9 +32,12 @@ This checklist tracks the public-facing release process. Proprietary build, sign
 - [x] Version 1.4.0 GitHub release published
 - [x] Version 1.6.0 GitHub release published on October 1, 2026
 - [x] Version 1.8.0 GitHub release published on October 19, 2026
-- [x] Document latest Microsoft Store package version `1.8.0.0`
+- [x] Document latest Microsoft Store package version `2.0.0.0`
 - [x] Synchronize README, changelog and roadmap with the public 1.6.0 release
 - [x] Update public-facing documentation for the 1.8.0 release
+- [x] Version 2.0.0 GitHub release published October 27, 2026
+- [x] Windows x64 EXE and SHA-256 checksum attached to GitHub release
+- [x] Documented official Microsoft Store and GitHub distribution and new features
 
 Latest release: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest
 

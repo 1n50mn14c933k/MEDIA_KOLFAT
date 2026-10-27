@@ -1,6 +1,6 @@
 # Guided Mode vs Advanced Mode
 
-MEDIA KOLFAT 1.8.0 provides **Guided** and **Advanced** experiences to serve different needs.
+MEDIA KOLFAT 2.0.0 provides **Guided** and **Advanced** experiences to serve different needs.
 
 | | Guided Mode | Advanced Mode |
 |---|---|---|
@@ -26,7 +26,7 @@ MEDIA KOLFAT 1.8.0 provides **Guided** and **Advanced** experiences to serve dif
 
 ## Important: MOVE is not just another type of COPY
 
-MOVE changes where the original files are stored. Unexpected interruptions, inaccessible drives or insufficient destination space may affect the operation. MEDIA KOLFAT 1.8.0 adds safeguards, but **no software feature replaces an independent backup**.
+MOVE changes where the original files are stored. Unexpected interruptions, inaccessible drives or insufficient destination space may affect the operation. MEDIA KOLFAT retains safeguards, but **no software feature replaces an independent backup**.
 
 If unsure, choose **Guided Mode + COPY**.
 

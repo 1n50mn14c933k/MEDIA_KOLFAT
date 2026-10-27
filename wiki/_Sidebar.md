@@ -1,4 +1,4 @@
-**MEDIA KOLFAT 1.8.0**
+**MEDIA KOLFAT 2.0.0**
 
 - [[🏠 Home|Home]]
 - [[🚀 Getting Started|Getting-Started]]

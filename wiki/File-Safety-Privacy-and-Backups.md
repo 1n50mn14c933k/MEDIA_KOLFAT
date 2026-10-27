@@ -6,7 +6,7 @@
 
 **COPY:** Creates organized destination copies while aiming to keep source files in place. This is the recommended default, especially for beginners.
 
-**MOVE:** Transfers originals to the selected destination, intentionally changing the original storage location. Available through Advanced Mode. Version 1.8.0 adds safeguards designed to reduce accidental loss, but verification and backups are still essential.
+**MOVE:** Transfers originals to the selected destination, intentionally changing the original storage location. Available through Advanced Mode. MEDIA KOLFAT includes safeguards designed to reduce accidental loss, but verification and backups are still essential.
 
 ## Before using MOVE
 

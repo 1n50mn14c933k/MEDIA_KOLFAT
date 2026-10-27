@@ -1,6 +1,6 @@
 # Troubleshooting and Frequently Asked Questions
 
-These checks are for MEDIA KOLFAT **1.8.0** on Windows.
+These checks are for MEDIA KOLFAT **2.0.0** on Windows.
 
 ## I cannot find the newest version in Microsoft Store
 
@@ -12,7 +12,7 @@ Confirm that the drive is connected, visible in Windows and accessible to your a
 
 ## Organized files are hidden or missing from File Explorer
 
-Version 1.8.0 includes fixes for hidden/system file attributes, including on network drives. Verify Windows Explorer view settings and check the destination and relevant file attributes. **Do not re-run MOVE or delete source files until you know where the media is.**
+MEDIA KOLFAT includes fixes for hidden/system file attributes, including on network drives. Verify Windows Explorer view settings and check the destination and relevant file attributes. **Do not re-run MOVE or delete source files until you know where the media is.**
 
 ## Progress is slow or uneven
 
@@ -20,7 +20,7 @@ Large video files, metadata processing and network storage can take longer than 
 
 ## Can I stop a running operation?
 
-Version 1.8.0 supports Pause, Resume and Cancel. A canceled operation is not necessarily undone; read the operation report and inspect completed files before retrying.
+MEDIA KOLFAT supports Pause, Resume and Cancel. A canceled operation is not necessarily undone; read the operation report and inspect completed files before retrying.
 
 ## What is the difference between COPY and MOVE?
 
@@ -36,7 +36,7 @@ Check the original file in another trusted image viewer. If a problem is reprodu
 
 ## Why isn't Select All Visible selecting the entire library?
 
-It applies to **visible** library entries, not necessarily the entire collection. Version 1.8.0 also includes a fix for this behavior. Verify the visible selection before any batch rotation.
+It applies to **visible** library entries, not necessarily the entire collection. The application also includes a fix for this behavior. Verify the visible selection before any batch rotation.
 
 ## Does MEDIA KOLFAT upload my private photos?
 
@@ -45,3 +45,7 @@ Normal local organization workflows do not require uploading the library to KOLF
 ## Reporting a problem
 
 Use [GitHub Issues](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues) for reproducible defects. Include: app version, Windows version, steps, expected outcome, actual outcome and **sanitized** logs/screenshots. Use [Discussions](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/discussions) for usage questions. Security vulnerabilities must be reported privately.
+
+## I installed the GitHub EXE but it does not update in Microsoft Store
+
+The standalone EXE and Microsoft Store edition use different update channels. Download later standalone installer versions only from the official [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases). Never disable Windows security protections to install or update the EXE.

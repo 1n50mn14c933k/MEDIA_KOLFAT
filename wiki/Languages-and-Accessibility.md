@@ -1,6 +1,6 @@
 # Languages and Accessibility
 
-MEDIA KOLFAT currently supports **English and Persian (Farsi)**, including right-to-left (RTL) interface improvements.
+MEDIA KOLFAT 2.0.0 supports **English, Persian (Farsi), German and Spanish**. Persian includes right-to-left (RTL) interface support.
 
 ## Persian quick-start guides
 
@@ -15,7 +15,7 @@ If you encounter text clipping, layout direction issues, unclear labels, keyboar
 
 ## Request another language
 
-Which language would help you or your family most? Explain whether you need:
+Which additional language would help you or your family most? Explain whether you need:
 
 - Translated interface labels
 - Localized help and tutorials

@@ -1,6 +1,6 @@
 # Publish the MEDIA KOLFAT Wiki and Discussions
 
-The complete MEDIA KOLFAT 1.8.0 content lives in this repository:
+The current MEDIA KOLFAT 2.0.0 documentation sources live in this repository:
 
 - `wiki/` — 15 Wiki Markdown files (including Home, sidebar and two Persian guides)
 - `discussion-starters/` — 9 community starter posts
@@ -35,9 +35,9 @@ The script checks existing discussion titles before creating posts, so rerunning
 ## 3. After publication
 
 - Link the live Wiki and Discussions from the website/README.
-- Consider pinning the Welcome discussion and 1.8.0 feedback thread.
+- Consider pinning the Welcome discussion and current 2.0.0 feedback thread.
 - Monitor feedback when convenient; don't promise immediate support response times.
 - Keep reproducible bugs in Issues and suspected vulnerabilities in private reporting.
 - Review new Wiki content for accuracy whenever MEDIA KOLFAT releases a new version.
 
-**Safety:** This work does not publish proprietary source, installer artifacts, signing material, or private development information. The published guides describe already-announced user-facing functionality.
+**Safety:** Wiki and Discussion publishing does not publish proprietary source, installer artifacts, signing material, or private development information. Official EXE assets are released separately. The published guides describe already-announced user-facing functionality.

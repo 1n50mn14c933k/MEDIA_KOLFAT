@@ -6,7 +6,7 @@ The roadmap is directional, not contractual. Items may change, move or be remove
 
 ## Current release status
 
-MEDIA KOLFAT **1.8.0** (Microsoft Store package **1.8.0.0**) is **available now on the Microsoft Store**:
+MEDIA KOLFAT **2.0.0** (Microsoft Store package **2.0.0.0**) is **available now on Microsoft Store and GitHub Releases**:
 
 https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 
@@ -21,11 +21,14 @@ The current priority is to provide the best possible software experience for MED
 - COPY and MOVE organization with automatic operation reports
 - Library Overview and Activity History
 - Browse Library improvements and manual rotation with multi-select, batch rotation and batch Undo
-- English and Persian language support, including RTL improvements
+- English, Persian (RTL), German and Spanish language support
 - Pause, Resume and Cancel during organization, with improved progress tracking
 - Improved MOVE safeguards and organized-file attribute visibility
 - Better activity feedback and Browse Library Select All Visible behavior
 - Local media processing and in-app privacy information
+- File Type Selection with extension counts and optional Other Files
+- Seven conditional destination folders
+- Improved SMB/NAS-to-NAS MOVE and symbolic-link handling
 
 ## Ongoing Windows priorities
 
@@ -50,7 +53,7 @@ No unreleased feature, platform or capability listed or discussed publicly shoul
 
 ## Distribution
 
-The Microsoft Store is the authoritative production installation and update channel.
+Official distribution is through [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0); standalone EXE installations do not receive Store updates.
 
 ## Release history
 

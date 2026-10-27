@@ -6,7 +6,7 @@ MEDIA KOLFAT برای مرتب‌سازی عکس‌ها و ویدیوهای شم
 
 ## پیش از شروع
 
-۱. برنامه را فقط از [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) نصب یا به‌روزرسانی کنید.  
+۱. برنامه را از [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) یا [نصاب رسمی GitHub برای ویندوز](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) نصب کنید. نسخه GitHub به‌روزرسانی خودکار Microsoft Store را دریافت نمی‌کند.  
 ۲. از عکس‌ها و ویدیوهای مهم خود روی یک فضای ذخیره‌سازی جداگانه نسخهٔ پشتیبان تهیه کنید.  
 ۳. از اتصال هارد اکسترنال یا مسیر شبکه و کافی بودن فضای مقصد مطمئن شوید.  
 ۴. ابتدا برنامه را با چند فایل آزمایشی اجرا کنید.

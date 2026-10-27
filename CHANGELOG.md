@@ -4,11 +4,35 @@ All notable public production changes to MEDIA KOLFAT are documented here.
 
 This changelog covers public product releases. Internal development builds, private engineering changes and security-sensitive implementation details are not listed.
 
-Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packages use the Windows four-part version format, for example `1.8.0.0`.
+Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packages use the Windows four-part version format, for example `2.0.0.0`.
 
 ## [Unreleased]
 
 Future production changes will be documented here before publication.
+
+---
+
+## [2.0.0] — 2026-10-27
+
+**Microsoft Store package version:** `2.0.0.0`
+**Languages:** English, Persian (RTL), German and Spanish
+
+### Added and improved
+
+- File Type Selection with extension counts and an optional Other Files category
+- Seven conditional destination folders created only when needed
+- Extended COPY/MOVE organization for optional Other Files
+- Improved SMB/NAS-to-NAS MOVE handling, including large-library testing
+- Improved symbolic-link and file-operation safety
+- Added German and Spanish localization alongside English and Persian
+- Refined interface, localization and branding
+- Independent Windows x64 EXE installer alongside Microsoft Store MSIX
+
+### Distribution
+
+- [Windows x64 EXE installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) and [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt)
+- [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)
+- [Version 2.0.0 release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0)
 
 ---
 
@@ -36,7 +60,7 @@ Future production changes will be documented here before publication.
 Production installers are provided through the Microsoft Store.
 
 - [Official Microsoft Store download](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)
-- [GitHub release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.8.0)
+- [GitHub release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/untagged-ce0d52a8f6375672fbad)
 
 ---
 

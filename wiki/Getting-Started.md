@@ -1,10 +1,10 @@
 # Getting Started with MEDIA KOLFAT
 
-This guide is for first-time users and people who prefer clear, predictable steps. It applies to the **Windows release 1.8.0**.
+This guide is for first-time users and people who prefer clear, predictable steps. It applies to the **Windows release 2.0.0**.
 
 ## Before you begin
 
-- Install or update through the [official Microsoft Store listing](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare).
+- Install or update through the [official Microsoft Store listing](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) or download the [official GitHub Windows x64 EXE](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe). The EXE version does not receive automatic Store updates.
 - Keep a separate backup of important photos and videos.
 - Make sure the drive or network location containing your files is connected and accessible.
 - Choose a destination with enough free space.
@@ -15,7 +15,7 @@ This guide is for first-time users and people who prefer clear, predictable step
 1. Open MEDIA KOLFAT and choose **Guided Mode** if you want an easier, step-by-step experience.
 2. Add or select a folder containing your photos and videos. Sources can include local and supported external or network locations.
 3. Allow the app to discover the media and review the library, previews and any health-check information you choose to inspect.
-4. Choose how to organize the collection, for example by available dates, and inspect the intended destination.
+4. Choose your file types and how to organize the collection, for example by available dates; Other Files is optional. Check the intended destination and the folders that will be created.
 5. Use **COPY** for the first operation. COPY is intended to preserve the source files.
 6. Check the preview or summary before you start. Begin the operation and follow the progress indicator.
 7. When the operation finishes, inspect a selection of results, including images and videos in their destination folders.

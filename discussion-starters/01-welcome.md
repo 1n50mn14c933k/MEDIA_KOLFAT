@@ -1,6 +1,6 @@
 # 👋 Welcome to the MEDIA KOLFAT Community!
 
-Welcome! This is a space for people who want to organize their photo and video collections without unnecessary complexity. **MEDIA KOLFAT 1.8.0** is available for Windows through the [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare).
+Welcome! This is a space for people who want to organize their photo and video collections without unnecessary complexity. **MEDIA KOLFAT 2.0.0** is available for Windows through the [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and the [official GitHub EXE installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe).
 
 **ORDER FROM CHAOS.** 🖤
 

@@ -41,9 +41,9 @@ Do not publish:
 
 ## Supported production release
 
-The current publicly released version is **MEDIA KOLFAT 1.8.0** (Microsoft Store package **1.8.0.0**).
+The current publicly released version is **MEDIA KOLFAT 2.0.0** (Microsoft Store package **2.0.0.0**).
 
-Users should keep MEDIA KOLFAT updated through the Microsoft Store so they receive the latest production fixes and improvements. Check [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) for current release information.
+Users should obtain updates from their official distribution channel: Microsoft Store for Store installations and GitHub Releases for standalone EXE installations. Check [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) for current release information.
 
 Microsoft Store:
 https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
@@ -52,7 +52,7 @@ Pre-release or private development builds are not supported production versions.
 
 ## Official software distribution
 
-The Microsoft Store is the authoritative distribution and update channel for MEDIA KOLFAT production builds.
+Official distribution is through [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). The current GitHub EXE is unsigned; a SHA-256 checksum helps detect file changes but does not by itself establish publisher identity.
 
 Do not trust production installers from third-party mirrors unless KOLFAT explicitly identifies that source as official.
 

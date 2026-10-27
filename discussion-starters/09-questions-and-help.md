@@ -1,6 +1,6 @@
 # ❓ Questions, Tips and Help — Start Here
 
-Have a question about selecting folders, date-based organization, COPY vs MOVE, Browse Library or the Microsoft Store update process? Ask below, or create a new topic in the Questions category.
+Have a question about selecting folders, date-based organization, COPY vs MOVE, Browse Library or updating through Microsoft Store versus the GitHub EXE installer? Ask below, or create a new topic in the Questions category.
 
 Helpful context: app version, Windows version, what you wanted to achieve, what actually happened, and any steps already tried. For reproducible bugs, please open an [Issue](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues). Keep all logs and screenshots sanitized.
 

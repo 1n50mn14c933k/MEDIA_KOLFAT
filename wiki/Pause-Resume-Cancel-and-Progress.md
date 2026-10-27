@@ -1,6 +1,6 @@
 # Pause, Resume, Cancel and Progress Tracking
 
-Version **1.8.0** improves control over photo and video organization.
+MEDIA KOLFAT **2.0.0** provides control over photo and video organization.
 
 ## Operation controls
 
@@ -12,7 +12,7 @@ These controls should not be confused with an automatic rollback. An operation c
 
 ## Progress information
 
-MEDIA KOLFAT 1.8.0 can display:
+MEDIA KOLFAT can display:
 
 - Current file being processed
 - Current processing stage

@@ -1,6 +1,6 @@
 # راهنمای ایمنی COPY و MOVE
 
-**MEDIA KOLFAT 1.8.0**
+**MEDIA KOLFAT 2.0.0**
 
 ## تفاوت COPY و MOVE
 

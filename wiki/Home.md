@@ -1,16 +1,16 @@
 # MEDIA KOLFAT — Official User Wiki
 
-**ORDER FROM CHAOS.** Welcome to the user knowledge base for **MEDIA KOLFAT 1.8.0**, a Windows application for organizing photos and videos.
+**ORDER FROM CHAOS.** Welcome to the user knowledge base for **MEDIA KOLFAT 2.0.0**, a Windows application for organizing photos and videos.
 
-**Official download:** [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) · **Product:** [kolfat.app](https://kolfat.app/en/Media_Kolfat/) · **Support:** [kolfat.app/support](https://kolfat.app/support/)
+**Official download:** [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) · [Windows x64 GitHub EXE](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · **Product:** [kolfat.app](https://kolfat.app/en/Media_Kolfat/) · **Support:** [kolfat.app/support](https://kolfat.app/support/)
 
 > **Start safely:** Back up irreplaceable photos and videos before organizing. Guided Mode and COPY are the recommended starting point. MOVE is an intentional Advanced Mode choice.
 
-**New in 1.8.0:** clearer COPY/MOVE controls, Pause/Resume/Cancel, enhanced progress tracking, safer file visibility and a Browse Library selection fix. Read [[Release Notes and Updates|Release-Notes-and-Updates]] for details.
+**New in 2.0.0:** File Type Selection, seven conditional destination folders, optional Other Files, improved SMB/NAS MOVE and symbolic-link handling, and German/Spanish localization. Read [[Release Notes and Updates|Release-Notes-and-Updates]] for details.
 
 ## New here?
 
-1. Read [[Getting Started|Getting-Started]] and install from the Microsoft Store.
+1. Read [[Getting Started|Getting-Started]] and install from the official Microsoft Store or GitHub release.
 2. Learn [[Guided vs Advanced Mode|Guided-vs-Advanced-Mode]].
 3. Before any operation, review [[File Safety, Privacy and Backups|File-Safety-Privacy-and-Backups]].
 4. Follow [[Organizing Photos and Videos|Organizing-Photos-and-Videos]].
@@ -39,4 +39,4 @@
 
 Use [Discussions](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/discussions) for questions, workflows and ideas. Use [Issues](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues) for reproducible bugs. **Never post security vulnerabilities, credentials, private file paths or personal media publicly.** Report suspected vulnerabilities privately using [SECURITY.md](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/blob/main/SECURITY.md).
 
-Documentation describes publicly announced features of version 1.8.0. Exact buttons, screens and operation details may vary across Store updates; the in-app instructions remain authoritative.
+Documentation describes publicly announced features of version 2.0.0. Exact buttons, screens and operation details may vary across Store updates; the in-app instructions remain authoritative.

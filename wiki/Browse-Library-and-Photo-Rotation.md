@@ -8,7 +8,7 @@ Browse Library lets you review media and adjust photo orientation without using 
 - Verify the displayed preview and selection before changing several photos at once.
 - If thumbnails do not appear as expected, see [[Troubleshooting and FAQ|Troubleshooting-and-FAQ]].
 
-## Photo rotation in 1.8.0
+## Photo rotation
 
 Available actions include **Rotate Left**, **Rotate Right**, **180°** and **Undo**, with support for selecting multiple photos and performing batch rotations.
 
@@ -20,7 +20,7 @@ Available actions include **Rotate Left**, **Rotate Right**, **180°** and **Und
 
 ### About Select All Visible
 
-Version 1.8.0 fixes the **Select All Visible** behavior. It is intended for **currently visible items**, not necessarily every file in the entire library or on other pages. Check the selection count and thumbnails before running a batch action.
+The application includes the fix for **Select All Visible** behavior. It is intended for **currently visible items**, not necessarily every file in the entire library or on other pages. Check the selection count and thumbnails before running a batch action.
 
 ### Good habits
 

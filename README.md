@@ -13,13 +13,13 @@
 
 MEDIA KOLFAT is a Windows desktop application for organizing and managing photo and video collections with a focus on practical, safe, predictable media organization and a dedicated dark interface.
 
-> **Official distribution:** MEDIA KOLFAT is now available through the Microsoft Store. This public repository does not contain the proprietary application source code or downloadable production installers.
+> **Official distribution:** MEDIA KOLFAT is available through [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [official GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). GitHub hosts the Windows EXE and checksum, not proprietary application source code.
 
 ## Status
 
-**MEDIA KOLFAT is released and available on the Microsoft Store.** 🎉
+**MEDIA KOLFAT is available on Microsoft Store and via a direct Windows EXE download on GitHub.** 🎉
 
-**Current public release:** **1.8.0** (Microsoft Store package **1.8.0.0**, published October 19, 2026). See the [latest release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest) and [changelog](CHANGELOG.md).
+**Current public release:** **2.0.0** (Microsoft Store package **2.0.0.0**, published October 27, 2026). See the [latest release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest) and [changelog](CHANGELOG.md).
 
 The current focus is delivering the best possible software experience for MEDIA KOLFAT users on Windows through stability, usability, performance and community feedback.
 
@@ -27,6 +27,8 @@ If the application receives strong adoption, positive feedback and growing commu
 
 ## Official links
 
+- 💻 Windows EXE: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe
+- 🔎 SHA-256 checksum: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt
 - 🛍️ Microsoft Store: https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 - 🌐 Product website: https://kolfat.app/en/Media_Kolfat/
 - 🏠 KOLFAT: https://kolfat.app/
@@ -36,38 +38,19 @@ If the application receives strong adoption, positive feedback and growing commu
 - 🛠️ Support: https://kolfat.app/support/
 - 🐛 Bug reports: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues
 - 🗺️ Public roadmap: [ROADMAP.md](ROADMAP.md)
-- 📋 Release notes: [MEDIA KOLFAT 1.8.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest)
+- 📋 Release notes: [MEDIA KOLFAT 2.0.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest)
 - 🗂️ Public GitHub Pages: https://1n50mn14c933k.github.io/kolfat/Media_Kolfat/
 
-## 🔐 Why MEDIA KOLFAT is distributed through the Microsoft Store
+## 🔐 Official Windows distribution
 
-I chose to distribute **MEDIA KOLFAT exclusively through the Microsoft Store** because I want users to have a safer, more predictable, and more trustworthy installation experience.
+MEDIA KOLFAT offers **two official download channels**:
 
-By using the Microsoft Store, users benefit from Microsoft's controlled distribution infrastructure, signed application packages, package-integrity checks, and a consistent installation and update process.
+- **Microsoft Store:** [Install or update](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare), with Microsoft Store-managed updates.
+- **GitHub Releases:** [Download the Windows x64 EXE installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe), with the accompanying [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt).
 
-This also reduces the risk of users downloading modified, repackaged, or malicious copies of MEDIA KOLFAT from unofficial websites or download mirrors.
+The GitHub installer is currently **unsigned**, so Windows may show an unknown-publisher or SmartScreen warning. Do not disable Windows security protections. The EXE version does not receive Microsoft Store updates; obtain its later releases from official GitHub Releases.
 
-The Microsoft Store provides several practical advantages:
-
-- ✅ **Signed application packages** that help verify the publisher and package integrity
-- ✅ **Trusted distribution channel** instead of random third-party download sites
-- ✅ **Automatic and controlled updates** through Windows
-- ✅ **Consistent installation and removal**
-- ✅ **Reduced risk of tampered or repackaged installers**
-- ✅ **Microsoft Store certification and validation before publication**
-- ✅ **Cleaner package management through Windows**
-- ✅ **A single authoritative source for the official MEDIA KOLFAT build**
-
-MEDIA KOLFAT itself is designed around a **local-first approach**. Your photo and video library remains on your own computer during the normal media-management workflow.
-
-For these reasons, I deliberately chose **not to distribute production `.exe`, `.msi`, or `.msix` installers directly through GitHub**.
-
-### 🪟 Official download
-
-➡️ **Microsoft Store:**  
-https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
-
-> **If you find MEDIA KOLFAT installers on another website, they should not be considered an official KOLFAT distribution unless explicitly stated otherwise.**
+The proprietary application source stays private. Always keep independent backups of irreplaceable media.
 
 ## What is MEDIA KOLFAT?
 
@@ -77,7 +60,7 @@ MEDIA KOLFAT is designed to make those libraries easier to understand and organi
 
 ## Core capabilities
 
-### What's available in version 1.8.0
+### What's available in version 2.0.0
 
 - 🧭 **Guided and Advanced experiences** for different user needs
 - 📁 **Media Folder Browser** and automatic computer scanning for photo and video discovery
@@ -90,19 +73,23 @@ MEDIA KOLFAT is designed to make those libraries easier to understand and organi
 - 🕘 **Activity History** for completed scans and organization operations
 - 🔄 **Manual photo rotation**, including multi-select, batch rotation, Rotate Left, Rotate Right, 180°, and batch Undo in Browse Library
 - 🔐 **Privacy & Local Processing** information inside the app
-- 🌍 **English and Persian (Farsi)** language support, including right-to-left (RTL) interface improvements
+- 🌍 **English, Persian (Farsi), German and Spanish** language support, including Persian right-to-left (RTL) presentation
 - 🌑 Dedicated dark interface and stability, safety and performance improvements
 - ⏯️ **Pause, Resume and Cancel** controls with improved handling of interrupted operations
 - 📊 **Detailed organization progress**, including the current file, processing stage, completed items and percentage
 - 👁️ **Improved organized-file visibility**, including hidden and system attribute handling on network drives
 - 🛡️ **Additional MOVE safeguards** to help protect original files
 - ✨ Improved activity indicator, **Select All Visible** selection and error handling
+- 🗂️ **File Type Selection** with extension counts and optional Other Files
+- 📁 **Seven conditional destination categories**, created only when needed
+- 🌐 **Improved SMB/NAS-to-NAS MOVE** behavior
+- 🔗 **Safer symbolic-link handling**
 
 MEDIA KOLFAT is focused on Windows. The application's normal photo and video management workflow is designed for local processing, without requiring the media library to be uploaded to KOLFAT servers.
 
 **Important when organizing files:** COPY and MOVE have different consequences for source files. Review the selected mode and destination carefully, and keep an independent backup of irreplaceable media.
 
-See the [official version 1.8.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest) for published release highlights.
+See the [official version 2.0.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest) for published release highlights.
 
 ## Why choose MEDIA KOLFAT?
 
@@ -175,9 +162,9 @@ Future PRO functionality will be announced only when it is ready to be publicly 
 
 ## System requirements
 
-MEDIA KOLFAT is built for 64-bit Windows desktop systems and is distributed through the Microsoft Store.
+MEDIA KOLFAT is built for 64-bit Windows desktop systems and is available through Microsoft Store and official GitHub Releases.
 
-The Microsoft Store listing is the authoritative source for current availability and platform requirements.
+Check the Microsoft Store listing for Store requirements and the GitHub release for standalone Windows x64 distribution.
 
 Storage requirements depend on the size of the user's library and generated application data such as thumbnails and cache files.
 
@@ -193,13 +180,12 @@ If future cloud, online or AI-backed functionality changes how data is processed
 
 ## Installation and downloads
 
-Do **not** download MEDIA KOLFAT production installers from unofficial mirrors.
+Download only from official channels, not third-party mirrors.
 
-The **Microsoft Store is the authoritative installation and update channel**:
+- **GitHub Windows EXE:** [Installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) and [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt)
+- **Microsoft Store:** [Official listing](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)
 
-https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
-
-This public repository does not distribute production MSIX packages or other production installers.
+The Store edition receives Store-managed updates; the GitHub EXE edition does not. GitHub-generated source archives are not Windows installers.
 
 ## What this repository is for
 
@@ -221,7 +207,6 @@ For security and intellectual-property protection, this repository does **not** 
 - Internal build or signing pipelines
 - Code-signing certificates or keys
 - Credentials or secrets
-- Production installers
 - Private development plans
 
 The proprietary application source is maintained separately in a private repository.
@@ -245,9 +230,9 @@ Do **not** publish suspected security vulnerabilities in public Issues. See [SEC
 
 ## Releases and version history
 
-MEDIA KOLFAT is now publicly available through the Microsoft Store.
+MEDIA KOLFAT is publicly available through Microsoft Store and official GitHub Releases.
 
-Current release: **1.8.0** (Store package **1.8.0.0**). Release notes and version history are tracked through [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
+Current release: **2.0.0** (Store package **2.0.0.0**). Release notes and version history are tracked through [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
 
 ## Roadmap
 

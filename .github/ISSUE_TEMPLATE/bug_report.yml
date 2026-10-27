@@ -16,7 +16,7 @@ body:
     attributes:
       label: MEDIA KOLFAT version
       description: Find the installed version in the application's About section.
-      placeholder: e.g. 1.0.0
+      placeholder: e.g. 2.0.0
     validations:
       required: true
 

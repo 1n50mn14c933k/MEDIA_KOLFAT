@@ -18,7 +18,7 @@ MEDIA KOLFAT helps transform mixed photo and video folders into a more predictab
 4. Choose an organization pattern appropriate for your collection.
 5. Review the destination and expected result before starting.
 6. Choose **COPY** to leave the originals in place; use Advanced **MOVE** only if you intend to transfer originals.
-7. Observe the current-file and overall progress indicators. Version 1.8.0 also supports Pause, Resume and Cancel.
+7. Observe the current-file and overall progress indicators. Pause, Resume and Cancel are available.
 8. After completion, open both the organized destination and the operation report.
 9. Spot-check photos and videos from different dates and folders.
 
@@ -40,3 +40,7 @@ Use **Duplicate Finder** to inspect duplicate findings and **Photos Health Check
 - [ ] Organized output spot-checked
 
 See [[File Safety, Privacy and Backups|File-Safety-Privacy-and-Backups]] and [[Troubleshooting and FAQ|Troubleshooting-and-FAQ]].
+
+## File Type Selection in 2.0.0
+
+Select the file categories to organize before running the operation. Photos and videos are selected by default, while Other Files is optional. Seven destination categories are created only when required by the results. Review the destination and the selected COPY or MOVE mode carefully.
