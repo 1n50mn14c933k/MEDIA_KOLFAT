@@ -11,7 +11,6 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[2]
 HISTORY = ROOT / "assets/download-dashboard-history.json"
-STORE = ROOT / "assets/store-acquisitions.json"
 SVG = ROOT / "assets/download-dashboard.svg"
 REPO = "1n50mn14c933k/MEDIA_KOLFAT"
 PATTERN = re.compile(r"MEDIA_KOLFAT_[0-9.]+_Setup\.exe", re.I)
@@ -47,35 +46,16 @@ def github_downloads():
     raise RuntimeError("Too many releases; refusing incomplete totals")
 
 
-def store_acquisitions(today):
-    if not STORE.exists():
-        return None
-    info = json.loads(STORE.read_text(encoding="utf-8"))
-    value = info.get("acquisitions")
-    if value is None:
-        return None
-    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
-        raise ValueError("Store count must be a nonnegative integer")
-    if "Partner Center" not in str(info.get("source", "")):
-        raise ValueError("Verified Partner Center source required")
-    if date.fromisoformat(info["as_of"]) > today:
-        raise ValueError("Future Store observation not allowed")
-    return value
-
-
 def tick_step(peak):
     raw = max(1, peak) / 4
     mag = 10 ** math.floor(math.log10(raw))
     return next(m * mag for m in (1, 2, 5, 10) if m * mag >= raw)
 
 
-def draw(history, current_store):
+def draw(history):
     latest = history[-1]
     samples = history[-90:]
     values = [r["github_exe_downloads"] for r in samples]
-    if current_store is not None:
-        values += [r["store_acquisitions"] for r in samples
-                   if isinstance(r.get("store_acquisitions"), int)]
     tick = tick_step(max(values))
     maximum = tick * 4
     x0, x1, y0, y1 = 95, 1000, 288, 527
@@ -93,17 +73,15 @@ def draw(history, current_store):
         '<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="690" viewBox="0 0 1100 690" role="img">',
         '<title>MEDIA KOLFAT distribution dashboard</title>',
         '<rect x="1" y="1" width="1098" height="688" rx="20" fill="#0b0d0e" stroke="#363b3e" stroke-width="2"/>',
-        '<text x="42" y="48" fill="#f2f3f4" font-family="Arial,sans-serif" font-size="23" font-weight="700">MEDIA KOLFAT | Distribution</text>',
+        '<text x="42" y="48" fill="#f2f3f4" font-family="Arial,sans-serif" font-size="23" font-weight="700">MEDIA KOLFAT | GitHub Downloads</text>',
         '<text x="1050" y="47" fill="#a8b0b5" font-family="Arial,sans-serif" font-size="14" text-anchor="end">Actual data · Daily refresh</text>',
         '<path d="M42 67H1058 M42 224H1058" stroke="#303537"/>',
         '<text x="55" y="109" fill="#c0c6ca" font-family="Arial,sans-serif" font-size="18">GitHub EXE downloads</text>',
+        '<text x="590" y="109" fill="#c0c6ca" font-family="Arial,sans-serif" font-size="18">Official release assets</text>',
+        '<text x="590" y="155" fill="#e9f9eb" font-family="Arial,sans-serif" font-size="19">Automatic daily snapshot</text>',
         f'<text x="55" y="171" fill="#e9f9eb" font-family="Arial,sans-serif" font-size="53" font-weight="700">{latest["github_exe_downloads"]:,}</text>',
         '<circle cx="61" cy="198" r="6" fill="#7ed48a"/>',
         '<text x="76" y="203" fill="#a3b5a8" font-family="Arial,sans-serif" font-size="14">Published GitHub installer assets</text>',
-        '<text x="590" y="109" fill="#c0c6ca" font-family="Arial,sans-serif" font-size="18">Microsoft Store acquisitions</text>',
-        f'<text x="590" y="171" fill="#f8ae82" font-family="Arial,sans-serif" font-size="{53 if current_store is not None else 31}" font-weight="700">{fmt(f"{current_store:,}" if current_store is not None else "Not connected")}</text>',
-        '<circle cx="595" cy="198" r="6" fill="#ec9869"/>',
-        '<text x="610" y="203" fill="#b8aaa1" font-family="Arial,sans-serif" font-size="14">Partner Center · Verified source only</text>',
         '<text x="55" y="263" fill="#e0e4e6" font-family="Arial,sans-serif" font-size="17" font-weight="600">Download history</text>',
         '<text x="1040" y="263" text-anchor="end" fill="#9ea5aa" font-family="Arial,sans-serif" font-size="13">Observed daily snapshots</text>'
     ]
@@ -117,14 +95,6 @@ def draw(history, current_store):
         tag.append(f'<polyline points="{pts}" fill="none" stroke="#7ed48a" stroke-width="3" stroke-linejoin="round"/>')
     for i,r in enumerate(samples):
         tag.append(f'<circle cx="{x(i):.1f}" cy="{y(r["github_exe_downloads"]):.1f}" r="5" fill="#7ed48a" stroke="#dceee0" stroke-width="1.4"/>')
-    if current_store is not None:
-        store_pts = [(i,r["store_acquisitions"]) for i,r in enumerate(samples)
-                     if isinstance(r.get("store_acquisitions"), int)]
-        if len(store_pts)>1:
-            tag.append('<polyline fill="none" stroke="#ec9869" stroke-width="3" points="' +
-                       " ".join(f"{x(i):.1f},{y(v):.1f}" for i,v in store_pts) + '"/>')
-        for i,v in store_pts:
-            tag.append(f'<circle cx="{x(i):.1f}" cy="{y(v):.1f}" r="5" fill="#ec9869" stroke="#f6d0b7" stroke-width="1.4"/>')
     positions = sorted(set((0, len(samples)//3, (2*len(samples))//3, len(samples)-1)))
     for i in positions:
         dt = date.fromisoformat(samples[i]["date"])
@@ -132,10 +102,8 @@ def draw(history, current_store):
     if len(samples)==1:
         tag.append('<text x="550" y="320" text-anchor="middle" fill="#b3b9bd" font-family="Arial,sans-serif" font-size="15">Trend appears as new daily snapshots are collected</text>')
     tag += [
-        '<circle cx="345" cy="593" r="6" fill="#7ed48a"/>',
-        '<text x="360" y="598" fill="#d7dcdf" font-family="Arial,sans-serif" font-size="15">GitHub EXE downloads</text>',
-        '<circle cx="610" cy="593" r="6" fill="#ec9869"/>',
-        '<text x="625" y="598" fill="#d7dcdf" font-family="Arial,sans-serif" font-size="15">Store acquisitions (when verified)</text>',
+        '<circle cx="465" cy="593" r="6" fill="#7ed48a"/>',
+        '<text x="481" y="598" fill="#d7dcdf" font-family="Arial,sans-serif" font-size="15">GitHub EXE downloads</text>',
         f'<text x="42" y="635" fill="#adb3b7" font-family="Arial,sans-serif" font-size="14">Last observation: {fmt(date.fromisoformat(latest["date"]).strftime("%d %b %Y"))} UTC · Official GitHub release asset counters</text>',
         '<text x="42" y="664" fill="#adb3b7" font-family="Arial,sans-serif" font-size="14">Download counts are not confirmed installations. No application tracking or user analytics.</text>',
         '</svg>'
@@ -146,21 +114,20 @@ def draw(history, current_store):
 def main():
     today = datetime.now(timezone.utc).date()
     github = github_downloads()
-    store = store_acquisitions(today)
     history = []
     if HISTORY.exists():
         old = json.loads(HISTORY.read_text(encoding="utf-8"))
         if old.get("schema_version") != 1:
             raise ValueError("Unknown history schema")
-        history = old["snapshots"]
+        history = [{"date": row["date"], "github_exe_downloads": row["github_exe_downloads"]}
+                   for row in old["snapshots"]]
     history = [x for x in history if x["date"] != today.isoformat()]
-    history.append({"date": today.isoformat(), "github_exe_downloads": github,
-                    "store_acquisitions": store})
+    history.append({"date": today.isoformat(), "github_exe_downloads": github})
     history.sort(key=lambda x: x["date"])
     HISTORY.parent.mkdir(parents=True, exist_ok=True)
     HISTORY.write_text(json.dumps({"schema_version": 1, "snapshots": history}, indent=2) + "\n", encoding="utf-8")
-    SVG.write_text(draw(history, store), encoding="utf-8")
-    print(f"GitHub installer downloads: {github}; Microsoft Store: {store if store is not None else 'not connected'}; snapshots: {len(history)}")
+    SVG.write_text(draw(history), encoding="utf-8")
+    print(f"GitHub installer downloads: {github}; snapshots: {len(history)}")
 
 
 if __name__ == "__main__":

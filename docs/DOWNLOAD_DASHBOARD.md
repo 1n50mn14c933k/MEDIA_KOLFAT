@@ -1,62 +1,41 @@
-# MEDIA KOLFAT download dashboard
+# MEDIA KOLFAT GitHub download dashboard
 
-The bottom of the public repository README displays a generated SVG dashboard:
+The chart at the **bottom of the public README** displays actual GitHub EXE
+installer downloads using the static image
 [assets/download-dashboard.svg](../assets/download-dashboard.svg).
 
-## Data and accuracy
+## What the counter measures
 
-**GitHub EXE downloads** is the cumulative sum of GitHub's public release-asset
-`download_count` for published files matching `MEDIA_KOLFAT_<version>_Setup.exe`.
-It excludes checksum files and GitHub source archives. Download counts are
-**not completed installations**; multiple downloads may come from the same person.
+GitHub EXE downloads are the total of GitHub's public release-asset
+`download_count` values across published assets whose names match
+`MEDIA_KOLFAT_<version>_Setup.exe`. Checksum files and GitHub-generated
+source archives are excluded.
 
-**Microsoft Store acquisitions** cannot be obtained from GitHub. The dashboard
-shows **Not connected**, not zero, until you supply a verified aggregate from
-Microsoft Partner Center. Never invent a Store count.
+**Downloads are not confirmed installations.** Repeated or automated downloads
+cannot be distinguished. The application does not collect usage data, device
+identifiers or installation telemetry for this dashboard.
 
-The chart starts collecting daily observations on October 27, 2026. We cannot
-reconstruct historical months from GitHub's current cumulative totals, so the
-dashboard never generates fictional July–September figures.
+## Daily automatic updates
 
-## Automatic refresh
+The [Update MEDIA KOLFAT downloads dashboard](../.github/workflows/update-download-dashboard.yml)
+GitHub Actions workflow runs daily at **07:23 UTC**, can be started manually
+and is triggered by changes to its script or workflow.
 
-[GitHub Actions: Update MEDIA KOLFAT downloads dashboard](../.github/workflows/update-download-dashboard.yml)
-runs once a day at **07:23 UTC**, manually through `workflow_dispatch`, and
-when the dashboard workflow, script, or Store data configuration changes.
+The job uses GitHub's official REST API and GitHub Actions' temporary
+`GITHUB_TOKEN`. It commits only the updated static chart and
+`assets/download-dashboard-history.json` when those files change.
 
-It uses GitHub's short-lived, built-in `GITHUB_TOKEN`. No permanent
-credentials, paid analytics, private source code, external telemetry services
-or modifications to the MEDIA KOLFAT application are required.
+The earliest recorded snapshot is **October 27, 2026**. Each subsequent
+snapshot reflects the cumulative count observed on that date. Historic daily
+or monthly counts before recording started cannot be reconstructed reliably
+and are not invented. The chart displays up to 90 actual observations.
 
-The script `.github/scripts/update_download_dashboard.py` fetches release
-download counts from the official GitHub API, updates the current day's sample
-in `assets/download-dashboard-history.json`, and renders
-`assets/download-dashboard.svg`. The workflow commits only those two files
-when they change. The SVG is static and has no JavaScript.
+## Maintenance and rollback
 
-## Optional verified Microsoft Store acquisitions
+No permanent credentials, external analytics services, paid tools or new
+application permissions are needed. To stop updates, disable the workflow
+in GitHub Actions. To remove the dashboard, revert the README chart section
+and this dashboard's assets and automation.
 
-`assets/store-acquisitions.json` begins with a null value. If you obtain a
-**verified cumulative acquisitions total** in Microsoft Partner Center, you may
-manually enter an aggregate number, source date and source label. For example,
-this is ONLY a fictional schema illustration, **not a production count**:
-
-```json
-{
-  "acquisitions": 123,
-  "as_of": "2026-10-27",
-  "source": "Microsoft Partner Center manual report"
-}
-```
-
-Never commit credentials, personal user records, exports with sensitive
-information or private analytics. The Store series begins only after real
-numbers become available. The manually entered count is not a live Store API
-integration, and the two channel metrics measure different actions.
-
-## Safe rollback
-
-Disable the GitHub Actions workflow to stop new samples. Revert the README
-dashboard section and the files introduced by this feature to remove it.
-No EXE/MSIX installer, release assets, source code, photos or settings
-are modified by this dashboard.
+The dashboard never changes installer files, Store packaging, proprietary
+source code or user-managed photos, videos, settings and reports.

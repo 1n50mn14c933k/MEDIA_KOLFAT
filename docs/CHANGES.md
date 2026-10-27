@@ -1,3 +1,17 @@
+## 2026-10-27 — GitHub-only download dashboard
+
+**Purpose:** Remove the Microsoft Store acquisition counter and related configuration entirely at the user's request. Retain GitHub EXE download counts, historical snapshots, the dark SVG design and the daily refresh workflow.
+
+**Changes:** Simplified the README dashboard, generator, SVG, historical JSON and documentation; removed `assets/store-acquisitions.json`; removed the Store config trigger from the workflow. The history stores only GitHub installer download counts.
+
+**Security:** No app telemetry, new credentials, changes to Microsoft Store packaging, release binaries or user-managed data.
+
+**Verification:** Verify the new GitHub workflow succeeds and the rendered README SVG contains no Store acquisition counter.
+
+**Rollback:** Revert this commit to restore the previous presentation. No application or release files were modified.
+
+---
+
 ## 2026-10-27 — Automated distribution dashboard
 
 **Purpose:** Add a dark static download dashboard at the bottom of the public README based on official GitHub release-asset counters.

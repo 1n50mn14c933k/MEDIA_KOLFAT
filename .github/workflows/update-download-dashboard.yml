@@ -9,7 +9,6 @@ on:
     paths:
       - ".github/workflows/update-download-dashboard.yml"
       - ".github/scripts/update_download_dashboard.py"
-      - "assets/store-acquisitions.json"
 
 permissions:
   contents: write
