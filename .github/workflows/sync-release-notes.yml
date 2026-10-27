@@ -22,56 +22,56 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - name: Update existing published release notes
+
+      - name: Check published releases and note files
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
-          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0; do
-            file="release-notes/${tag}.md"
-            test -s "$file" || { echo "Missing release notes: $file" >&2; exit 1; }
+          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0 v2.0.0; do
+            test -s "release-notes/${tag}.md"
             gh release view "$tag" --repo "$GH_REPO" >/dev/null
           done
-          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0; do
-            file="release-notes/${tag}.md"
-            gh release edit "$tag" --repo "$GH_REPO" --notes-file "$file"
+          test -s "release-notes/v1.8.0.md"
+          name="$(gh api "repos/$GH_REPO/releases/417370501" --jq '.name')"
+          [[ "$name" == "MEDIA KOLFAT 1.8.0 🎉" ]] || exit 1
+
+      - name: Update all six live release descriptions
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0 v2.0.0; do
+            gh release edit "$tag" --repo "$GH_REPO" --notes-file "release-notes/${tag}.md"
             echo "Updated $tag"
           done
-      - name: Verify published notes
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0; do
-            file="release-notes/${tag}.md"
-            expected="$(cat "$file")"
-            published="$(gh release view "$tag" --repo "$GH_REPO" --json body --jq '.body')"
-            [[ "$expected" == "$published" ]] || { echo "Mismatch in $tag" >&2; exit 1; }
-          done
-          echo 'All four release notes match the committed Markdown files.'
+          gh api --method PATCH "repos/$GH_REPO/releases/417370501" \
+            --raw-field "body=$(cat release-notes/v1.8.0.md)" >/dev/null
+          echo "Updated v1.8.0 by existing release ID"
 
-      - name: Synchronize existing v1.8.0 release description
+      - name: Verify all six release descriptions, dates and assets
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
-          file="release-notes/v1.8.0.md"
-          test -s "$file" || { echo "Missing v1.8.0 release notes" >&2; exit 1; }
-          # The existing published release has a temporary untagged-* tag.
-          # Update its body by immutable release ID without altering tags or status.
-          release_id=417370501
-          name="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.name')"
-          [[ "$name" == "MEDIA KOLFAT 1.8.0 🎉" ]] || { echo "Wrong release ID" >&2; exit 1; }
-          gh api --method PATCH "repos/$GH_REPO/releases/$release_id" \
-            --raw-field "body=$(cat "$file")" >/dev/null
-          expected="$(cat "$file")"
-          actual="$(gh api "repos/$GH_REPO/releases/$release_id" --jq '.body')"
-          [[ "$expected" == "$actual" ]] || { echo "v1.8.0 description mismatch" >&2; exit 1; }
-          [[ "$actual" == *"**Published:** October 19, 2026"* ]] || { echo "Published date absent" >&2; exit 1; }
-          echo "Published date verified in live v1.8.0 release."
+          for tag in v1.0.0 v1.2.0 v1.4.0 v1.6.0 v2.0.0; do
+            expected="$(cat "release-notes/${tag}.md")"
+            actual="$(gh release view "$tag" --repo "$GH_REPO" --json body --jq '.body')"
+            [[ "$expected" == "$actual" ]] || { echo "Mismatch $tag"; exit 1; }
+            [[ "$actual" != *"### ⚠️ Important"* ]] || exit 1
+            echo "Verified $tag"
+          done
+          expected="$(cat release-notes/v1.8.0.md)"
+          actual="$(gh api "repos/$GH_REPO/releases/417370501" --jq '.body')"
+          [[ "$expected" == "$actual" ]] || { echo "Mismatch v1.8.0"; exit 1; }
+          [[ "$actual" != *"### ⚠️ Important"* ]] || exit 1
+          echo "Verified v1.8.0"
+          test "$(gh release view v2.0.0 --repo "$GH_REPO" --json assets --jq '[.assets[].name] | index("MEDIA_KOLFAT_2.0.0_Setup.exe") != null')" = true
+          test "$(gh release view v2.0.0 --repo "$GH_REPO" --json assets --jq '[.assets[].name] | index("MEDIA_KOLFAT_2.0.0_SHA256.txt") != null')" = true
+          echo 'All six release descriptions match; v2.0.0 installer and checksum remain attached.'
