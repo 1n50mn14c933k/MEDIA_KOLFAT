@@ -1,3 +1,17 @@
+## 2026-10-27 — Support KOLFAT button added to every GitHub release
+
+**Purpose:** Place the same large, orange **☕ Support KOLFAT** Ko-fi badge immediately after the “Thank you for using MEDIA KOLFAT! 🖤” and “ORDER FROM CHAOS.” closing lines in all six GitHub release descriptions.
+
+**Files:** `release-notes/v1.0.0.md`, `v1.2.0.md`, `v1.4.0.md`, `v1.6.0.md`, `v1.8.0.md`, `v2.0.0.md`, and this maintenance history.
+
+**Destination:** https://ko-fi.com/kolfat_app, matching the existing README sponsor badge and `.github/FUNDING.yml`. Support is entirely optional; the application stays free.
+
+**Verification:** Ensure the release-note sync workflow succeeds; compare all six live release descriptions with the markdown sources and confirm the button appears after the closing branding. Preserve release assets, dates, features, and historical version information.
+
+**Rollback:** Remove the button block from the six markdown files and let the existing release-note sync workflow update the live descriptions. No binaries or application files are affected.
+
+---
+
 ## 2026-10-27 — GitHub-only download dashboard
 
 **Purpose:** Remove the Microsoft Store acquisition counter and related configuration entirely at the user's request. Retain GitHub EXE download counts, historical snapshots, the dark SVG design and the daily refresh workflow.
