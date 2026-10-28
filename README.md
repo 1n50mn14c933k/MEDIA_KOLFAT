@@ -36,6 +36,10 @@ MEDIA KOLFAT makes it easier to discover, browse and organize your personal phot
 
 ## ⬇️ Install & Download
 
+<p><img src="https://img.shields.io/badge/IMPORTANT-OFFICIAL%20DOWNLOADS%20ONLY-FF812E?style=for-the-badge&labelColor=181818" alt="IMPORTANT: Official downloads only"></p>
+
+> 🟠 **Security notice:** Only download MEDIA KOLFAT from the official sources explicitly listed by the developer below: the **Microsoft Store** and the developer's **GitHub Releases**. Avoid third-party mirrors, repackaged installers, and unverified download websites. Verify published **SHA-256 checksums** when available. GitHub's automatic source archives are **not** application installers.
+
 | Platform | Release | Format | Official downloads |
 |---|---|---|---|
 | 💻 **Windows x64** | **Stable 2.0.0** | `.exe` / Store | [Windows installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
@@ -172,24 +176,6 @@ Official references:
 - Mylio Photos: https://mylio.com/
 - Mylio Photo DeDupe: https://support.mylio.com/find-duplicate-photos-photo-dedupe
 - ON1 Photo RAW: https://www.on1.com/products/photo-raw/features/
-
-## System requirements
-
-Windows Stable supports x64 desktop systems and is distributed via Microsoft Store and GitHub Releases. Linux Beta is a separate x64 AppImage release with limited compatibility testing.
-
-Check the Microsoft Store listing for Store requirements and the GitHub release for standalone Windows x64 distribution.
-
-Storage requirements depend on the size of the user's library and generated application data such as thumbnails and cache files.
-
-## Installation and downloads
-
-Download only from official channels, not third-party mirrors. Windows stable and Linux Beta are separate release tracks.
-
-- **GitHub Windows EXE:** [Installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) and [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt)
-- **Microsoft Store:** [Official listing](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)
-- **Linux x64 Beta:** [2.4.0 experimental pre-release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) (AppImage and checksum awaiting upload)
-
-The Store edition receives Store-managed updates; the GitHub EXE edition does not. GitHub-generated source archives are not Windows installers.
 
 ## What this repository is for
 
