@@ -1,41 +1,60 @@
-# MEDIA KOLFAT GitHub download dashboard
+# MEDIA KOLFAT GitHub package downloads dashboard
 
-The chart at the **bottom of the public README** displays actual GitHub EXE
-installer downloads using the static image
-[assets/download-dashboard.svg](../assets/download-dashboard.svg).
+The [README dashboard](../assets/download-dashboard.svg) counts downloads of
+**published application packages** attached to GitHub Releases across all operating
+systems, including **experimental pre-releases**.
 
-## What the counter measures
+## Platforms and package types
 
-GitHub EXE downloads are the total of GitHub's public release-asset
-`download_count` values across published assets whose names match
-`MEDIA_KOLFAT_<version>_Setup.exe`. Checksum files and GitHub-generated
-source archives are excluded.
+- 🪟 **Windows:** EXE, MSI, MSIX, MSIXBundle, AppX, AppXBundle.
+- 🐧 **Linux:** AppImage, DEB, RPM, Flatpak and Snap packages.
+- 🍎 **macOS:** DMG and PKG, plus explicitly platform-named portable archives.
 
-**Downloads are not confirmed installations.** Repeated or automated downloads
-cannot be distinguished. The application does not collect usage data, device
-identifiers or installation telemetry for this dashboard.
+OS-qualified portable archives such as Linux `.tar.gz` and macOS `.zip`
+are counted when their asset filename or release tag uniquely identifies the platform.
+Checksum/verification files, automatic GitHub source archives, release drafts,
+documentation, and unrelated assets are **excluded**. Downloads of two different
+packages count as two release asset downloads, not unique people or devices.
 
-## Daily automatic updates
+Each OS card shows the current total, number of attached packages and the observed
+**downloads/day** rate, computed from the two most recent suitable dated snapshots.
+When an OS has **no published packages**, it says **Not released**, never a fictional
+zero download history. If a package is newly introduced, the daily rate says
+**awaiting 2 observations** rather than inventing a previous count.
 
-The [Update MEDIA KOLFAT downloads dashboard](../.github/workflows/update-download-dashboard.yml)
-GitHub Actions workflow runs daily at **07:23 UTC**, can be started manually
-and is triggered by changes to its script or workflow.
+The combined total is the sum of all currently published download counts. A compact
+package list shows the highest-count assets individually; all eligible packages
+are included in the totals regardless of how many fit in the graphic.
 
-The job uses GitHub's official REST API and GitHub Actions' temporary
-`GITHUB_TOKEN`. It commits only the updated static chart and
-`assets/download-dashboard-history.json` when those files change.
+## Historic observations and daily refreshes
 
-The earliest recorded snapshot is **October 27, 2026**. Each subsequent
-snapshot reflects the cumulative count observed on that date. Historic daily
-or monthly counts before recording started cannot be reconstructed reliably
-and are not invented. The chart displays up to 90 actual observations.
+The existing Windows EXE history recorded on October 27–28, 2026 is migrated
+without changing its original counts. Linux and macOS were **not measured** by the
+old collector, so older snapshots for those systems remain `null` (unknown),
+not zero. New observations use history schema v2 with independent counters for
+Windows, Linux and macOS. GitHub's cumulative `download_count` values are taken
+from the actual release assets each day. Deleted/replaced assets can reset counters;
+negative daily rates are intentionally suppressed.
 
-## Maintenance and rollback
+The [GitHub Actions workflow](../.github/workflows/update-download-dashboard.yml)
+runs daily at 07:23 UTC, can run manually and is triggered by changes to the
+script/workflow. It writes only `assets/download-dashboard.svg` and
+`assets/download-dashboard-history.json`. The dashboard shows the latest
+**90 observed snapshots**, not invented historical daily values.
 
-No permanent credentials, external analytics services, paid tools or new
-application permissions are needed. To stop updates, disable the workflow
-in GitHub Actions. To remove the dashboard, revert the README chart section
-and this dashboard's assets and automation.
+## Privacy and limits
 
-The dashboard never changes installer files, Store packaging, proprietary
-source code or user-managed photos, videos, settings and reports.
+GitHub's count measures asset-download events, **not installations, unique users,
+Microsoft Store downloads or Apple/Mac App Store downloads**. It does not collect
+OS/device telemetry, upload media, or track individual users. No permanent secret
+or external analytics service is required. The GitHub Actions short-lived token
+queries the official GitHub REST Releases API.
+
+## Validation and rollback
+
+The workflow runs local unit tests for package classification, pre-release support,
+checksum exclusions, historic migration, daily rates, and not-yet-released macOS.
+Check the dashboard, current assets and workflow success before relying on counters.
+Rollback by reverting the dashboard script, workflow, README and documentation.
+The schema-v2 history should be preserved or intentionally migrated back, never
+silently overwritten. No application binaries, releases or product data are modified.

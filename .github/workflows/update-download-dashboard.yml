@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Test multi-platform asset classification and historical migration
+        run: python3 -m unittest discover -s .github/scripts/tests -p "test_download_dashboard.py" -v
       - name: Collect real counters and render SVG
         env:
           GH_TOKEN: ${{ github.token }}
@@ -31,7 +33,10 @@ jobs:
           python3 .github/scripts/update_download_dashboard.py
           test -s assets/download-dashboard.svg
           test -s assets/download-dashboard-history.json
-          grep -q "GitHub EXE downloads" assets/download-dashboard.svg
+          grep -q "GitHub Downloads Dashboard" assets/download-dashboard.svg
+          grep -q "WINDOWS" assets/download-dashboard.svg
+          grep -q "LINUX" assets/download-dashboard.svg
+          grep -q "macOS" assets/download-dashboard.svg
       - name: Commit refreshed dashboard only
         shell: bash
         run: |
@@ -43,5 +48,5 @@ jobs:
             echo "Dashboard already up to date"
             exit 0
           fi
-          git commit -m "chore(stats): refresh official GitHub EXE download dashboard"
+          git commit -m "chore(stats): refresh Windows Linux macOS GitHub package dashboard"
           git push origin HEAD:main
