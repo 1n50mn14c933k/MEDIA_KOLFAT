@@ -22,11 +22,13 @@
 <text x="80" y="352.8" text-anchor="end" fill="#a5adb1" font-family="Arial,sans-serif" font-size="14">15</text>
 <path d="M95 288.0H1000" stroke="#373c3e" stroke-dasharray="4 5"/>
 <text x="80" y="293.0" text-anchor="end" fill="#a5adb1" font-family="Arial,sans-serif" font-size="14">20</text>
-<circle cx="548.0" cy="383.6" r="5" fill="#7ed48a" stroke="#dceee0" stroke-width="1.4"/>
-<text x="548.0" y="556" text-anchor="middle" fill="#b0b7bb" font-family="Arial,sans-serif" font-size="13">27 Oct</text>
-<text x="550" y="320" text-anchor="middle" fill="#b3b9bd" font-family="Arial,sans-serif" font-size="15">Trend appears as new daily snapshots are collected</text>
+<polyline points="95.0,383.6 1000.0,383.6" fill="none" stroke="#7ed48a" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="95.0" cy="383.6" r="5" fill="#7ed48a" stroke="#dceee0" stroke-width="1.4"/>
+<circle cx="1000.0" cy="383.6" r="5" fill="#7ed48a" stroke="#dceee0" stroke-width="1.4"/>
+<text x="95.0" y="556" text-anchor="middle" fill="#b0b7bb" font-family="Arial,sans-serif" font-size="13">27 Oct</text>
+<text x="1000.0" y="556" text-anchor="middle" fill="#b0b7bb" font-family="Arial,sans-serif" font-size="13">28 Oct</text>
 <circle cx="465" cy="593" r="6" fill="#7ed48a"/>
 <text x="481" y="598" fill="#d7dcdf" font-family="Arial,sans-serif" font-size="15">GitHub EXE downloads</text>
-<text x="42" y="635" fill="#adb3b7" font-family="Arial,sans-serif" font-size="14">Last observation: 27 Oct 2026 UTC · Official GitHub release asset counters</text>
+<text x="42" y="635" fill="#adb3b7" font-family="Arial,sans-serif" font-size="14">Last observation: 28 Oct 2026 UTC · Official GitHub release asset counters</text>
 <text x="42" y="664" fill="#adb3b7" font-family="Arial,sans-serif" font-size="14">Download counts are not confirmed installations. No application tracking or user analytics.</text>
 </svg>
