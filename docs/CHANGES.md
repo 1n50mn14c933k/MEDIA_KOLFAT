@@ -1,3 +1,9 @@
+## 2026-10-28 — Large maid-support image button on Linux Beta release
+
+The newly published Linux Beta 2.3 release was not included in the six historical Windows release-note sync files. Added the same clickable 720px-wide orange maid-support image badge to `release-notes/v2.0.0-linux-beta.2.3.md` and updated its existing publish workflow to synchronize an already-existing pre-release's body safely. Preserve prerelease status, tag, version notes and assets. Rollback: revert these source/workflow edits.
+
+---
+
 ## 2026-10-28 — Restore real orange Ko-fi badges (not text links)
 
 **Correction:** The 2026-10-28 support-text update inadvertently replaced clickable image badges with plain bold text links. Restored a standard-sized 430px orange Shields.io badge in README and a large 720px orange Shields.io badge in all six release notes. Both retain the exact message **🧹🪣❤️ Keep Our Maid Alive, Strong & Cleaning!** and destination https://ko-fi.com/kolfat_app. The existing release-note synchronization workflow updates the six published GitHub releases without changing version information, assets, or publication dates.
