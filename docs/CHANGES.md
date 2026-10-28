@@ -1,3 +1,19 @@
+## 2026-10-28 — Publish separate MEDIA KOLFAT Linux 2.4.0 experimental pre-release page
+
+**Purpose:** Publish **🐧 MEDIA KOLFAT 2.4.0 for Linux | Public Beta** under `v2.4.0-linux-beta` as a separate GitHub **Pre-release**, without rebuilding or modifying Windows 2.0.0 and the earlier Linux 2.3 release.
+
+**Files:** `release-notes/v2.4.0-linux-beta.md`, `.github/workflows/publish-linux-beta-announcement.yml`, `README.md`, and this document.
+
+**Scope:** Linux x64 AppImage only; MOVE remains disabled. WSLg tests passed, but **this 2.4.0 AppImage has not been launched on native Ubuntu 26.04**. The previous Linux version completed a real native Ubuntu Guided COPY test with 101 photos; no cross-version equivalence is asserted. Document experimental risk and potential Linux UI caveats.
+
+**Assets:** The two exported/verified files (AppImage and matching SHA-256 checksum) are **not present in this public repository or release and are not uploaded by this documentation workflow**. The release page must clearly say attachment is pending. No dummy binaries, fabricated names or checksums.
+
+**Verification:** Check GitHub Actions success, exact tag/title, `prerelease=true`, intact Windows release, and truthful empty Assets state. After a user separately attaches the two verified files, verify uploaded names, checksums and assets; do not claim binary publication beforehand.
+
+**Rollback:** Restore the older Linux announcement workflow and README, delete the new 2.4.0 GitHub release/tag only if explicitly requested, and retain the historical 2.3 release. Do not delete Windows binaries or alter source-code archives.
+
+---
+
 ## 2026-10-28 — Large maid-support image button on Linux Beta release
 
 The newly published Linux Beta 2.3 release was not included in the six historical Windows release-note sync files. Added the same clickable 720px-wide orange maid-support image badge to `release-notes/v2.0.0-linux-beta.2.3.md` and updated its existing publish workflow to synchronize an already-existing pre-release's body safely. Preserve prerelease status, tag, version notes and assets. Rollback: revert these source/workflow edits.

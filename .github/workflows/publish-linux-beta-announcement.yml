@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'release-notes/v2.0.0-linux-beta.2.3.md'
+      - 'release-notes/v2.4.0-linux-beta.md'
       - '.github/workflows/publish-linux-beta-announcement.yml'
 
 permissions:
@@ -24,13 +24,16 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          tag='v2.0.0-linux-beta.2.3'
-          notes='release-notes/v2.0.0-linux-beta.2.3.md'
+          tag='v2.4.0-linux-beta'
+          notes='release-notes/v2.4.0-linux-beta.md'
           test -s "$notes"
           if gh release view "$tag" --repo "$GH_REPO" >/dev/null 2>&1; then
-            gh release edit "$tag" --repo "$GH_REPO" --notes-file "$notes"
-            echo "Updated existing Linux beta release notes without modifying assets."
+            gh release edit "$tag" --repo "$GH_REPO" --title '🐧 MEDIA KOLFAT 2.4.0 for Linux | Public Beta' --notes-file "$notes" --prerelease
+            echo "Updated existing 2.4.0 Linux beta notes without modifying assets."
           else
-            gh release create "$tag" --repo "$GH_REPO" --target main --title '🐧 MEDIA KOLFAT 2.0 for Linux | Public Beta' --notes-file "$notes" --prerelease
+            gh release create "$tag" --repo "$GH_REPO" --target main --title '🐧 MEDIA KOLFAT 2.4.0 for Linux | Public Beta' --notes-file "$notes" --prerelease
           fi
           gh release view "$tag" --repo "$GH_REPO" --json tagName,isPrerelease,name --jq '{tag:.tagName,prerelease:.isPrerelease,name:.name}'
+          [[ "$(gh release view "$tag" --repo "$GH_REPO" --json name --jq .name)" == '🐧 MEDIA KOLFAT 2.4.0 for Linux | Public Beta' ]] || exit 1
+          [[ "$(gh release view "$tag" --repo "$GH_REPO" --json isPrerelease --jq .isPrerelease)" == true ]] || exit 1
+          echo "Confirmed correct Linux 2.4.0 title and pre-release state."
