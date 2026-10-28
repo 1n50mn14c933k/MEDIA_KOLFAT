@@ -10,7 +10,7 @@ MEDIA KOLFAT **2.0.0** (Microsoft Store package **2.0.0.0**) is **available now 
 
 https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 
-The current priority is to provide the best possible software experience for MEDIA KOLFAT users on Windows through stability, usability, performance and community feedback.
+The current priorities are maintaining **Windows Stable 2.0.0** and improving the separate **Linux 2.4.0 Public Beta**. Linux is an experimental AppImage release; **MOVE is disabled** pending further source-deletion safety work.
 
 ## Delivered in the current Windows release
 
@@ -45,7 +45,7 @@ Specific PRO functionality will be announced only when it is sufficiently define
 
 ## Future development
 
-If MEDIA KOLFAT receives strong adoption, positive feedback and growing community demand, future development may explore additional desktop platforms such as **Linux** and **macOS**.
+**Linux is already available as an experimental Public Beta.** Native AppImage 2.4.0 GUI testing, Settings Reset, platform integration and broader distribution compatibility remain priorities. **macOS** remains a potential future platform, with no announced launch date.
 
 Future development may also include additional organization, discovery, automation and intelligent media-management capabilities.
 
@@ -53,7 +53,13 @@ No unreleased feature, platform or capability listed or discussed publicly shoul
 
 ## Distribution
 
-Official distribution is through [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0); standalone EXE installations do not receive Store updates.
+Windows Stable is distributed via [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and its [Windows GitHub release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). Standalone EXE installations do not receive Store updates.
+
+Linux Public Beta is distributed separately via [GitHub AppImage and checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta). Other Linux packages, if offered, belong in their appropriate app stores or distro repositories.
+
+## Development timeline
+
+See [DEVELOPMENT_TIMELINE.md](docs/DEVELOPMENT_TIMELINE.md) for dated Windows and Linux milestones, Beta test scope and outstanding limitations.
 
 ## Release history
 
