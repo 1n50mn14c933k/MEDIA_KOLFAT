@@ -173,18 +173,6 @@ Official references:
 - Mylio Photo DeDupe: https://support.mylio.com/find-duplicate-photos-photo-dedupe
 - ON1 Photo RAW: https://www.on1.com/products/photo-raw/features/
 
-## MEDIA KOLFAT editions
-
-### MEDIA KOLFAT
-
-The core edition is available free of charge and provides the essential media organization experience.
-
-### MEDIA KOLFAT PRO
-
-MEDIA KOLFAT PRO is planned as an optional paid edition/add-on for additional advanced functionality over time.
-
-Future PRO functionality will be announced only when it is ready to be publicly committed to. The public roadmap is not a contractual promise of specific future features or release dates.
-
 ## System requirements
 
 Windows Stable supports x64 desktop systems and is distributed via Microsoft Store and GitHub Releases. Linux Beta is a separate x64 AppImage release with limited compatibility testing.
@@ -192,16 +180,6 @@ Windows Stable supports x64 desktop systems and is distributed via Microsoft Sto
 Check the Microsoft Store listing for Store requirements and the GitHub release for standalone Windows x64 distribution.
 
 Storage requirements depend on the size of the user's library and generated application data such as thumbnails and cache files.
-
-## Privacy
-
-MEDIA KOLFAT is designed around local media organization. The current core workflow processes the user's photo and video library locally on the user's device rather than requiring the library to be uploaded to KOLFAT servers.
-
-For complete and authoritative privacy information, see:
-
-- Privacy Policy: https://kolfat.app/privacy/
-
-If future cloud, online or AI-backed functionality changes how data is processed, the relevant product information and privacy documentation will be updated before that functionality is released.
 
 ## Installation and downloads
 
@@ -224,18 +202,6 @@ This is the public home of MEDIA KOLFAT on GitHub. Use it to:
 - 📋 Read the public roadmap
 - 📦 Read release notes and version history
 - 🔐 Follow the private security-reporting process
-
-## What this repository does not contain
-
-For security and intellectual-property protection, this repository does **not** contain:
-
-- MEDIA KOLFAT application source code
-- Internal build or signing pipelines
-- Code-signing certificates or keys
-- Credentials or secrets
-- Private development plans
-
-The proprietary application source is maintained separately in a private repository.
 
 ## Reporting bugs
 
