@@ -1,0 +1,35 @@
+name: Publish MEDIA KOLFAT Linux Beta announcement
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'release-notes/v2.0.0-linux-beta.2.3.md'
+      - '.github/workflows/publish-linux-beta-announcement.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release notes
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Publish distinct Linux prerelease without binaries
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          tag='v2.0.0-linux-beta.2.3'
+          notes='release-notes/v2.0.0-linux-beta.2.3.md'
+          test -s "$notes"
+          if gh release view "$tag" --repo "$GH_REPO" >/dev/null 2>&1; then
+            echo "Release already exists; leaving it unchanged."
+          else
+            gh release create "$tag" --repo "$GH_REPO" --target main --title '🐧 MEDIA KOLFAT 2.0 for Linux | Public Beta' --notes-file "$notes" --prerelease
+          fi
+          gh release view "$tag" --repo "$GH_REPO" --json tagName,isPrerelease,name --jq '{tag:.tagName,prerelease:.isPrerelease,name:.name}'
