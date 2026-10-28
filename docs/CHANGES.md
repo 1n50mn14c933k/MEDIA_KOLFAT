@@ -1,3 +1,13 @@
+## 2026-10-28 — Restore real orange Ko-fi badges (not text links)
+
+**Correction:** The 2026-10-28 support-text update inadvertently replaced clickable image badges with plain bold text links. Restored a standard-sized 430px orange Shields.io badge in README and a large 720px orange Shields.io badge in all six release notes. Both retain the exact message **🧹🪣❤️ Keep Our Maid Alive, Strong & Cleaning!** and destination https://ko-fi.com/kolfat_app. The existing release-note synchronization workflow updates the six published GitHub releases without changing version information, assets, or publication dates.
+
+**Verification:** Confirm the six live descriptions contain linked `<img>` elements with `width="720"` and the new label, and the README badge uses `width="430"`. Check release-sync success and GitHub rendering.
+
+**Rollback:** Revert this badge-only commit; do not alter installer assets, release metadata, or other documentation.
+
+---
+
 ## 2026-10-28 — Unified maid-support message in README and all GitHub Releases
 
 Updated the README and all six tracked release-note files to show **🧹🪣❤️ Keep Our Maid Alive, Strong & Cleaning!** linking to https://ko-fi.com/kolfat_app. Existing `.github/workflows/sync-release-notes.yml` publishes these descriptions automatically, including historical v1.8.0 via its release ID. Existing release assets, version notes, publication dates and tags are unchanged. Verify the workflow and live release bodies. Rollback by reverting these text changes and allowing the sync workflow to restore the release descriptions.
