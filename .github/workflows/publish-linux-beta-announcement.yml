@@ -28,7 +28,8 @@ jobs:
           notes='release-notes/v2.0.0-linux-beta.2.3.md'
           test -s "$notes"
           if gh release view "$tag" --repo "$GH_REPO" >/dev/null 2>&1; then
-            echo "Release already exists; leaving it unchanged."
+            gh release edit "$tag" --repo "$GH_REPO" --notes-file "$notes"
+            echo "Updated existing Linux beta release notes without modifying assets."
           else
             gh release create "$tag" --repo "$GH_REPO" --target main --title '🐧 MEDIA KOLFAT 2.0 for Linux | Public Beta' --notes-file "$notes" --prerelease
           fi
