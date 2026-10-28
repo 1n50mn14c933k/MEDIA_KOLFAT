@@ -1,3 +1,9 @@
+## 2026-10-28 — Unified maid-support message in README and all GitHub Releases
+
+Updated the README and all six tracked release-note files to show **🧹🪣❤️ Keep Our Maid Alive, Strong & Cleaning!** linking to https://ko-fi.com/kolfat_app. Existing `.github/workflows/sync-release-notes.yml` publishes these descriptions automatically, including historical v1.8.0 via its release ID. Existing release assets, version notes, publication dates and tags are unchanged. Verify the workflow and live release bodies. Rollback by reverting these text changes and allowing the sync workflow to restore the release descriptions.
+
+---
+
 ## 2026-10-27 — Support KOLFAT button added to every GitHub release
 
 **Purpose:** Place the same large, orange **☕ Support KOLFAT** Ko-fi badge immediately after the “Thank you for using MEDIA KOLFAT! 🖤” and “ORDER FROM CHAOS.” closing lines in all six GitHub release descriptions.
