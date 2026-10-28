@@ -1,3 +1,19 @@
+## 2026-10-28 — Repair v1.8.0 tag chronology and release-list clarity
+
+**Problem:** Release ID `417370501`, named MEDIA KOLFAT 1.8.0, retains original publication date **October 19, 2026** but its Git tag `v1.8.0` was mistakenly moved to the **October 28, 2026** Linux Beta documentation commit `026f78502c41824bb673bc9a4da46444ab974ef7`. GitHub sorts the Releases sidebar using tag-commit chronology, so 1.8.0 appeared ahead of Windows 2.0.0.
+
+**Verified original target:** The original 2026-10-19 release-sync implementation recorded `91b9a3bf4a530b23bbb4ee44e39fdf6a5563b5c6` as the true v1.8.0 release target, and the commit date is 2026-10-19 14:29:21 UTC.
+
+**Repair:** A one-time, guarded GitHub Actions workflow `.github/workflows/repair-release-v180-order.yml` restores exactly `refs/tags/v1.8.0` to the original commit, accepting the current wrong SHA only. Separately renames the older, empty-assets Linux Beta 2.3 release (ID 427090517) to **🐧 MEDIA KOLFAT 2.0.0 for Linux | Beta 2.3 (Superseded)** to clearly distinguish it from Linux 2.4 and stable Windows 2.0.0. Both historical pre-releases stay published.
+
+**Explicit non-changes:** No release is deleted or redrafted; no version notes, upload assets, publication timestamps, `v2.0.0` Windows tag or `v2.4.0-linux-beta` tag are changed. Existing Windows installer and SHA-256 remain attached.
+
+**Verification:** Require GitHub workflow success; fetch the exact tag refs, all releases with their tag/created/published dates, the historical Beta title and Windows installer assets. GitHub's release sidebar has no custom semantic-version sorting; the corrected tag makes 1.8.0 sort by its historical release commit date.
+
+**Rollback:** To undo the tag-only repair if needed, deliberately reset `refs/tags/v1.8.0` to the pre-repair SHA `026f78502c41824bb673bc9a4da46444ab974ef7` and restore the old Linux Beta 2.3 title; **do not** delete tags/releases or alter release assets. Once repair succeeds, this one-time maintenance workflow can be removed in a separate documented PR.
+
+---
+
 ## 2026-10-28 — Publish separate MEDIA KOLFAT Linux 2.4.0 experimental pre-release page
 
 **Purpose:** Publish **🐧 MEDIA KOLFAT 2.4.0 for Linux | Public Beta** under `v2.4.0-linux-beta` as a separate GitHub **Pre-release**, without rebuilding or modifying Windows 2.0.0 and the earlier Linux 2.3 release.
