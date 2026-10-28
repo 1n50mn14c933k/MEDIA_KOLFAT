@@ -1,34 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="690" viewBox="0 0 1100 690" role="img">
-<title>MEDIA KOLFAT distribution dashboard</title>
-<rect x="1" y="1" width="1098" height="688" rx="20" fill="#0b0d0e" stroke="#363b3e" stroke-width="2"/>
-<text x="42" y="48" fill="#f2f3f4" font-family="Arial,sans-serif" font-size="23" font-weight="700">MEDIA KOLFAT | GitHub Downloads</text>
-<text x="1050" y="47" fill="#a8b0b5" font-family="Arial,sans-serif" font-size="14" text-anchor="end">Actual data · Daily refresh</text>
-<path d="M42 67H1058 M42 224H1058" stroke="#303537"/>
-<text x="55" y="109" fill="#c0c6ca" font-family="Arial,sans-serif" font-size="18">GitHub EXE downloads</text>
-<text x="590" y="109" fill="#c0c6ca" font-family="Arial,sans-serif" font-size="18">Official release assets</text>
-<text x="590" y="155" fill="#e9f9eb" font-family="Arial,sans-serif" font-size="19">Automatic daily snapshot</text>
-<text x="55" y="171" fill="#e9f9eb" font-family="Arial,sans-serif" font-size="53" font-weight="700">12</text>
-<circle cx="61" cy="198" r="6" fill="#7ed48a"/>
-<text x="76" y="203" fill="#a3b5a8" font-family="Arial,sans-serif" font-size="14">Published GitHub installer assets</text>
-<text x="55" y="263" fill="#e0e4e6" font-family="Arial,sans-serif" font-size="17" font-weight="600">Download history</text>
-<text x="1040" y="263" text-anchor="end" fill="#9ea5aa" font-family="Arial,sans-serif" font-size="13">Observed daily snapshots</text>
-<path d="M95 527.0H1000" stroke="#373c3e" stroke-dasharray="4 5"/>
-<text x="80" y="532.0" text-anchor="end" fill="#a5adb1" font-family="Arial,sans-serif" font-size="14">0</text>
-<path d="M95 467.2H1000" stroke="#373c3e" stroke-dasharray="4 5"/>
-<text x="80" y="472.2" text-anchor="end" fill="#a5adb1" font-family="Arial,sans-serif" font-size="14">5</text>
-<path d="M95 407.5H1000" stroke="#373c3e" stroke-dasharray="4 5"/>
-<text x="80" y="412.5" text-anchor="end" fill="#a5adb1" font-family="Arial,sans-serif" font-size="14">10</text>
-<path d="M95 347.8H1000" stroke="#373c3e" stroke-dasharray="4 5"/>
-<text x="80" y="352.8" text-anchor="end" fill="#a5adb1" font-family="Arial,sans-serif" font-size="14">15</text>
-<path d="M95 288.0H1000" stroke="#373c3e" stroke-dasharray="4 5"/>
-<text x="80" y="293.0" text-anchor="end" fill="#a5adb1" font-family="Arial,sans-serif" font-size="14">20</text>
-<polyline points="95.0,383.6 1000.0,383.6" fill="none" stroke="#7ed48a" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="95.0" cy="383.6" r="5" fill="#7ed48a" stroke="#dceee0" stroke-width="1.4"/>
-<circle cx="1000.0" cy="383.6" r="5" fill="#7ed48a" stroke="#dceee0" stroke-width="1.4"/>
-<text x="95.0" y="556" text-anchor="middle" fill="#b0b7bb" font-family="Arial,sans-serif" font-size="13">27 Oct</text>
-<text x="1000.0" y="556" text-anchor="middle" fill="#b0b7bb" font-family="Arial,sans-serif" font-size="13">28 Oct</text>
-<circle cx="465" cy="593" r="6" fill="#7ed48a"/>
-<text x="481" y="598" fill="#d7dcdf" font-family="Arial,sans-serif" font-size="15">GitHub EXE downloads</text>
-<text x="42" y="635" fill="#adb3b7" font-family="Arial,sans-serif" font-size="14">Last observation: 28 Oct 2026 UTC · Official GitHub release asset counters</text>
-<text x="42" y="664" fill="#adb3b7" font-family="Arial,sans-serif" font-size="14">Download counts are not confirmed installations. No application tracking or user analytics.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="890" viewBox="0 0 1100 890" role="img" aria-labelledby="dashTitle dashDesc">
+<title id="dashTitle">MEDIA KOLFAT | GitHub Package Downloads</title>
+<desc id="dashDesc">Real GitHub Release asset download totals and observed rates for Windows, Linux, and future macOS packages.</desc>
+<rect x="1" y="1" width="1098" height="888" rx="20" fill="#0c0c0c" stroke="#444" stroke-width="2"/>
+<text x="38" y="49" fill="#f7f7f7" font-family="Arial,sans-serif" font-size="25" font-weight="700">MEDIA KOLFAT | GitHub Downloads Dashboard</text>
+<text x="1060" y="74" fill="#b3b3b3" text-anchor="end" font-family="Arial,sans-serif" font-size="13">Official GitHub release assets | Daily updates</text>
+<path d="M38 91H1062" stroke="#444"/>
+<text x="45" y="123" fill="#c9c9c9" font-family="Arial,sans-serif" font-size="16">ALL PLATFORMS - TOTAL PACKAGE DOWNLOADS</text>
+<text x="45" y="172" fill="#fff" font-family="Arial,sans-serif" font-size="48" font-weight="700">12</text>
+<text x="285" y="165" fill="#aaa" font-family="Arial,sans-serif" font-size="14">Each download counts a release asset, not an installation</text>
+<rect x="38" y="195" width="329" height="149" rx="14" fill="#171717" stroke="#555"/>
+<rect x="52" y="212" width="5" height="22" rx="2" fill="#e8edf1"/>
+<text x="66" y="231" fill="#ddd" font-family="Arial,sans-serif" font-size="17" font-weight="700">WINDOWS</text>
+<text x="54" y="285" fill="#fff" font-family="Arial,sans-serif" font-size="40" font-weight="700">12</text>
+<text x="54" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Daily rate: +0.0 downloads/day</text>
+<text x="54" y="332" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="11">1 downloadable package(s)</text>
+<rect x="385" y="195" width="329" height="149" rx="14" fill="#171717" stroke="#555"/>
+<rect x="399" y="212" width="5" height="22" rx="2" fill="#ff914d"/>
+<text x="413" y="231" fill="#ddd" font-family="Arial,sans-serif" font-size="17" font-weight="700">LINUX</text>
+<text x="401" y="285" fill="#fff" font-family="Arial,sans-serif" font-size="40" font-weight="700">0</text>
+<text x="401" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Daily rate: awaiting 2 observations</text>
+<text x="401" y="332" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="11">1 downloadable package(s)</text>
+<rect x="732" y="195" width="329" height="149" rx="14" fill="#171717" stroke="#555"/>
+<rect x="746" y="212" width="5" height="22" rx="2" fill="#9ca4ad"/>
+<text x="760" y="231" fill="#ddd" font-family="Arial,sans-serif" font-size="17" font-weight="700">macOS</text>
+<text x="748" y="285" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="700">Not released</text>
+<text x="748" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Waiting for first package</text>
+<text x="748" y="332" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="11">No published package</text>
+<text x="42" y="386" fill="#eee" font-family="Arial,sans-serif" font-size="19" font-weight="700">Cumulative downloads by platform</text>
+<text x="1052" y="385" fill="#aaa" text-anchor="end" font-family="Arial,sans-serif" font-size="12">Observed daily snapshots (max 90)</text>
+<path d="M95 607.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
+<text x="83" y="612.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">0</text>
+<path d="M95 559.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
+<text x="83" y="564.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">5</text>
+<path d="M95 511.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
+<text x="83" y="516.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">10</text>
+<path d="M95 463.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
+<text x="83" y="468.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">15</text>
+<path d="M95 415.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
+<text x="83" y="420.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">20</text>
+<polyline points="95.0,491.8 1040.0,491.8" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="95.0" cy="491.8" r="4.5" fill="#e8edf1"/>
+<circle cx="1040.0" cy="491.8" r="4.5" fill="#e8edf1"/>
+<circle cx="1040.0" cy="607.0" r="4.5" fill="#ff914d"/>
+<text x="95.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">27 Oct</text>
+<text x="1040.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">28 Oct</text>
+<rect x="305" y="647" width="16" height="4" fill="#e8edf1"/>
+<text x="330" y="654" fill="#ddd" font-family="Arial,sans-serif" font-size="13">WINDOWS</text>
+<rect x="485" y="647" width="16" height="4" fill="#ff914d"/>
+<text x="510" y="654" fill="#ddd" font-family="Arial,sans-serif" font-size="13">LINUX</text>
+<rect x="665" y="647" width="16" height="4" fill="#9ca4ad"/>
+<text x="690" y="654" fill="#ddd" font-family="Arial,sans-serif" font-size="13">macOS</text>
+<path d="M38 674H1062" stroke="#444"/>
+<text x="42" y="703" fill="#eee" font-family="Arial,sans-serif" font-size="19" font-weight="700">Published package downloads</text>
+<text x="50" y="735" fill="#ddd" font-family="Arial,sans-serif" font-size="14">WINDOWS  |  MEDIA_KOLFAT_2.0.0_Setup.exe</text>
+<text x="1038" y="735" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">12</text>
+<text x="50" y="764" fill="#ddd" font-family="Arial,sans-serif" font-size="14">LINUX  |  MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage</text>
+<text x="1038" y="764" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">0</text>
+<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last snapshot: 2026-10-28 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
 </svg>
