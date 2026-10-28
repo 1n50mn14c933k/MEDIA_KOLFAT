@@ -81,12 +81,6 @@ See the [full Development Timeline](docs/DEVELOPMENT_TIMELINE.md) and [Public Ro
 
 ---
 
-## What is MEDIA KOLFAT?
-
-Large photo and video collections can become difficult to manage when files come from different cameras, phones, folders and years.
-
-MEDIA KOLFAT is designed to make those libraries easier to understand and organize by combining media discovery, metadata handling, previews and structured organization workflows in a desktop application with a stable Windows edition and a separate experimental Linux Beta.
-
 ## Core capabilities
 
 ### What's available in version 2.0.0 (Windows Stable)
