@@ -1,3 +1,17 @@
+## 2026-10-28 — Multi-platform GitHub downloads dashboard
+
+**Purpose:** Replace the Windows-only EXE counter with dynamic reporting for all official GitHub Windows, Linux and future macOS distribution packages. Include experimental GitHub pre-releases, package breakdown, per-platform cumulative counts and observed downloads/day. Respect pending macOS without inventing counts; exclude checksums, drafts and source archives.
+
+**Changes:** `.github/scripts/update_download_dashboard.py`, `.github/scripts/tests/test_download_dashboard.py`, `.github/workflows/update-download-dashboard.yml`, `README.md`, `docs/DOWNLOAD_DASHBOARD.md`, `assets/download-dashboard.svg` and `assets/download-dashboard-history.json` (the last two refreshed by CI).
+
+**Historic integrity:** Migrate existing October 27–28 Windows snapshots intact from schema v1 to v2. Linux/macOS earlier values are unknown (null), not fabricated zeroes. Rate only computed after sufficient measured observations. GitHub asset download counts are not confirmed installations or store downloads.
+
+**Validation:** Unit tests and GitHub Actions verify cross-platform asset detection, pre-release inclusion, release/draft exclusions, history migration and new SVG labels. Verify recorded data against GitHub Releases assets. No builds, packages or release metadata are modified.
+
+**Rollback:** Revert the dashboard code and view, preserving a copy of v2 history for future migration. Changes only affect GitHub README statistics.
+
+---
+
 ## 2026-10-28 — Repair v1.8.0 tag chronology and release-list clarity
 
 **Problem:** Release ID `417370501`, named MEDIA KOLFAT 1.8.0, retains original publication date **October 19, 2026** but its Git tag `v1.8.0` was mistakenly moved to the **October 28, 2026** Linux Beta documentation commit `026f78502c41824bb673bc9a4da46444ab974ef7`. GitHub sorts the Releases sidebar using tag-commit chronology, so 1.8.0 appeared ahead of Windows 2.0.0.

@@ -285,11 +285,13 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
 
 ## 📊 MEDIA KOLFAT | GitHub Downloads Dashboard
 
-![MEDIA KOLFAT GitHub EXE downloads dashboard](assets/download-dashboard.svg)
+![MEDIA KOLFAT Windows, Linux and macOS GitHub package downloads dashboard](assets/download-dashboard.svg)
 
-**GitHub EXE downloads** are counted automatically from official GitHub Release installer assets. These figures represent downloads, **not confirmed installations**. No in-app telemetry or personal information is collected for this dashboard.
+**Automatic GitHub package-download tracking for 🪟 Windows, 🐧 Linux and 🍎 macOS.** The dashboard shows lifetime asset downloads, an observed downloads/day rate by platform and a package breakdown. Experimental Linux AppImage downloads are included; future macOS packages will appear automatically when published. **Not released** and **awaiting 2 observations** are shown when data is unavailable instead of fabricated statistics.
 
-[Download MEDIA KOLFAT 2.0.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0) · [How dashboard statistics work](docs/DOWNLOAD_DASHBOARD.md)
+Counts reflect **GitHub Release downloads, not confirmed installations**. Microsoft Store, App Store and other external distribution channels are not included. No in-app telemetry or personal information is collected.
+
+[Windows stable release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0) · [Linux Public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) · [How the dashboard works](docs/DOWNLOAD_DASHBOARD.md)
 
 ---
 
