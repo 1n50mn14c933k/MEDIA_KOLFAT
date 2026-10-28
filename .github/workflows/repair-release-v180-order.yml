@@ -1,0 +1,90 @@
+name: Repair MEDIA KOLFAT 1.8.0 release tag (one-time)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/repair-release-v180-order.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: media-kolfat-v180-release-tag-repair
+  cancel-in-progress: false
+jobs:
+  repair:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Verify immutable release identity and original tag target
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          original_sha='91b9a3bf4a530b23bbb4ee44e39fdf6a5563b5c6'
+          expected_wrong_sha='026f78502c41824bb673bc9a4da46444ab974ef7'
+          windows_sha='863a8b003a3b66645951140eaffe26da944d490a'
+          ref='refs/tags/v1.8.0'
+          v180="$(gh api "repos/$GH_REPO/releases/417370501")"
+          test "$(jq -r '.tag_name' <<<"$v180")" = 'v1.8.0'
+          test "$(jq -r '.name' <<<"$v180")" = 'MEDIA KOLFAT 1.8.0 🎉'
+          test "$(jq -r '.published_at' <<<"$v180")" = '2026-10-19T14:31:36Z'
+          test "$(jq -r '.prerelease' <<<"$v180")" = 'false'
+          test "$(jq -r '.assets | length' <<<"$v180")" = '0'
+          test "$(gh api "repos/$GH_REPO/commits/$original_sha" --jq '.commit.committer.date')" = '2026-10-19T14:29:21Z'
+          test "$(gh api "repos/$GH_REPO/git/ref/tags/v2.0.0" --jq '.object.sha')" = "$windows_sha"
+          test "$(gh api "repos/$GH_REPO/releases/425297008" --jq '.assets | length')" = '2'
+          current="$(gh api "repos/$GH_REPO/git/ref/tags/v1.8.0" --jq '.object.sha')"
+          if [[ "$current" == "$original_sha" ]]; then
+            echo 'v1.8.0 tag already restored.'
+          else
+            [[ "$current" == "$expected_wrong_sha" ]] || {
+              echo "::error::Tag changed unexpectedly: refusing force update ($current)" >&2
+              exit 1
+            }
+            gh api --method PATCH "repos/$GH_REPO/git/refs/tags/v1.8.0" \
+              --raw-field "sha=$original_sha" -F "force=true" >/dev/null
+            echo "Restored $ref to original release commit $original_sha"
+          fi
+          test "$(gh api "repos/$GH_REPO/git/ref/tags/v1.8.0" --jq '.object.sha')" = "$original_sha"
+
+      - name: Clarify superseded historical Linux Beta 2.3 title
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          old_release="$(gh api "repos/$GH_REPO/releases/427090517")"
+          test "$(jq -r '.tag_name' <<<"$old_release")" = 'v2.0.0-linux-beta.2.3'
+          test "$(jq -r '.prerelease' <<<"$old_release")" = 'true'
+          test "$(jq -r '.draft' <<<"$old_release")" = 'false'
+          test "$(jq -r '.assets | length' <<<"$old_release")" = '0'
+          current="$(jq -r '.name' <<<"$old_release")"
+          desired='🐧 MEDIA KOLFAT 2.0.0 for Linux | Beta 2.3 (Superseded)'
+          if [[ "$current" == "$desired" ]]; then
+            echo 'Historical Linux Beta already clearly labeled.'
+          else
+            [[ "$current" == 'MEDIA KOLFAT 2.0.0 | Linux | Public Beta 🐧' ]] || {
+              echo "::error::Unexpected historical Linux release title, refusing change: $current" >&2
+              exit 1
+            }
+            gh api --method PATCH "repos/$GH_REPO/releases/427090517" \
+              --raw-field "name=$desired" >/dev/null
+          fi
+          test "$(gh api "repos/$GH_REPO/releases/427090517" --jq '.name')" = "$desired"
+          test "$(gh api "repos/$GH_REPO/releases/427090517" --jq '.tag_name')" = 'v2.0.0-linux-beta.2.3'
+
+      - name: Verify release chronology and untouched production assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/$GH_REPO/git/ref/tags/v1.8.0" --jq '.object.sha')" = '91b9a3bf4a530b23bbb4ee44e39fdf6a5563b5c6'
+          test "$(gh api "repos/$GH_REPO/git/ref/tags/v2.0.0" --jq '.object.sha')" = '863a8b003a3b66645951140eaffe26da944d490a'
+          test "$(gh api "repos/$GH_REPO/releases/417370501" --jq '.published_at')" = '2026-10-19T14:31:36Z'
+          test "$(gh api "repos/$GH_REPO/releases/425297008" --jq '.prerelease')" = 'false'
+          test "$(gh api "repos/$GH_REPO/releases/425297008" --jq '[.assets[].name] | sort | join(",")')" = 'MEDIA_KOLFAT_2.0.0_SHA256.txt,MEDIA_KOLFAT_2.0.0_Setup.exe'
+          test "$(gh api "repos/$GH_REPO/releases/tags/v2.4.0-linux-beta" --jq '.prerelease')" = 'true'
+          gh api "repos/$GH_REPO/releases?per_page=20" \
+            --jq '.[] | [.tag_name,.name,.created_at,.published_at] | @tsv'
+          echo 'Tag chronology repaired, old Beta labeled, all Windows installer assets preserved.'
