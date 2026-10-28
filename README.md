@@ -11,18 +11,18 @@
 | Platform | Release | Download |
 |---|---|---|
 | 💻 **Windows x64** | **Stable 2.0.0** | [Download Windows EXE](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
-| 🐧 **Linux x64** | **Public Beta in preparation** | [Linux Beta details and known limitations](#-linux-x64-public-beta--preparation-status) |
+| 🐧 **Linux x64** | **Experimental Public Beta 2.4.0** | [Linux 2.4.0 pre-release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) · AppImage & checksum pending upload |
 
-**Linux download assets are not published yet.** Linux Beta supports safe COPY; **MOVE remains disabled**. The Linux packages will appear as a separate [GitHub Pre-release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) when published, without changing Windows v2.0.0.
+**The Linux 2.4.0 pre-release page is published; the AppImage and SHA-256 checksum still need to be attached.** Linux COPY retains originals, **MOVE remains disabled**, and the 2.4.0 AppImage has passed WSLg tests but has not been run on native Ubuntu 26.04.
 
 [![X](https://img.shields.io/badge/X-%40KOLFAT__APP-000000?logo=x&logoColor=white)](https://x.com/KOLFAT_APP)
 [![YouTube](https://img.shields.io/badge/YouTube-%40KOLFAT__APP-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@KOLFAT_APP)
 [![TikTok](https://img.shields.io/badge/TikTok-%40kolfat.app-000000?logo=tiktok&logoColor=white)](https://www.tiktok.com/@kolfat.app)
 <a href="https://ko-fi.com/kolfat_app"><img src="https://img.shields.io/badge/%F0%9F%A7%B9%F0%9F%AA%A3%E2%9D%A4%EF%B8%8F-Keep_Our_Maid_Alive%2C_Strong_%26_Cleaning%21-FF812E?style=for-the-badge&amp;labelColor=181818" alt="🧹🪣❤️ Keep Our Maid Alive, Strong &amp; Cleaning!" width="430"></a>
 
-MEDIA KOLFAT is a desktop application for organizing and managing photo and video collections with a focus on practical, safe, predictable media organization and a dedicated dark interface. **Windows is the stable release platform; a Linux x64 Beta is being prepared separately.**
+MEDIA KOLFAT is a desktop application for organizing and managing photo and video collections with a focus on practical, safe, predictable media organization and a dedicated dark interface. **Windows is the stable release platform; Linux 2.4.0 is an experimental pre-release distributed separately.**
 
-> **Official distribution:** The stable Windows edition is available through [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). The separate Linux Beta will appear under [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) only after its assets and release checks are ready. Proprietary application source code is not published here.
+> **Official distribution:** The stable Windows edition is available through [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). The separate [Linux 2.4.0 pre-release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) is published with its limitations disclosed; its AppImage and SHA-256 checksum are not downloadable until the verified files are attached. Proprietary application source code is not published here.
 
 ## Status
 
@@ -30,14 +30,14 @@ MEDIA KOLFAT is a desktop application for organizing and managing photo and vide
 
 **Current stable Windows release:** **2.0.0** (Microsoft Store package **2.0.0.0**, published October 27, 2026). See the [Windows v2.0.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0) and [changelog](CHANGELOG.md).
 
-**Linux x64:** A separate, explicitly labeled public Beta release is being prepared. It is **not published yet**. Guided COPY was tested with 101 sample photos on Ubuntu 26.04.1 LTS; MOVE remains disabled on Linux.
+**Linux x64:** The separate [2.4.0 experimental public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) is published as a pre-release, with the AppImage and checksum awaiting upload. The 2.4.0 AppImage passed WSLg tests but has not been launched on native Ubuntu 26.04; the earlier Linux Beta completed a real COPY test with 101 photos. MOVE remains disabled.
 
 The current focus is maintaining the stable Windows application while validating the new Linux Beta. **macOS** remains a potential future platform.
 
 ## Official links
 
 - 💻 Windows EXE: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe
-- 🐧 Linux Beta: [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) (separate pre-release pending; no Linux download published yet)
+- 🐧 Linux Beta: [2.4.0 experimental pre-release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) (AppImage and SHA-256 checksum pending attachment)
 - 🔎 SHA-256 checksum: https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt
 - 🛍️ Microsoft Store: https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 - 🌐 Product website: https://kolfat.app/en/Media_Kolfat/
@@ -51,19 +51,20 @@ The current focus is maintaining the stable Windows application while validating
 - 📋 Release notes: [MEDIA KOLFAT 2.0.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest)
 - 🗂️ Public GitHub Pages: https://1n50mn14c933k.github.io/kolfat/Media_Kolfat/
 
-## 🐧 Linux x64 Public Beta — preparation status
+## 🐧 Linux x64 Public Beta — version 2.4.0
 
-MEDIA KOLFAT 2.0 for Linux is undergoing final Beta validation. **The Linux release and download assets are not public yet.** When published, it will be a separate **GitHub Pre-release** in this repository, not part of the stable Windows v2.0.0 release.
+The separate [Linux 2.4.0 Public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) is an **experimental GitHub Pre-release**. **The two required download files, an AppImage and its SHA-256 checksum, are not attached yet.** No additional build is planned.
 
-- **Available in the tested Beta:** Guided COPY with source-file retention, date/EXIF-based organization, manual source selection, and duplicate detection.
-- **Native desktop validation:** Ubuntu 26.04.1 LTS x64; a real Guided COPY operation completed with 101 sample photos and produced an operation report.
-- **Linux limitation:** **MOVE is intentionally disabled**, including in Advanced Mode, until safe original-file deletion is demonstrably established.
-- **Other limitations:** Some settings and Linux-specific user-interface functions remain under investigation. Compatibility across distributions and desktop environments is not guaranteed.
-- **Future downloads:** Portable Linux x64 `.tar.gz`, Debian/Ubuntu x64 `.deb`, and SHA-256 checksums will be provided on the [GitHub Releases page](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) after release validation.
+- **Feature scope:** Guided COPY retaining originals, EXIF/date-based organization, manual sources, library browsing and duplicate detection.
+- **WSLg validation:** The 2.4.0 AppImage passed WSLg tests but **has not been launched on a native Ubuntu 26.04 desktop**.
+- **Earlier native validation:** A previous Linux Beta launched on Ubuntu 26.04.1 LTS x64 and completed a Guided COPY with 101 photos. This is not a native test of AppImage 2.4.0.
+- **MOVE:** **Disabled** for Linux, including Advanced Mode.
+- **Known qualifications:** Linux settings UI behavior and wider distro/desktop compatibility remain unverified for this AppImage.
+- **Distribution:** Only the verified Linux x64 AppImage and its checksum will be attached to GitHub Releases; no Debian or tarball packages are planned for this release.
 
-This is experimental software. Keep independent backups of irreplaceable photos and videos and report reproducible defects in [GitHub Issues](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues). Never report personal file paths, private media, or secrets publicly.
+Use independent backups of irreplaceable photos and videos. Report reproducible defects through [GitHub Issues](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues), with sanitized details.
 
-See the [prepared Linux Beta release notes](docs/LINUX_BETA_RELEASE_NOTES_DRAFT.md).
+See the [Linux 2.4.0 release notes](release-notes/v2.4.0-linux-beta.md).
 
 ## 🔐 Official Windows distribution
 
@@ -208,7 +209,7 @@ Download only from official channels, not third-party mirrors. Windows stable an
 
 - **GitHub Windows EXE:** [Installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) and [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt)
 - **Microsoft Store:** [Official listing](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)
-- **Linux x64 Beta:** [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) (pending publication; no direct Linux download link yet)
+- **Linux x64 Beta:** [2.4.0 experimental pre-release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) (AppImage and checksum awaiting upload)
 
 The Store edition receives Store-managed updates; the GitHub EXE edition does not. GitHub-generated source archives are not Windows installers.
 
@@ -257,7 +258,7 @@ Do **not** publish suspected security vulnerabilities in public Issues. See [SEC
 
 MEDIA KOLFAT is publicly available through Microsoft Store and official GitHub Releases.
 
-Current **stable Windows release**: **2.0.0** (Store package **2.0.0.0**). Linux will have a separate pre-release. Release notes and version history are tracked through [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
+Current **stable Windows release**: **2.0.0** (Store package **2.0.0.0**). Linux has a separate pre-release. Release notes and version history are tracked through [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
 
 ## Roadmap
 
