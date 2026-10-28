@@ -6,6 +6,15 @@
 
 **MEDIA KOLFAT takes care of your media.**
 
+## ⬇️ Official Downloads
+
+| Platform | Release | Download |
+|---|---|---|
+| 💻 **Windows x64** | **Stable 2.0.0** | [Download Windows EXE](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
+| 🐧 **Linux x64** | **Public Beta in preparation** | [Linux Beta details and known limitations](#-linux-x64-public-beta--preparation-status) |
+
+**Linux download assets are not published yet.** Linux Beta supports safe COPY; **MOVE remains disabled**. The Linux packages will appear as a separate [GitHub Pre-release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) when published, without changing Windows v2.0.0.
+
 [![X](https://img.shields.io/badge/X-%40KOLFAT__APP-000000?logo=x&logoColor=white)](https://x.com/KOLFAT_APP)
 [![YouTube](https://img.shields.io/badge/YouTube-%40KOLFAT__APP-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@KOLFAT_APP)
 [![TikTok](https://img.shields.io/badge/TikTok-%40kolfat.app-000000?logo=tiktok&logoColor=white)](https://www.tiktok.com/@kolfat.app)
