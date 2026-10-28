@@ -21,7 +21,7 @@
 
 <p align="center">
   <a href="https://youtu.be/j__sznypSKs" title="Watch the MEDIA KOLFAT official intro on YouTube">
-    <img src="https://img.youtube.com/vi/j__sznypSKs/hqdefault.jpg" alt="MEDIA KOLFAT official intro trailer — click to watch on YouTube" width="950">
+    <img src="https://img.youtube.com/vi/j__sznypSKs/maxresdefault.jpg" alt="MEDIA KOLFAT official intro trailer — click to watch on YouTube" width="950">
   </a>
 </p>
 <p align="center"><a href="https://youtu.be/j__sznypSKs"><strong>▶️ Watch the MEDIA KOLFAT Intro Trailer on YouTube</strong></a></p>
