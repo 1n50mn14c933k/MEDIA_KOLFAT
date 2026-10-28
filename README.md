@@ -19,8 +19,12 @@
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues">Bug Reports</a>
 </p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/1n50mn14c933k/1n50mn14c933k.github.io/main/assets/media-kolfat-2-guide/screenshots/05-01-library-overview.png" alt="MEDIA KOLFAT photo and video library interface, Windows guide screenshot" width="950"></p>
-<p align="center"><sub>Windows 2.0 interface preview. Experimental Linux Beta appearance may differ.</sub></p>
+<p align="center">
+  <a href="https://youtu.be/j__sznypSKs" title="Watch the MEDIA KOLFAT official intro on YouTube">
+    <img src="https://img.youtube.com/vi/j__sznypSKs/hqdefault.jpg" alt="MEDIA KOLFAT official intro trailer — click to watch on YouTube" width="950">
+  </a>
+</p>
+<p align="center"><a href="https://youtu.be/j__sznypSKs"><strong>▶️ Watch the MEDIA KOLFAT Intro Trailer on YouTube</strong></a></p>
 
 ## Overview
 
