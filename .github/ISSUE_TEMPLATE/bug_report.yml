@@ -16,15 +16,16 @@ body:
     attributes:
       label: MEDIA KOLFAT version
       description: Find the installed version in the application's About section.
-      placeholder: e.g. 2.0.0
+      placeholder: e.g. Windows 2.0.0 or Linux Beta 2.4.0
     validations:
       required: true
 
   - type: input
-    id: windows
+    id: operating_system
     attributes:
-      label: Windows version
-      placeholder: e.g. Windows 11 24H2
+      label: Operating system and version
+      description: Include Linux distribution and desktop environment if applicable.
+      placeholder: e.g. Windows 11 24H2 or Ubuntu 26.04 GNOME
     validations:
       required: true
 
