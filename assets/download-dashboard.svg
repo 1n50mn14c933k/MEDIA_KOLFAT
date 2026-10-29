@@ -18,7 +18,7 @@
 <rect x="399" y="212" width="5" height="22" rx="2" fill="#ff914d"/>
 <text x="413" y="231" fill="#ddd" font-family="Arial,sans-serif" font-size="17" font-weight="700">LINUX</text>
 <text x="401" y="285" fill="#fff" font-family="Arial,sans-serif" font-size="40" font-weight="700">0</text>
-<text x="401" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Daily rate: awaiting 2 observations</text>
+<text x="401" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Daily rate: +0.0 downloads/day</text>
 <text x="401" y="332" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="11">1 downloadable package(s)</text>
 <rect x="732" y="195" width="329" height="149" rx="14" fill="#171717" stroke="#555"/>
 <rect x="746" y="212" width="5" height="22" rx="2" fill="#9ca4ad"/>
@@ -38,12 +38,16 @@
 <text x="83" y="468.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">15</text>
 <path d="M95 415.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
 <text x="83" y="420.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">20</text>
-<polyline points="95.0,491.8 1040.0,491.8" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="95.0,491.8 567.5,491.8 1040.0,491.8" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="95.0" cy="491.8" r="4.5" fill="#e8edf1"/>
+<circle cx="567.5" cy="491.8" r="4.5" fill="#e8edf1"/>
 <circle cx="1040.0" cy="491.8" r="4.5" fill="#e8edf1"/>
+<polyline points="567.5,607.0 1040.0,607.0" fill="none" stroke="#ff914d" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="567.5" cy="607.0" r="4.5" fill="#ff914d"/>
 <circle cx="1040.0" cy="607.0" r="4.5" fill="#ff914d"/>
 <text x="95.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">27 Oct</text>
-<text x="1040.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">28 Oct</text>
+<text x="567.5" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">28 Oct</text>
+<text x="1040.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">29 Oct</text>
 <rect x="305" y="647" width="16" height="4" fill="#e8edf1"/>
 <text x="330" y="654" fill="#ddd" font-family="Arial,sans-serif" font-size="13">WINDOWS</text>
 <rect x="485" y="647" width="16" height="4" fill="#ff914d"/>
@@ -56,5 +60,5 @@
 <text x="1038" y="735" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">12</text>
 <text x="50" y="764" fill="#ddd" font-family="Arial,sans-serif" font-size="14">LINUX  |  MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage</text>
 <text x="1038" y="764" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">0</text>
-<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last snapshot: 2026-10-28 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
+<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last snapshot: 2026-10-29 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
 </svg>
