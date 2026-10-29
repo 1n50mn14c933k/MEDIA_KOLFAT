@@ -32,7 +32,7 @@ MEDIA KOLFAT makes it easier to discover, browse and organize your personal phot
 
 - **Windows 2.0.0 Stable:** Guided COPY and explicit Advanced MOVE.
 - **Linux 2.4.0 Public Beta:** Secure COPY and duplicate detection; **MOVE is disabled**, even in Advanced Mode.
-- **macOS:** Potential future platform, not yet released.
+- **macOS:** Apple Silicon (M-series, arm64) port planned; **Intel Macs are not targeted**. No public release yet.
 
 ## ⬇️ Install & Download
 
@@ -44,7 +44,9 @@ MEDIA KOLFAT makes it easier to discover, browse and organize your personal phot
 |---|---|---|---|
 | 💻 **Windows x64** | **Stable 2.0.0** | `.exe` / Store | [Windows installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
 | 🐧 **Linux x64** | **Public Beta 2.4.0** | `.AppImage` | [Download AppImage](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_SHA256.txt) |
-| 🍎 **macOS** | Not released | — | Not available |
+| 🍎 **macOS Apple Silicon (M-series)** | Planned; not released | — | Not available; Intel Macs not targeted |
+
+[**Full platform, download and checksum guide**](docs/PLATFORMS_AND_DOWNLOADS.md) covers Windows Stable, Linux Beta and planned Apple Silicon macOS.
 
 **Linux quick start:** Download both files from the [separate Linux Beta release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta), verify the checksum, then launch the AppImage on a compatible x64 Linux desktop:
 
@@ -181,6 +183,8 @@ This is the public home of MEDIA KOLFAT on GitHub. Use it to:
 - 🔐 Follow the private security-reporting process
 
 ## Reporting bugs
+
+Use the [issue form](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues/new/choose) for Windows or Linux, and specify your operating system and exact version.
 
 Before opening an issue, please check existing issues to avoid duplicates.
 
