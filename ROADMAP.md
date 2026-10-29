@@ -62,7 +62,7 @@ Linux Public Beta is distributed separately via [GitHub AppImage and checksum](h
 
 ## Development timeline
 
-See [DEVELOPMENT_TIMELINE.md](DEVELOPMENT_TIMELINE.md) for dated Windows and Linux milestones, Beta test scope and outstanding limitations.
+See [DEVELOPMENT_TIMELINE.md](docs/DEVELOPMENT_TIMELINE.md) for dated Windows and Linux milestones, Beta test scope and outstanding limitations.
 
 ## Release history
 
