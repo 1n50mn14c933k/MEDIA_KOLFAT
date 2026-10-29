@@ -21,7 +21,7 @@ Before opening a new issue, search existing issues to avoid duplicates.
 A useful bug report includes:
 
 1. MEDIA KOLFAT version
-2. Windows version
+2. Operating system and version (Windows or Linux; for Linux include distribution and desktop environment)
 3. Steps to reproduce
 4. Expected result
 5. Actual result
@@ -33,8 +33,8 @@ Remove personal names, private file paths, media content, credentials and other 
 
 When diagnosing a problem, first verify:
 
-- MEDIA KOLFAT is up to date through its original distribution channel (Microsoft Store or GitHub EXE)
-- Windows is up to date
+- MEDIA KOLFAT is up to date through its official distribution channel (Microsoft Store or the appropriate Windows/Linux GitHub release)
+- Your operating system is up to date
 - The affected media source is still accessible
 - The application can access the relevant folders
 - The issue can be reproduced consistently
@@ -42,7 +42,7 @@ When diagnosing a problem, first verify:
 
 More detailed troubleshooting guidance is maintained at https://kolfat.app/support/.
 
-## Working with version 2.0.0
+## Windows Stable 2.0.0
 
 - **Guided or Advanced:** choose the experience that suits your level of control.
 - **COPY or MOVE:** use COPY if you want to retain your originals at the source. Select MOVE intentionally when you want originals transferred; verify the destination and retain a backup of important media.
@@ -56,6 +56,14 @@ More detailed troubleshooting guidance is maintained at https://kolfat.app/suppo
 - **Network MOVE:** Check source/destination access and the report for SMB/NAS transfers.
 
 For unexpected organization results, stop further file operations until you have checked the source, destination and operation report. Do not delete backups while investigating.
+
+## Linux Public Beta 2.4.0
+
+- Use the [official Linux AppImage and checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) only.
+- **MOVE is disabled**, including in Advanced Mode. COPY leaves source originals in place.
+- 2.4.0 passed reported automated and WSLg startup checks, but native Ubuntu GUI testing of this exact AppImage remains unverified.
+- Include your Linux distribution, desktop environment, architecture, AppImage version, and sanitized errors in bug reports.
+- Keep backups of valuable media. See the [platform guide](docs/PLATFORMS_AND_DOWNLOADS.md).
 
 ## Feature requests
 
@@ -75,7 +83,10 @@ See [SECURITY.md](SECURITY.md).
 - **Official GitHub Windows x64 EXE:** https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe
 - **SHA-256 checksum:** https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt
 
-Store installations update through Microsoft Store; direct EXE installations need the latest GitHub release. Do not disable Windows security controls or use unofficial mirrors.
+- **Linux x64 Public Beta:** [Separate AppImage release and checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta)
+- **macOS:** Not released; future port targets Apple Silicon (M-series) only, not Intel.
+
+Store installations update through Microsoft Store; direct EXE and Linux AppImage installations require the appropriate official GitHub release. Details: [platform and download guide](docs/PLATFORMS_AND_DOWNLOADS.md). Do not disable Windows security controls or use unofficial mirrors.
 
 ## Legal and privacy
 
