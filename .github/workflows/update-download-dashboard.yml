@@ -23,6 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
+          persist-credentials: true # Required for current dashboard state push.
+        with:
           persist-credentials: true # Needed for the existing dashboard state push; preserve scheduled updates.
       - name: Test multi-platform asset classification and historical migration
         run: python3 -m unittest discover -s .github/scripts/tests -p "test_download_dashboard.py" -v
