@@ -116,60 +116,57 @@ See the [official version 2.0.0 release](https://github.com/1n50mn14c933k/MEDIA_
 
 ## Why choose MEDIA KOLFAT?
 
-MEDIA KOLFAT is designed for users who primarily want to **organize, inspect and clean up their photo and video collections** without paying for a professional editing suite they may never need.
+**FREE FOREVER. YOUR MEDIA. YOUR CONTROL.**
 
-The products below are all capable applications, but they serve somewhat different audiences. This comparison is intended to make those differences clear rather than suggest that one product is the right choice for every user.
+Organize, protect and manage your photos and videos without subscriptions, complicated editing suites or mandatory cloud uploads.
 
-| Feature | **MEDIA KOLFAT FREE** | Adobe Lightroom / Classic | ACDSee Photo Studio Home | Mylio Photos+ | ON1 Photo RAW |
+### Platform & feature comparison
+
+| Feature | **MEDIA KOLFAT** | Lightroom | ACDSee Home | Mylio | ON1 RAW |
 |---|---|---|---|---|---|
-| **Core pricing model** | ✅ **FREE** | 💰 Subscription | 💰 Paid license / subscription | ◐ Free app available; Photos+ is paid | 💰 Paid license / subscription |
-| **Free core edition** | ✅ **Yes — remains free** | ❌ | ❌ | ✅ Free Mylio Photos app available | ❌ |
-| **Windows desktop** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **macOS support** | ❌ | ✅ | ❌ Home edition is Windows-focused | ✅ | ✅ |
-| **iOS / Android ecosystem** | ❌ | ✅ | ◐ Mobile Sync ecosystem | ✅ | ✅ |
-| **Local-first media management** | ✅ **Core design** | ◐ Lightroom Classic supports local files; Lightroom also offers cloud-centric workflows | ✅ | ✅ **Core design** | ✅ |
-| **Cloud required for core workflow** | ✅ **No** | ◐ Depends on Lightroom workflow/product | ✅ No | ✅ No | ✅ No |
-| **Photo + video library** | ✅ | ✅ | ✅ | ✅ | ◐ Primarily photography-focused |
-| **Metadata / EXIF handling** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Date-based physical folder organization** | ✅ **Core focus** | ✅ Lightroom Classic supports local folder organization | ✅ | ◐ Preserves and works with existing folder structures | ✅ Folder-based browsing |
-| **Duplicate Finder** | ✅ | ◐ Duplicate Detection available in Lightroom on the web | ✅ | ✅ | — |
-| **Photos Health Check** | ✅ **Dedicated workflow** | — | — | — | — |
-| **Manual photo rotation** | ✅ Left, right, 180° and batch Undo | ◐ Rotation/editing tools | ◐ Rotation/editing tools | ◐ Rotation/editing tools | ◐ Rotation/editing tools |
-| **Large-library browsing** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **RAW development** | ❌ | ✅ **Advanced** | ◐ RAW viewing/decoding in Home | ◐ Essential RAW editing | ✅ **Advanced** |
-| **Advanced photo editing** | ❌ | ✅ | ✅ | ◐ Essential editing tools | ✅ |
-| **Layers / compositing** | ❌ | ❌ Lightroom itself | ❌ Home edition | ❌ | ✅ |
-| **AI-assisted organization / search** | ❌ | ✅ | ✅ | ✅ | ✅ AI keywording |
-| **Face recognition** | ❌ | ✅ | ✅ | ✅ | — |
-| **Cross-device sync** | ❌ | ✅ | ◐ Mobile Sync ecosystem | ✅ **Strong focus** | ✅ With Cloud Sync options |
-| **Simple guided organization workflow** | ✅ **Core design** | ◐ Professional / feature-rich workflow | ◐ Feature-rich DAM workflow | ◐ Library and device-sync workflow | ◐ Professional photography workflow |
+| **🖥️ OS SUPPORT** | | | | | |
+| 💻 Windows | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 🐧 Linux | 🧪 Beta | ❌ | ❌ | ❌ | ❌ |
+| 🍎 macOS | 🚧 Planned | ✅ | ❌ | ✅ | ✅ |
+| 📱 iOS / Android | ❌ | ✅ | ◐ | ✅ | ✅ |
+| **💎 PRICING & PRIVACY** | | | | | |
+| Free forever | ✅ | ❌ | ❌ | ◐ | ❌ |
+| Local-first media | ✅ | ◐ | ✅ | ✅ | ✅ |
+| **📁 DISCOVERY & ORGANIZATION** | | | | | |
+| Guided Mode & scanning | ✅ | ◐ | ◐ | ◐ | ◐ |
+| Local, USB & NAS sources | ✅ | ◐ | ✅ | ◐ | ✅ |
+| EXIF/date & unknown dates | ✅ | ◐ | ◐ | ◐ | ◐ |
+| File-type selection & smart folders | ✅ | ◐ | ◐ | ◐ | ◐ |
+| Duplicate Finder | ✅ | ◐ | ✅ | ✅ | — |
+| **🖼️ LIBRARY & TOOLS** | | | | | |
+| Photo/video previews | ✅ | ✅ | ✅ | ✅ | ◐ |
+| Library Overview & Photo Health | ✅ | ◐ | ◐ | ◐ | ◐ |
+| Batch rotation & selection | ✅ | ◐ | ✅ | ◐ | ◐ |
+| **⚡ PERFORMANCE & SAFETY** | | | | | |
+| System Benchmark / Performance Check | ✅* | — | — | — | — |
+| Safe COPY / MOVE | ✅* | ◐ | ◐ | ◐ | ◐ |
+| NAS-to-NAS MOVE | ✅* | — | ◐ | — | ◐ |
+| Pause, Resume & Cancel | ✅ | ◐ | ◐ | ◐ | ◐ |
+| Detailed progress & reports | ✅ | ◐ | ◐ | ◐ | ◐ |
+| File & symbolic-link safeguards | ✅ | — | — | — | — |
+| **🌍 EXPERIENCE** | | | | | |
+| Four languages including RTL | ✅ | ◐ | ◐ | ◐ | ◐ |
+| Dedicated dark UI | ✅ | ◐ | ◐ | ◐ | ◐ |
+| Professional RAW editing | ❌ | ✅ | ◐ | ◐ | ✅ |
 
-**Legend:** ✅ Included · ◐ Available, partial, optional, or implemented differently · ❌ Not included · — No directly equivalent primary feature identified in the referenced product documentation
+**Legend:** ✅ Available · 🧪 Public Beta · 🚧 Planned · ◐ Partial, optional or different workflow · ❌ Not supported · — No directly verified equivalent.
 
-### The difference in one sentence
+### Built for real-world media collections
 
-> **MEDIA KOLFAT is not trying to replace Lightroom or a professional RAW editor.**
->
-> It is built for users who want to **organize, inspect and clean up their photo and video collection without paying for an editing suite they may never use.**
->
-> **MEDIA KOLFAT FREE stays FREE.**
->
-> Need professional RAW editing, AI-assisted search, cloud synchronization or mobile apps? Another product may be a better fit.
->
-> Need a straightforward, local-first Windows tool focused on taking care of your media? That is what **MEDIA KOLFAT** is built for.
+| **20,000+ photos** | **30 documented Windows features** |
+|:---:|:---:|
+| NAS-to-NAS MOVE workload tested | Feature descriptions on the [official product page](https://kolfat.app/en/Media_Kolfat/) |
 
-### Comparison notes
+**MEDIA KOLFAT focuses on media organization rather than professional photo editing.** Guided workflows, duplicate detection, date-based organization and safety controls help you manage your collection without unnecessary complexity.
 
-Competitor capabilities and commercial models can change over time. The table is based on publicly documented product information available at the time of writing and is intended as a practical feature overview, not a claim that the products are identical in scope.
+*Platform note:* The comparison highlights **Windows 2.0.0 Stable** features. Linux 2.4.0 is an experimental beta with a smaller feature set and **MOVE disabled**. macOS is planned, not released. The documented 20,000+ photo workload is a Windows NAS transfer test, **not** a system benchmark score.
 
-Official references:
-
-- Adobe Lightroom: https://www.adobe.com/products/photoshop-lightroom.html
-- Adobe Duplicate Detection: https://helpx.adobe.com/lightroom/web/share-your-work/review-and-download/duplicate-detection.html
-- ACDSee Photo Studio Home: https://www.acdsee.com/en/products/photo-studio-home/features/
-- Mylio Photos: https://mylio.com/
-- Mylio Photo DeDupe: https://support.mylio.com/find-duplicate-photos-photo-dedupe
-- ON1 Photo RAW: https://www.on1.com/products/photo-raw/features/
+*Feature note:* System Benchmark / Performance Check is included in this comparison as requested, but is **not currently documented on the official product page**. Competitor features are high-level comparisons and may use different workflows; a dash does not prove the feature is absent.
 
 ## What this repository is for
 
