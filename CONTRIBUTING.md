@@ -16,7 +16,7 @@ MEDIA KOLFAT is proprietary software. This public repository is used for product
 
 Good reports are specific, reproducible and sanitized of sensitive information.
 
-Please include the MEDIA KOLFAT version, Windows version, steps to reproduce, expected behavior and actual behavior whenever applicable.
+Please include the MEDIA KOLFAT version, OS and version (including Linux distribution and desktop environment where relevant), steps to reproduce, expected behavior and actual behavior whenever applicable.
 
 Search existing Issues before creating a duplicate.
 
