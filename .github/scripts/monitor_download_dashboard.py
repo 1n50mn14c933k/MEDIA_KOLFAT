@@ -33,7 +33,7 @@ def evaluate(history, svg, runs, now):
         if stamp and observed.date()!=latest_date: errors.append("Refresh timestamp and snapshot date disagree")
         if now-observed>timedelta(hours=48):
             errors.append("Latest dashboard refresh is %.1f hours old (limit 48h)"%((now-observed).total_seconds()/3600))
-        if observed-now>timedelta(minutes=10): errors.append("Refresh timestamp is in the future")
+        if stamp and observed-now>timedelta(minutes=10): errors.append("Refresh timestamp is in the future")
     except (KeyError,ValueError,TypeError,AttributeError,IndexError) as exc:
         errors.append("Missing or malformed download history: "+str(exc))
     if not svg: errors.append("Dashboard SVG missing")
