@@ -58,3 +58,9 @@ Check the dashboard, current assets and workflow success before relying on count
 Rollback by reverting the dashboard script, workflow, README and documentation.
 The schema-v2 history should be preserved or intentionally migrated back, never
 silently overwritten. No application binaries, releases or product data are modified.
+
+## Independent 48-hour health monitoring
+
+The [monitor workflow](../.github/workflows/monitor-download-dashboard.yml) independently checks dashboard health every six hours (02:37, 08:37, 14:37, 20:37 UTC) and after every updater run. It verifies the last completed updater result, history/schema, SVG consistency, and exact last refresh timestamp. A failed, cancelled or missing updater, malformed data, or a snapshot older than 48 hours triggers one issue assigned to the repository owner. The existing issue is updated, rather than duplicated. Recovery automatically closes it with a comment.
+
+The updater now writes last_checked_at_utc in UTC ISO 8601 format alongside historical schema-v2 observations. Older date-only snapshots remain intact and use a conservative end-of-day fallback. No fabricated counters are created. GitHub notifications for assigned issues must be enabled to receive external alerts. The monitor cannot guarantee detection during a GitHub Actions/API outage; delayed scheduled runs can delay notification. A ChatGPT alert requires a free automation slot.

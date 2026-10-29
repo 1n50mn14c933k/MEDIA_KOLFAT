@@ -1,0 +1,80 @@
+name: Monitor MEDIA KOLFAT downloads dashboard
+on:
+  schedule:
+    - cron: "37 2,8,14,20 * * *"
+  workflow_run:
+    workflows: ["Update MEDIA KOLFAT downloads dashboard"]
+    types: [completed]
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/monitor-download-dashboard.yml"
+      - ".github/scripts/monitor_download_dashboard.py"
+      - ".github/scripts/tests/test_monitor_download_dashboard.py"
+  pull_request:
+    paths:
+      - ".github/workflows/monitor-download-dashboard.yml"
+      - ".github/scripts/monitor_download_dashboard.py"
+      - ".github/scripts/tests/test_monitor_download_dashboard.py"
+permissions:
+  contents: read
+  actions: read
+  issues: write
+concurrency:
+  group: kolfat-dashboard-health
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || 'main' }}
+          persist-credentials: false
+      - name: Test health-check rules
+        run: |
+          python3 -m unittest discover -s .github/scripts/tests -p "test_monitor_download_dashboard.py" -v
+          python3 -m py_compile .github/scripts/monitor_download_dashboard.py
+      - name: Evaluate updater result and snapshot freshness
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python3 .github/scripts/monitor_download_dashboard.py \
+            --json-out "$RUNNER_TEMP/health.json" \
+            --issue-out "$RUNNER_TEMP/health.md"
+      - name: Manage one deduplicated health alert issue
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          state="$(jq -r '.healthy' "$RUNNER_TEMP/health.json")"
+          title='🚨 MEDIA KOLFAT GitHub Downloads Dashboard health alert'
+          issue="$(gh issue list -R "$GH_REPO" --state all --limit 100 --json number,title \
+            --jq '.[] | select(.title=="🚨 MEDIA KOLFAT GitHub Downloads Dashboard health alert") | .number' | tail -1)"
+          if [[ "$state" == true ]]; then
+            if [[ -n "$issue" ]] && [[ "$(gh issue view "$issue" -R "$GH_REPO" --json state --jq .state)" == OPEN ]]; then
+              gh issue comment "$issue" -R "$GH_REPO" --body '✅ Dashboard recovered: the latest updater completed successfully and the snapshot is fresh.'
+              gh issue close "$issue" -R "$GH_REPO"
+            fi
+            echo '✅ Dashboard health OK'
+          else
+            if [[ -z "$issue" ]]; then
+              owner="$(printf '%s' "$GH_REPO" | cut -d/ -f1)"
+              gh issue create -R "$GH_REPO" --title "$title" --body-file "$RUNNER_TEMP/health.md" --assignee "$owner"
+            else
+              if [[ "$(gh issue view "$issue" -R "$GH_REPO" --json state --jq .state)" == CLOSED ]]; then
+                gh issue reopen "$issue" -R "$GH_REPO"
+                gh issue comment "$issue" -R "$GH_REPO" --body '🚨 The download dashboard health problem has recurred.'
+              fi
+              gh issue edit "$issue" -R "$GH_REPO" --body-file "$RUNNER_TEMP/health.md"
+            fi
+            cat "$RUNNER_TEMP/health.md"
+            exit 1
+          fi

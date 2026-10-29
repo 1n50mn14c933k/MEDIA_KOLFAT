@@ -1,3 +1,9 @@
+## 2026-10-29 — Independent GitHub dashboard health monitor
+
+Added an independent scheduled/event-driven GitHub Actions monitor, with tested 48h staleness logic, latest completed updater failure detection, malformed history/SVG checking, and one deduplicated owner-assigned GitHub Issue for alerts. The updater now writes an exact UTC last_checked_at_utc timestamp without changing old download counts. No application files or release binaries modified. Rollback by reverting the monitor and timestamp addition while preserving all history snapshots; close any resulting issue if monitoring is intentionally disabled.
+
+---
+
 ## 2026-10-28 — Multi-platform GitHub downloads dashboard
 
 **Purpose:** Replace the Windows-only EXE counter with dynamic reporting for all official GitHub Windows, Linux and future macOS distribution packages. Include experimental GitHub pre-releases, package breakdown, per-platform cumulative counts and observed downloads/day. Respect pending macOS without inventing counts; exclude checksums, drafts and source archives.
