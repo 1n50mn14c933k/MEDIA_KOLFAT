@@ -8,7 +8,15 @@ Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packa
 
 ## [Unreleased]
 
-Future production changes will be documented here before publication.
+Future production changes will be documented here before publication. **MEDIA KOLFAT remains free forever.** Linux experimental releases use a separate version/tag track from Windows Stable; the planned macOS port targets Apple Silicon M-series only and is not released.
+
+---
+
+## [2.4.0-linux-beta] — 2026-10-28 (Linux Public Beta)
+
+**Linux x64 AppImage release**, separate from Windows Stable. Official GitHub release contains the AppImage and checksum only. **MOVE disabled**; COPY retains original files. Reported 49 focused tests passed and WSLg startup succeeded; interactive native Ubuntu testing of this specific AppImage remains unverified. The earlier beta completed native Ubuntu Guided COPY with 101 samples.
+
+[Linux Beta release and checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) · [Platform guide](docs/PLATFORMS_AND_DOWNLOADS.md)
 
 ---
 
