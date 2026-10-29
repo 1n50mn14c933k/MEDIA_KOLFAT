@@ -37,15 +37,15 @@ The current priorities are maintaining **Windows Stable 2.0.0** and improving th
 - Address reproducible issues reported by users
 - Keep documentation, support information and release notes current
 
-## MEDIA KOLFAT PRO
+## Free forever and future PRO plans
 
-An optional paid MEDIA KOLFAT PRO edition/add-on is planned for additional advanced functionality.
+**MEDIA KOLFAT remains free forever.** A separate, optional MEDIA KOLFAT PRO product may be developed in the future for advanced functionality; it is not released and does not change the free application's availability.
 
 Specific PRO functionality will be announced only when it is sufficiently defined and ready to be publicly committed to.
 
 ## Future development
 
-**Linux is already available as an experimental Public Beta.** Native AppImage 2.4.0 GUI testing, Settings Reset, platform integration and broader distribution compatibility remain priorities. **macOS** remains a potential future platform, with no announced launch date.
+**Linux is already available as an experimental Public Beta.** Native AppImage 2.4.0 GUI testing, Settings Reset, platform integration and broader distribution compatibility remain priorities. **macOS Apple Silicon (M-series, arm64) only** is planned; Intel Macs are not targeted. No macOS build or launch date has been announced.
 
 Future development may also include additional organization, discovery, automation and intelligent media-management capabilities.
 
@@ -53,13 +53,16 @@ No unreleased feature, platform or capability listed or discussed publicly shoul
 
 ## Distribution
 
+See the [official platform and download guide](docs/PLATFORMS_AND_DOWNLOADS.md) for exact packages, verification and known limitations.
+
+
 Windows Stable is distributed via [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and its [Windows GitHub release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). Standalone EXE installations do not receive Store updates.
 
 Linux Public Beta is distributed separately via [GitHub AppImage and checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta). Other Linux packages, if offered, belong in their appropriate app stores or distro repositories.
 
 ## Development timeline
 
-See [DEVELOPMENT_TIMELINE.md](docs/DEVELOPMENT_TIMELINE.md) for dated Windows and Linux milestones, Beta test scope and outstanding limitations.
+See [DEVELOPMENT_TIMELINE.md](DEVELOPMENT_TIMELINE.md) for dated Windows and Linux milestones, Beta test scope and outstanding limitations.
 
 ## Release history
 
