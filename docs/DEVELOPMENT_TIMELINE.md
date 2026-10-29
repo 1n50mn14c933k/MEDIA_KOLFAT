@@ -1,6 +1,6 @@
 # MEDIA KOLFAT | Development Timeline
 
-**Updated:** October 28, 2026. Public milestones and verified testing scope; future priorities are not release promises.
+**Updated:** October 29, 2026. Public milestones and verified testing scope; future priorities are not release promises.
 
 ## Windows — Stable
 
@@ -30,7 +30,7 @@
 - **Linux MOVE:** Disabled. Source deletion requires safety guarantees that have not yet been established.
 - **Linux compatibility:** Native AppImage 2.4.0 testing; settings reset, desktop integration and broader distribution testing.
 - **Windows:** Maintain stable 2.0.0 and respond to user feedback without compromising existing releases.
-- **macOS:** Possible future release; no public release or fixed schedule.
+- **macOS:** Apple Silicon (M-series, arm64) only is planned. Intel Macs are not targeted; no public build or release schedule.
 
 ## Distribution and support
 
@@ -38,4 +38,4 @@
 - [Linux Beta 2.4.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta): AppImage and SHA-256 checksum **only** on GitHub; other package formats belong in appropriate stores or distro repositories.
 - [Report bugs](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues): include OS, desktop environment, version, steps and sanitized errors. Keep independent backups of important media.
 
-[README](../README.md) · [Roadmap](../ROADMAP.md) · [Product website](https://kolfat.app/en/Media_Kolfat/)
+[Platform and download guide](PLATFORMS_AND_DOWNLOADS.md) · [README](../README.md) · [Roadmap](../ROADMAP.md) · [Product website](https://kolfat.app/en/Media_Kolfat/)
