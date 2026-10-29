@@ -16,7 +16,7 @@ Provide enough information to reproduce and assess the issue without including u
 Useful information includes:
 
 - Affected MEDIA KOLFAT version
-- Windows version
+- Operating system and version (Windows or Linux, with distro/desktop environment for Linux)
 - Vulnerability type and affected workflow
 - Reproduction steps or a minimal proof of concept
 - Security impact
@@ -39,20 +39,24 @@ Do not publish:
 - Code-signing certificates, keys or signing material
 - Private proprietary source code
 
-## Supported production release
+## Supported releases
 
-The current publicly released version is **MEDIA KOLFAT 2.0.0** (Microsoft Store package **2.0.0.0**).
+- **Windows Stable:** MEDIA KOLFAT **2.0.0** (Microsoft Store package **2.0.0.0**).
+- **Linux Public Beta:** **2.4.0**, experimental AppImage with **MOVE disabled**; beta testing and support are more limited than Windows Stable.
+- **macOS:** No public release; planned Apple Silicon M-series only.
+
+The official [platform and download guide](docs/PLATFORMS_AND_DOWNLOADS.md) explains distribution and validation boundaries.
 
 Users should obtain updates from their official distribution channel: Microsoft Store for Store installations and GitHub Releases for standalone EXE installations. Check [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) for current release information.
 
 Microsoft Store:
 https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
 
-Pre-release or private development builds are not supported production versions.
+Linux pre-releases are experimental, not production-stable; private development builds are not public releases.
 
 ## Official software distribution
 
-Official distribution is through [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). The current GitHub EXE is unsigned; a SHA-256 checksum helps detect file changes but does not by itself establish publisher identity.
+Official distribution is through [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). Windows and Linux use **separate** GitHub Releases. The current GitHub Windows EXE is unsigned; a SHA-256 checksum helps detect file changes but does not by itself establish publisher identity.
 
 Do not trust production installers from third-party mirrors unless KOLFAT explicitly identifies that source as official.
 
