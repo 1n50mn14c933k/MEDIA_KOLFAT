@@ -283,7 +283,7 @@ def main():
     history=update_history(read_history(old),observation,today)
     svg=draw(history,observation)
     HISTORY.parent.mkdir(parents=True,exist_ok=True)
-    HISTORY.write_text(json.dumps({"schema_version":2,"snapshots":history},indent=2)+"\n",
+    HISTORY.write_text(json.dumps({"schema_version":2,"last_checked_at_utc":datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z"),"snapshots":history},indent=2)+"\n",
                        encoding="utf-8")
     SVG.write_text(svg,encoding="utf-8")
     print("GitHub package downloads:",observation["totals"],
