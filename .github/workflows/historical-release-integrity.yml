@@ -1,0 +1,95 @@
+name: Verify published MEDIA KOLFAT release integrity
+
+on:
+  schedule:
+    - cron: "47 5 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/historical-release-integrity.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Historical release integrity
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check published Windows and Linux tags and package digests
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.request
+
+          # Fixed baseline captured from GitHub's own published release metadata
+          # on 2026-10-29. Never silently replace a baseline after an alert.
+          expected = {
+              "v2.0.0": {
+                  "tag_sha": "863a8b003a3b66645951140eaffe26da944d490a",
+                  "assets": {
+                      "MEDIA_KOLFAT_2.0.0_Setup.exe": "sha256:ae744d4affc757fc554c9c7f7e9be5f596f299268b34b3d86a2721a3bbca966e",
+                      "MEDIA_KOLFAT_2.0.0_SHA256.txt": "sha256:fe43cbf6c210892394acd74ad2cef32a79f948c07fcd0f356ca27700b4494666",
+                  },
+              },
+              "v2.4.0-linux-beta": {
+                  "tag_sha": "020a42394c514777b6961198622e0da91d3b49b8",
+                  "assets": {
+                      "MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage": "sha256:c9342289afc0725eee453535833eb05141d24cc6576cd8b387cb3446351556f3",
+                      "MEDIA_KOLFAT_Linux_Beta_2.4.0_SHA256.txt": "sha256:bbf32c0ace7d428e09b123f7d627e2315b5e8d69dcf5229f87719f1c60cf450e",
+                  },
+              },
+          }
+
+          repository = os.environ["GITHUB_REPOSITORY"]
+          token = os.environ["GH_TOKEN"]
+
+          def github(path):
+              request = urllib.request.Request(
+                  f"https://api.github.com/repos/{repository}/{path}",
+                  headers={
+                      "Accept": "application/vnd.github+json",
+                      "Authorization": f"Bearer {token}",
+                      "User-Agent": "kolfat-release-integrity-watch",
+                      "X-GitHub-Api-Version": "2022-11-28",
+                  },
+              )
+              with urllib.request.urlopen(request, timeout=25) as result:
+                  return json.load(result)
+
+          findings = []
+          for tag, baseline in expected.items():
+              try:
+                  release = github(f"releases/tags/{tag}")
+                  tag_ref = github(f"git/ref/tags/{tag}")
+                  actual_sha = tag_ref["object"]["sha"]
+                  actual_assets = {
+                      asset["name"]: asset.get("digest")
+                      for asset in release["assets"]
+                  }
+                  if release["draft"]:
+                      findings.append(f"{tag}: release is unexpectedly a draft")
+                  if tag_ref["object"]["type"] != "commit" or actual_sha != baseline["tag_sha"]:
+                      findings.append(f"{tag}: release tag target changed")
+                  if actual_assets != baseline["assets"]:
+                      findings.append(f"{tag}: asset names or SHA-256 digests changed")
+                  if not any(f.startswith(tag + ":") for f in findings):
+                      print(f"PASS {tag}: tag and all published package digests match")
+              except Exception as exc:
+                  findings.append(f"{tag}: GitHub verification unavailable ({type(exc).__name__})")
+
+          if findings:
+              for finding in findings:
+                  print(f"::error::{finding}", file=sys.stderr)
+              raise SystemExit(1)
+          print("Both historical MEDIA KOLFAT release identities verified.")
+          PY
