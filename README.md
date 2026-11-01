@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0"><img src="https://img.shields.io/badge/Windows-2.0.0_Stable-0078D4?style=flat-square&labelColor=181818" alt="Windows Stable 2.0.0"></a>
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta"><img src="https://img.shields.io/badge/Linux-2.4.0_Beta-FF812E?style=flat-square&labelColor=181818" alt="Linux Beta 2.4.0"></a>
-  <img src="https://img.shields.io/badge/macOS-2.4.0_Public_Beta-8B5CF6?style=flat-square&labelColor=181818" alt="macOS Apple Silicon 2.4.0 Public Beta released">
+  <img src="https://img.shields.io/badge/macOS-2.4.0_Beta-8B5CF6?style=flat-square&labelColor=181818" alt="macOS Apple Silicon 2.4.0 Beta released">
   <img src="https://img.shields.io/badge/Price-FREE-16A34A?style=flat-square&labelColor=181818" alt="Free">
   <img src="https://img.shields.io/badge/Privacy-Local--First-0F766E?style=flat-square&labelColor=181818" alt="Local-first">
 </p>
