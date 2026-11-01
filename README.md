@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0"><img src="https://img.shields.io/badge/Windows-2.0.0_Stable-0078D4?style=flat-square&labelColor=181818" alt="Windows Stable 2.0.0"></a>
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta"><img src="https://img.shields.io/badge/Linux-2.4.0_Beta-FF812E?style=flat-square&labelColor=181818" alt="Linux Beta 2.4.0"></a>
-  <img src="https://img.shields.io/badge/macOS-Apple_Silicon_In_Testing-8B5CF6?style=flat-square&labelColor=181818" alt="macOS Apple Silicon: tested, bug fixes ongoing; not publicly released">
+  <img src="https://img.shields.io/badge/macOS-2.4.0_Public_Beta-8B5CF6?style=flat-square&labelColor=181818" alt="macOS Apple Silicon 2.4.0 Public Beta released">
   <img src="https://img.shields.io/badge/Price-FREE-16A34A?style=flat-square&labelColor=181818" alt="Free">
   <img src="https://img.shields.io/badge/Privacy-Local--First-0F766E?style=flat-square&labelColor=181818" alt="Local-first">
 </p>
@@ -145,7 +145,7 @@ Today, MEDIA KOLFAT has grown far beyond that first experiment.
 
 The Windows application is publicly available through the Microsoft Store, offering photo and video organization, duplicate detection, library browsing, photo rotation, and guided file management.
 
-The project has also expanded to Linux, with a public beta, while the macOS version for Apple Silicon has entered testing and continues through bug fixing and refinement.
+The project has also expanded to Linux and macOS Apple Silicon, both available as experimental public beta releases.
 
 And this journey is far from over.
 
@@ -189,28 +189,15 @@ Thank you for supporting an independent project and helping shape what MEDIA KOL
 
 ## ⬇️ Install & Download
 
-<p><img src="https://img.shields.io/badge/IMPORTANT-OFFICIAL%20DOWNLOADS%20ONLY-FF812E?style=for-the-badge&labelColor=181818" alt="IMPORTANT: Official downloads only"></p>
-
-> 🟠 **Security notice:** Only download MEDIA KOLFAT from the official sources explicitly listed by the developer below: the **Microsoft Store** and the developer's **GitHub Releases**. Avoid third-party mirrors, repackaged installers, and unverified download websites. Verify published **SHA-256 checksums** when available. GitHub's automatic source archives are **not** application installers.
-
 | Platform | Release | Format | Official downloads |
 |---|---|---|---|
 | 🪟 **Windows x64** | **Stable 2.0.0** | `.exe` / Store | [Windows installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
 | 🐧 **Linux x64** | **Public Beta 2.4.0** | `.AppImage` | [Download AppImage](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_SHA256.txt) |
-| 🍎 **macOS Apple Silicon (M-series)** | **Testing / bug fixing; not yet released** | Package tested privately; public format not yet confirmed | **Coming after validation**; no public download yet. Intel Macs not targeted. |
+| 🍎 **macOS Apple Silicon (M-series)** | **Public Beta 2.4.0** | `.dmg` | [Download DMG](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/untagged-88abedd710a7e3eaa505/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/untagged-88abedd710a7e3eaa505/MEDIA_KOLFAT_macOS_Beta_2.4.0_SHA256.txt) |
 
-[**Full platform, download and checksum guide**](docs/PLATFORMS_AND_DOWNLOADS.md) covers Windows Stable, Linux Beta and the in-testing Apple Silicon macOS port.
+<p align="center"><img src="assets/official-downloads-only.svg" alt="Official downloads only: use trusted KOLFAT sources, avoid third-party installers and verify checksums" width="1000"></p>
 
-**Linux quick start:** Download both files from the [separate Linux Beta release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta), verify the checksum, then launch the AppImage on a compatible x64 Linux desktop:
-
-```bash
-chmod +x MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage
-./MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage
-```
-
-**Linux Beta warning:** COPY retains originals; **MOVE is unavailable**. The 2.4.0 AppImage passed automated tests and WSLg startup, but has not yet been tested interactively on native Ubuntu 26.04. A previous Beta successfully organized **101 sample photos** on native Ubuntu 26.04.1. Always keep independent backups of irreplaceable media.
-
-**Distribution:** GitHub distributes **only the Linux AppImage and its checksum**. Other Linux package formats, if available later, will be distributed through appropriate stores or distro repositories. The standalone Windows EXE is unsigned and does not receive Microsoft Store updates.
+<p align="center"><a href="https://kolfat.app/"><strong>🌐 KOLFAT official website</strong></a> &nbsp; · &nbsp; <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases"><strong>🐙 Official GitHub Releases</strong></a> &nbsp; · &nbsp; <a href="https://apps.microsoft.com/detail/9p0x091t7mv4"><strong>🪟 Microsoft Store (Windows)</strong></a></p>
 
 ## 🗓️ Development Timeline
 
@@ -222,6 +209,7 @@ chmod +x MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage
 | **Oct 2026** | Linux | Avalonia/.NET 10 port, secure COPY, EXIF and filesystem safety validation |
 | **Oct 28, 2026** | Linux | Earlier Beta: native Ubuntu Guided COPY of **101 sample photos** |
 | **Oct 28, 2026** | Linux | **2.4.0 Public Beta** AppImage + checksum published; reported **49 focused tests passed / 0 failed** |
+| **Nov 1, 2026** | macOS | **2.4.0 Public Beta** DMG + SHA-256 published for Apple Silicon (M-series), macOS 14+; unsigned experimental release |
 
 See the [full Development Timeline](docs/DEVELOPMENT_TIMELINE.md) and [Public Roadmap](ROADMAP.md).
 
@@ -282,7 +270,7 @@ Organize, protect and manage your photos and videos without subscriptions, compl
 | **🖥️ OS SUPPORT** | | | | | |
 | 🪟 Windows | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 🐧 Linux | 🧪 Beta | ❌ | ❌ | ❌ | ❌ |
-| 🍎 macOS | 🧪 In testing | ✅ | ❌ | ✅ | ✅ |
+| 🍎 macOS | 🧪 Public Beta | ✅ | ❌ | ✅ | ✅ |
 | 📱 iOS / Android | ❌ | ✅ | ◐ | ✅ | ✅ |
 | **💎 PRICING & PRIVACY** | | | | | |
 | Free forever | ✅ | ❌ | ❌ | ◐ | ❌ |
@@ -319,7 +307,7 @@ Organize, protect and manage your photos and videos without subscriptions, compl
 
 **MEDIA KOLFAT focuses on media organization rather than professional photo editing.** Guided workflows, duplicate detection, date-based organization and safety controls help you manage your collection without unnecessary complexity.
 
-*Platform note:* The comparison highlights **Windows 2.0.0 Stable** features. Linux 2.4.0 is an experimental beta with a smaller feature set and **MOVE disabled**. macOS Apple Silicon has undergone initial device testing and remains in bug fixing; it is not publicly released. The documented 20,000+ photo workload is a Windows NAS transfer test, **not** a system benchmark score.
+*Platform note:* The comparison highlights **Windows 2.0.0 Stable** features. Linux 2.4.0 is an experimental beta with a smaller feature set and **MOVE disabled**. macOS Apple Silicon 2.4.0 is a publicly available experimental beta for macOS 14+ on M-series Macs only; it is unsigned and not notarized, and MOVE remains disabled. The documented 20,000+ photo workload is a Windows NAS transfer test, **not** a system benchmark score.
 
 *Feature note:* System Benchmark / Performance Check is included in this comparison as requested, but is **not currently documented on the official product page**. Competitor features are high-level comparisons and may use different workflows; a dash does not prove the feature is absent.
 
@@ -415,8 +403,8 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
       <h3>🍎 macOS</h3>
       <sub>APPLE SILICON</sub>
       <p>
-        <a href="https://kolfat.app/download-stats/">
-          <img alt="macOS download count: not released; open live dashboard for automatic Mac updates" src="https://img.shields.io/badge/DOWNLOADS-NOT%20RELEASED-8E9AAB?labelColor=263445&style=for-the-badge" height="32">
+        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/untagged-88abedd710a7e3eaa505">
+          <img alt="Live macOS DMG download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/untagged-88abedd710a7e3eaa505/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg?displayAssetName=false&amp;label=DOWNLOADS&amp;labelColor=263445&amp;color=8B5CF6&amp;style=for-the-badge" height="32">
         </a>
       </p>
     </td>
