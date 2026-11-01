@@ -5,7 +5,7 @@ import json
 import math
 import os
 import re
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 from urllib.request import Request, urlopen
 
@@ -127,6 +127,44 @@ def update_history(history, observation, today):
     return rows
 
 
+def record_hourly(raw, observation, now):
+    """Keep seven days of actual UTC observations, never invent hourly history."""
+    rows = []
+    for sample in raw.get("hourly_snapshots", []):
+        timestamp = datetime.fromisoformat(sample["timestamp"].replace("Z", "+00:00"))
+        if timestamp.tzinfo is None:
+            raise ValueError("Missing timezone in hourly snapshot")
+        counts = sample["counts"]
+        if any(v is not None and (type(v) is not int or v < 0)
+               for v in (counts.get(p) for p in PLATFORMS)):
+            raise ValueError("Invalid hourly counts")
+        if now - timedelta(days=7) <= timestamp <= now:
+            rows.append({"timestamp": timestamp.isoformat(timespec="seconds").replace("+00:00", "Z"),
+                         "counts": {p: counts.get(p) for p in PLATFORMS}})
+    current = now.isoformat(timespec="seconds").replace("+00:00", "Z")
+    rows = [r for r in rows if r["timestamp"] != current]
+    rows.append({"timestamp": current, "counts": {
+        p: observation["totals"][p] if observation["active"][p] else None
+        for p in PLATFORMS}})
+    rows.sort(key=lambda r: r["timestamp"])
+    return rows[-200:]
+
+
+def hourly_rate(rows, platform):
+    if len(rows) < 2 or rows[-1]["counts"].get(platform) is None:
+        return None
+    last = rows[-1]
+    prev = next((r for r in reversed(rows[:-1])
+                 if r["counts"].get(platform) is not None), None)
+    if prev is None:
+        return None
+    t1 = datetime.fromisoformat(prev["timestamp"].replace("Z", "+00:00"))
+    t2 = datetime.fromisoformat(last["timestamp"].replace("Z", "+00:00"))
+    elapsed = (t2-t1).total_seconds()/3600
+    delta = last["counts"][platform]-prev["counts"][platform]
+    return delta/elapsed if elapsed >= 0.5 and delta >= 0 else None
+
+
 def daily_rate(history, platform):
     if len(history) < 2:
         return None
@@ -155,9 +193,10 @@ def step(peak):
     return next(v * scale for v in (1, 2, 5, 10) if v * scale >= raw)
 
 
-def draw(history, observation):
+def draw(history, observation, hourly=None):
     latest = history[-1]
     samples = history[-90:]
+    hourly = hourly or []
     totals, assets, active = (observation[k] for k in ("totals", "assets", "active"))
     overall = sum(totals.values())
     box = ['<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="890" '
@@ -170,7 +209,7 @@ def draw(history, observation):
            '<text x="38" y="49" fill="#f7f7f7" font-family="Arial,sans-serif" '
            'font-size="25" font-weight="700">MEDIA KOLFAT | GitHub Downloads Dashboard</text>',
            '<text x="1060" y="74" fill="#b3b3b3" text-anchor="end" '
-           'font-family="Arial,sans-serif" font-size="13">Official GitHub release assets | Daily updates</text>',
+           'font-family="Arial,sans-serif" font-size="13">Official GitHub release assets | Hourly checks</text>',
            '<path d="M38 91H1062" stroke="#444"/>',
            '<text x="45" y="123" fill="#c9c9c9" font-family="Arial,sans-serif" '
            'font-size="16">ALL PLATFORMS - TOTAL PACKAGE DOWNLOADS</text>',
@@ -182,13 +221,13 @@ def draw(history, observation):
         x = 38 + index * 347
         status = active[platform]
         value = f'{totals[platform]:,}' if status else "Not released"
-        rate = daily_rate(history, platform) if status else None
+        rate = hourly_rate(hourly, platform) if status else None
         if not status:
             rate_text = "Waiting for first package"
         elif rate is None:
-            rate_text = "Daily rate: awaiting 2 observations"
+            rate_text = "Hourly rate: awaiting 2 checks"
         else:
-            rate_text = f"Daily rate: +{rate:,.1f} downloads/day"
+            rate_text = f"Hourly rate: +{rate:,.1f} downloads/hour"
         n = sum(a["os"] == platform for a in assets)
         box.extend([
             f'<rect x="{x}" y="195" width="329" height="149" rx="14" fill="#171717" stroke="#555"/>',
@@ -206,7 +245,7 @@ def draw(history, observation):
         '<text x="42" y="386" fill="#eee" font-family="Arial,sans-serif" '
         'font-size="19" font-weight="700">Cumulative downloads by platform</text>',
         '<text x="1052" y="385" fill="#aaa" text-anchor="end" '
-        'font-family="Arial,sans-serif" font-size="12">Observed daily snapshots (max 90)</text>'])
+        'font-family="Arial,sans-serif" font-size="12">Daily history (90 days) | Hourly checks</text>'])
     x0,x1,y0,y1=95,1040,415,607
     vals = [v for row in samples for v in row["counts"].values() if v is not None]
     tick = step(max(vals) if vals else 0)
@@ -277,13 +316,15 @@ def draw(history, observation):
 
 
 def main():
-    today=datetime.now(timezone.utc).date()
+    now=datetime.now(timezone.utc)
+    today=now.date()
     observation=collect(github_releases())
     old=json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {}
     history=update_history(read_history(old),observation,today)
-    svg=draw(history,observation)
+    hourly=record_hourly(old,observation,now)
+    svg=draw(history,observation,hourly)
     HISTORY.parent.mkdir(parents=True,exist_ok=True)
-    HISTORY.write_text(json.dumps({"schema_version":2,"last_checked_at_utc":datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z"),"snapshots":history},indent=2)+"\n",
+    HISTORY.write_text(json.dumps({"schema_version":2,"last_checked_at_utc":now.isoformat(timespec="seconds").replace("+00:00","Z"),"snapshots":history,"hourly_snapshots":hourly},indent=2)+"\n",
                        encoding="utf-8")
     SVG.write_text(svg,encoding="utf-8")
     print("GitHub package downloads:",observation["totals"],
