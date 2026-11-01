@@ -17,10 +17,10 @@ documentation, and unrelated assets are **excluded**. Downloads of two different
 packages count as two release asset downloads, not unique people or devices.
 
 Each OS card shows the current total, number of attached packages and the observed
-**downloads/day** rate, computed from the two most recent suitable dated snapshots.
+**downloads/hour** rate, computed from the two most recent actual timestamped observations (minimum 30 minutes apart).
 When an OS has **no published packages**, it says **Not released**, never a fictional
 zero download history. If a package is newly introduced, the daily rate says
-**awaiting 2 observations** rather than inventing a previous count.
+**awaiting 2 checks** rather than inventing a previous count.
 
 The combined total is the sum of all currently published download counts. A compact
 package list shows the highest-count assets individually; all eligible packages
@@ -28,7 +28,7 @@ are included in the totals regardless of how many fit in the graphic.
 
 ## Historic observations and daily refreshes
 
-The existing Windows EXE history recorded on October 27–28, 2026 is migrated
+Hourly readings are stored in the existing schema-v2 JSON file under the optional `hourly_snapshots` key. Existing dated snapshots remain unchanged. GitHub scheduled actions can be delayed or occasionally skipped; the displayed rate divides the actual download-count difference by elapsed hours, and waits for two real measurements.\n\nThe existing Windows EXE history recorded on October 27–28, 2026 is migrated
 without changing its original counts. Linux and macOS were **not measured** by the
 old collector, so older snapshots for those systems remain `null` (unknown),
 not zero. New observations use history schema v2 with independent counters for
@@ -37,10 +37,10 @@ from the actual release assets each day. Deleted/replaced assets can reset count
 negative daily rates are intentionally suppressed.
 
 The [GitHub Actions workflow](../.github/workflows/update-download-dashboard.yml)
-runs daily at 07:23 UTC, can run manually and is triggered by changes to the
+runs hourly at minute 23 UTC, can run manually and is triggered by changes to the
 script/workflow. It writes only `assets/download-dashboard.svg` and
 `assets/download-dashboard-history.json`. The dashboard shows the latest
-**90 observed snapshots**, not invented historical daily values.
+**90 daily snapshots** for the chart, plus up to **7 days of hourly snapshots** for rate calculations; historical unknown hours are never fabricated.
 
 ## Privacy and limits
 
