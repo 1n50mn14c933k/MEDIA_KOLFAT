@@ -15,7 +15,7 @@
 <p align="center">
   <a href="#-install--download">Download</a> ·
   <a href="https://kolfat.app/en/Media_Kolfat/">Website</a> ·
-  <a href="#overview">Overview</a> ·
+  <a href="#overview">Our Story</a> ·
   <a href="#-development-timeline">Timeline</a> ·
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues">Bug Reports</a>
 </p>
@@ -27,13 +27,165 @@
 </p>
 <p align="center"><a href="https://youtu.be/j__sznypSKs"><strong>▶️ Watch the MEDIA KOLFAT Intro Trailer on YouTube</strong></a></p>
 
-## Overview
+<a id="overview"></a>
 
-MEDIA KOLFAT makes it easier to discover, browse and organize your personal photos and videos. It focuses on predictable, local-first workflows, EXIF/date-based organization, duplicate detection and a dark desktop interface, without subscriptions, advertising or mandatory cloud uploads.
+## 🧹 The Story Behind MEDIA KOLFAT
 
-- **Windows 2.0.0 Stable:** Guided COPY and explicit Advanced MOVE.
-- **Linux 2.4.0 Public Beta:** Secure COPY and duplicate detection; **MOVE is disabled**, even in Advanced Mode.
-- **🍎 macOS Apple Silicon (M-series, arm64):** Initial package tested on a Mac; bug fixing is underway. **Not yet publicly released.** Intel Macs are not targeted.
+**Every great idea starts with a problem. Mine started with thousands of scattered memories.**
+
+Over the years, my photos and videos had ended up everywhere: across different computers, external hard drives, storage devices, countless folders, and cloud services such as OneDrive, iCloud, and Google Photos.
+
+My digital memories were scattered across so many places that finding a particular photo or video could become an adventure of its own.
+
+Organizing everything manually was frustrating, time-consuming, and unnecessarily complicated. I wanted something straightforward that could bring order to my growing collection without confusing workflows, endless settings, or the fear of accidentally losing precious memories.
+
+Eventually, I asked myself a simple question:
+
+**What if I built the solution I was looking for?**
+
+<details>
+<summary><strong>📖 Read More | The Full MEDIA KOLFAT Story</strong></summary>
+
+### 🖥️🔧 From IT System Administrator to Software Creator
+
+Here's something you might not expect: **I'm not a professional software developer.**
+
+My background is in IT system administration, with over **25 years of experience** working with computers, servers, clusters, IT infrastructure, data centers, and enterprise technology.
+
+But building a complete desktop application from the ground up? That was an entirely different challenge.
+
+MEDIA KOLFAT became my first serious journey into software development.
+
+It began as a personal experiment called **MediaNanny**, created to solve my own photo and video organization problems.
+
+What started as a small idea gradually evolved into something much more ambitious, eventually becoming the application now known as **MEDIA KOLFAT**.
+
+---
+
+### 🪣 What's in a Name? The Meaning of KOLFAT
+
+The name **KOLFAT** has a rather unusual origin, and yes, there's a little humor behind it.
+
+**Kolfat (Persian: کلفت; pronounced *kol-fat*)**
+
+- **Language:** Persian (Farsi)
+- **Traditional meaning:** Maid, housemaid, or female domestic servant.
+- **Historical usage:** In everyday and older Persian, *kolfat* referred to a woman employed to perform household work. The expression *kolfat-o-nowkar* (کلفت و نوکر) referred to female and male domestic servants.
+- **Modern context:** The term can sound old-fashioned, condescending, or even disrespectful when used to describe a person today. More respectful terms for domestic workers are generally preferred.
+
+> **❤️🙏 A Small but Important Note About Respect**
+>
+> Behind the playful name is a sincere respect for the people whose work inspired this little digital-cleaning character.
+>
+> I deeply respect every profession and every person who earns an honest living, including those who dedicate their time and effort to domestic work, cleaning, caregiving, and helping others.
+>
+> **The name KOLFAT is meant as a lighthearted reference to an old Persian expression, not as a joke at the expense of domestic workers or anyone's dignity.**
+>
+> Every job deserves respect, and no one should ever be judged by the work they do. My humor is directed at the chaos of my own digital life, not at the people who work hard to bring order to the real world.
+>
+> **A little humor, but always with respect. ❤️🙏**
+
+**So why would I name a software application KOLFAT?** 😉
+
+Because every messy household once needed someone to restore order, and my digital household was an absolute disaster!
+
+I imagined a friendly little digital maid who could help clean up the chaos of scattered photos, confusing folders, and duplicate files.
+
+Not by making decisions behind my back, but by helping me organize everything while keeping me firmly in control.
+
+That idea became the inspiration for the name, the mascot, and the personality of MEDIA KOLFAT.
+
+**A little Persian humor, a lot of digital housekeeping, and one mission: ORDER FROM CHAOS.**
+
+---
+
+### Built Around One Simple Philosophy
+
+From the very beginning, I had one important goal:
+
+**Make organizing photos and videos simple enough for anyone, whether they're 8 or 80 years old.**
+
+You shouldn't need to be a computer expert to organize your own memories.
+
+Technology should help people, not overwhelm them.
+
+That belief shaped the entire application:
+
+- Guided workflows that make complex tasks easier to understand.
+- Straightforward controls without unnecessary complications.
+- Privacy-conscious, local-first processing.
+- Clear choices before potentially destructive file operations.
+- A strong emphasis on keeping people in control of their own files.
+
+I wanted MEDIA KOLFAT to feel approachable, predictable, and useful, even for someone who has never organized a large photo library before.
+
+**Because your memories belong to you, and organizing them shouldn't require a degree in computer science.**
+
+---
+
+### Built Independently, One Challenge at a Time
+
+MEDIA KOLFAT wasn't created by a large software company, backed by investors, or developed with an enormous budget.
+
+It's an independent project built alongside my full-time job, often during evenings, weekends, and whatever free time I could find.
+
+The journey has involved countless hours of learning, experimenting, testing, troubleshooting, fixing bugs, and sometimes starting over when something simply wasn't good enough.
+
+Some ideas worked beautifully. Others didn't survive their first real-world test.
+
+And occasionally, fixing one problem introduced three completely new ones. Anyone who has worked with technology knows that particular kind of entertainment. 😉
+
+But every challenge taught me something new, and every improvement brought the application a little closer to what I originally imagined.
+
+---
+
+### From a Personal Problem to Something Worth Sharing
+
+Today, MEDIA KOLFAT has grown far beyond that first experiment.
+
+The Windows application is publicly available through the Microsoft Store, offering photo and video organization, duplicate detection, library browsing, photo rotation, and guided file management.
+
+The project has also expanded to Linux, with a public beta, while the macOS version for Apple Silicon has entered testing and continues through bug fixing and refinement.
+
+And this journey is far from over.
+
+**MEDIA KOLFAT began because I wanted to organize my own memories. I continue building it because I believe everyone deserves a simpler way to protect, organize, and enjoy theirs.**
+
+It's more than my first software project.
+
+It's a reminder that you don't have to start as an expert to create something useful. Sometimes, curiosity, persistence, patience, and a problem worth solving are enough to begin.
+
+---
+
+### ❤️ Your Feedback Matters. Especially the Critical Kind.
+
+**Thank you for being part of this journey.**
+
+But I don't want you to simply download MEDIA KOLFAT, try it once, and tell me everything looks wonderful.
+
+I want your genuine feedback, including the uncomfortable kind.
+
+If something feels confusing, annoying, unnecessarily complicated, or simply doesn't work the way you expect, **please tell me.**
+
+If you discover a bug, encounter an unexpected error, notice something that could be safer, or have an idea for a feature that would make MEDIA KOLFAT more useful, I genuinely want to hear about it.
+
+**Don't hesitate to be critical. Constructive criticism is one of the most valuable contributions you can make to an independent project.**
+
+You don't need to be a developer or a technical expert. Your experience as an everyday user is just as important.
+
+Whether it's a tiny interface detail, a missing feature, a performance problem, or an entirely new idea, every thoughtful report is an opportunity to make MEDIA KOLFAT better.
+
+**[💬 MEDIA KOLFAT | GitHub Issues](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues)**
+
+I can't promise that every suggestion will become a feature overnight, but I can promise that honest, constructive feedback is welcome.
+
+**The goal isn't to build software that nobody complains about. It's to build software that keeps getting better because people care enough to speak up.**
+
+Thank you for supporting an independent project and helping shape what MEDIA KOLFAT becomes next.
+
+**MEDIA KOLFAT | ORDER FROM CHAOS.**
+
+</details>
 
 ## ⬇️ Install & Download
 
