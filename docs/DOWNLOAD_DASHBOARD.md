@@ -1,6 +1,6 @@
 # MEDIA KOLFAT GitHub package downloads dashboard
 
-The [README dashboard](../assets/download-dashboard.svg) counts downloads of
+The [README](../README.md) now displays two asset-specific Shields.io download badges that query GitHub release counters independently of scheduled Actions. Badges are cached by the provider and are not instantaneous. The saved [historical SVG](../assets/download-dashboard.svg) counts downloads of
 **published application packages** attached to GitHub Releases across all operating
 systems, including **experimental pre-releases**.
 
@@ -71,3 +71,10 @@ The updater writes the exact UTC time to the chart and last_checked_at_utc in UT
 The README uses GitHub's official [monitor workflow badge](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/monitor-download-dashboard.yml/badge.svg?branch=main). Red means the latest completed monitor run failed; green means that run passed, not that every future schedule is guaranteed to run. If GitHub misses the monitor itself, a status badge cannot autonomously switch to red. The SVG displays the precise last-check UTC timestamp to expose that limitation. The two offset updater schedules are redundant opportunities, not a claim of guaranteed exact-minute execution.
 
 The monitor independently checks live release counts, allowing 30 minutes after a successful refresh for any new downloads. No commercial service or additional paid infrastructure is required.
+
+
+## Primary badges and scheduled-snapshot failure mode
+
+The Windows EXE and Linux AppImage badges on the README use the official Shields.io GitHub Downloads (specific asset, specific tag) endpoint. These independently read GitHub Release asset download counts without waiting for a GitHub Actions scheduler run. They deliberately exclude checksum assets and are cached by the badge provider; the GitHub Releases pages show authoritative counts. The macOS badge is intentionally absent until a public macOS package exists. When new versions are released, maintainers must update the tracked asset/tag URLs or add new badges.
+
+GitHub Actions scheduled jobs are **best effort**; missed schedule events do not automatically launch new runs. Therefore, the SVG chart is labeled as a historical snapshot and collapsed below the primary badges. The monitor's last-success workflow badge was removed from the README to avoid showing a misleading green state when no recent monitor job has run. This is a presentation fallback, not a guarantee that the hourly scheduler has recovered.
