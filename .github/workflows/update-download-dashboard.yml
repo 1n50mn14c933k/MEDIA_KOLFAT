@@ -2,7 +2,7 @@ name: Update MEDIA KOLFAT downloads dashboard
 
 on:
   schedule:
-    - cron: "23 7 * * *"
+    - cron: "23 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
