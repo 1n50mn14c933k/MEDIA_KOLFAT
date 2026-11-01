@@ -2,11 +2,12 @@
 
 <h1 align="center">MEDIA KOLFAT</h1>
 
-<p align="center"><strong>Every memory, right where it belongs.</strong><br>Free, local-first photo and video organization for Windows and Linux.</p>
+<p align="center"><strong>Every memory, right where it belongs.</strong><br>Free, local-first photo and video organization for Windows, Linux and macOS Apple Silicon.</p>
 
 <p align="center">
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0"><img src="https://img.shields.io/badge/Windows-2.0.0_Stable-333333?style=flat-square&labelColor=181818" alt="Windows Stable 2.0.0"></a>
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta"><img src="https://img.shields.io/badge/Linux-2.4.0_Beta-FF812E?style=flat-square&labelColor=181818" alt="Linux Beta 2.4.0"></a>
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0">🪟 <img src="https://img.shields.io/badge/Windows-2.0.0_Stable-333333?style=flat-square&labelColor=181818" alt="Windows Stable 2.0.0"></a>
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta">🐧 <img src="https://img.shields.io/badge/Linux-2.4.0_Beta-FF812E?style=flat-square&labelColor=181818" alt="Linux Beta 2.4.0"></a>
+  <span>🍎 <img src="https://img.shields.io/badge/macOS-Apple_Silicon_In_Testing-333333?style=flat-square&labelColor=181818" alt="macOS Apple Silicon: tested, bug fixes ongoing; not publicly released"></span>
   <img src="https://img.shields.io/badge/Price-FREE-333333?style=flat-square&labelColor=181818" alt="Free">
   <img src="https://img.shields.io/badge/Privacy-Local--First-333333?style=flat-square&labelColor=181818" alt="Local-first">
 </p>
@@ -32,7 +33,7 @@ MEDIA KOLFAT makes it easier to discover, browse and organize your personal phot
 
 - **Windows 2.0.0 Stable:** Guided COPY and explicit Advanced MOVE.
 - **Linux 2.4.0 Public Beta:** Secure COPY and duplicate detection; **MOVE is disabled**, even in Advanced Mode.
-- **macOS:** Apple Silicon (M-series, arm64) port planned; **Intel Macs are not targeted**. No public release yet.
+- **🍎 macOS Apple Silicon (M-series, arm64):** Initial package tested on a Mac; bug fixing is underway. **Not yet publicly released.** Intel Macs are not targeted.
 
 ## ⬇️ Install & Download
 
@@ -42,11 +43,11 @@ MEDIA KOLFAT makes it easier to discover, browse and organize your personal phot
 
 | Platform | Release | Format | Official downloads |
 |---|---|---|---|
-| 💻 **Windows x64** | **Stable 2.0.0** | `.exe` / Store | [Windows installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
+| 🪟 **Windows x64** | **Stable 2.0.0** | `.exe` / Store | [Windows installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
 | 🐧 **Linux x64** | **Public Beta 2.4.0** | `.AppImage` | [Download AppImage](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_SHA256.txt) |
-| 🍎 **macOS Apple Silicon (M-series)** | Planned; not released | — | Not available; Intel Macs not targeted |
+| 🍎 **macOS Apple Silicon (M-series)** | **Testing / bug fixing; not yet released** | Package tested privately; public format not yet confirmed | **Coming after validation**; no public download yet. Intel Macs not targeted. |
 
-[**Full platform, download and checksum guide**](docs/PLATFORMS_AND_DOWNLOADS.md) covers Windows Stable, Linux Beta and planned Apple Silicon macOS.
+[**Full platform, download and checksum guide**](docs/PLATFORMS_AND_DOWNLOADS.md) covers Windows Stable, Linux Beta and the in-testing Apple Silicon macOS port.
 
 **Linux quick start:** Download both files from the [separate Linux Beta release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta), verify the checksum, then launch the AppImage on a compatible x64 Linux desktop:
 
@@ -127,9 +128,9 @@ Organize, protect and manage your photos and videos without subscriptions, compl
 | Feature | **MEDIA KOLFAT** | Lightroom | ACDSee Home | Mylio | ON1 RAW |
 |---|---|---|---|---|---|
 | **🖥️ OS SUPPORT** | | | | | |
-| 💻 Windows | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 🪟 Windows | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 🐧 Linux | 🧪 Beta | ❌ | ❌ | ❌ | ❌ |
-| 🍎 macOS | 🚧 Planned | ✅ | ❌ | ✅ | ✅ |
+| 🍎 macOS | 🧪 In testing | ✅ | ❌ | ✅ | ✅ |
 | 📱 iOS / Android | ❌ | ✅ | ◐ | ✅ | ✅ |
 | **💎 PRICING & PRIVACY** | | | | | |
 | Free forever | ✅ | ❌ | ❌ | ◐ | ❌ |
@@ -166,7 +167,7 @@ Organize, protect and manage your photos and videos without subscriptions, compl
 
 **MEDIA KOLFAT focuses on media organization rather than professional photo editing.** Guided workflows, duplicate detection, date-based organization and safety controls help you manage your collection without unnecessary complexity.
 
-*Platform note:* The comparison highlights **Windows 2.0.0 Stable** features. Linux 2.4.0 is an experimental beta with a smaller feature set and **MOVE disabled**. macOS is planned, not released. The documented 20,000+ photo workload is a Windows NAS transfer test, **not** a system benchmark score.
+*Platform note:* The comparison highlights **Windows 2.0.0 Stable** features. Linux 2.4.0 is an experimental beta with a smaller feature set and **MOVE disabled**. macOS Apple Silicon has undergone initial device testing and remains in bug fixing; it is not publicly released. The documented 20,000+ photo workload is a Windows NAS transfer test, **not** a system benchmark score.
 
 *Feature note:* System Benchmark / Performance Check is included in this comparison as requested, but is **not currently documented on the official product page**. Competitor features are high-level comparisons and may use different workflows; a dash does not prove the feature is absent.
 
