@@ -395,17 +395,17 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
   <tr>
     <td align="center" width="33%">
       <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0">
-        <img src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe?label=WINDOWS%20EXE&labelColor=152a44&color=148ee7&style=for-the-badge" alt="Windows EXE download counter" width="260" height="32">
+        <img src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe?displayAssetName=false&label=WINDOWS%20%3A&labelColor=152a44&color=148ee7&style=for-the-badge" alt="WINDOWS: current GitHub EXE download count" width="260" height="32">
       </a>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta">
-        <img src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage?label=LINUX%20APPIMAGE&labelColor=3a281d&color=ff8e35&style=for-the-badge" alt="Linux AppImage download counter" width="260" height="32">
+        <img src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage?displayAssetName=false&label=LINUX%20%3A&labelColor=3a281d&color=ff8e35&style=for-the-badge" alt="LINUX: current GitHub AppImage download count" width="260" height="32">
       </a>
     </td>
     <td align="center" width="33%">
       <a href="https://kolfat.app/download-stats/">
-        <img src="https://img.shields.io/badge/macOS%20APPLE%20SILICON-NOT%20RELEASED-8795a6?style=for-the-badge&labelColor=202c3b" alt="macOS Apple Silicon: not released yet; live dashboard detects its first release automatically" width="260" height="32">
+        <img src="https://img.shields.io/badge/macOS%20%3A-NOT%20RELEASED-8795a6?style=for-the-badge&labelColor=202c3b" alt="macOS: not released yet. Click for the live Mac download count once published." width="260" height="32">
       </a>
     </td>
   </tr>
