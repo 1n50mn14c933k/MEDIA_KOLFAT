@@ -5,11 +5,11 @@
 <p align="center"><strong>Every memory, right where it belongs.</strong><br>Free, local-first photo and video organization for Windows, Linux and macOS Apple Silicon.</p>
 
 <p align="center">
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0">🪟 <img src="https://img.shields.io/badge/Windows-2.0.0_Stable-333333?style=flat-square&labelColor=181818" alt="Windows Stable 2.0.0"></a>
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta">🐧 <img src="https://img.shields.io/badge/Linux-2.4.0_Beta-FF812E?style=flat-square&labelColor=181818" alt="Linux Beta 2.4.0"></a>
-  <span>🍎 <img src="https://img.shields.io/badge/macOS-Apple_Silicon_In_Testing-333333?style=flat-square&labelColor=181818" alt="macOS Apple Silicon: tested, bug fixes ongoing; not publicly released"></span>
-  <img src="https://img.shields.io/badge/Price-FREE-333333?style=flat-square&labelColor=181818" alt="Free">
-  <img src="https://img.shields.io/badge/Privacy-Local--First-333333?style=flat-square&labelColor=181818" alt="Local-first">
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0"><img src="https://img.shields.io/badge/Windows-2.0.0_Stable-0078D4?style=flat-square&labelColor=181818" alt="Windows Stable 2.0.0"></a>
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta"><img src="https://img.shields.io/badge/Linux-2.4.0_Beta-FF812E?style=flat-square&labelColor=181818" alt="Linux Beta 2.4.0"></a>
+  <img src="https://img.shields.io/badge/macOS-Apple_Silicon_In_Testing-8B5CF6?style=flat-square&labelColor=181818" alt="macOS Apple Silicon: tested, bug fixes ongoing; not publicly released">
+  <img src="https://img.shields.io/badge/Price-FREE-16A34A?style=flat-square&labelColor=181818" alt="Free">
+  <img src="https://img.shields.io/badge/Privacy-Local--First-0F766E?style=flat-square&labelColor=181818" alt="Local-first">
 </p>
 
 <p align="center">
