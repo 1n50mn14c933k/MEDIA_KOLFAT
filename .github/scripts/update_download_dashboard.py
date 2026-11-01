@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Multi-platform GitHub release-asset downloads. Public counters, no telemetry."""
+"""Multi-platform GitHub release-asset downloads. Public counters, no telemetry.
+
+Produces a timestamped historical snapshot. The README primary asset counters use
+Shields.io directly and do not depend on this scheduled GitHub Actions job.
+"""
 import html
 import json
 import math
