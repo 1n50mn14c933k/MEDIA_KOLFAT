@@ -193,7 +193,7 @@ Thank you for supporting an independent project and helping shape what MEDIA KOL
 |---|---|---|---|
 | 🪟 **Windows x64** | **Stable 2.0.0** | `.exe` / Store | [Windows installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
 | 🐧 **Linux x64** | **Public Beta 2.4.0** | `.AppImage` | [Download AppImage](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_SHA256.txt) |
-| 🍎 **macOS Apple Silicon (M-series)** | **Public Beta 2.4.0** | `.dmg` | [Download DMG](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/untagged-88abedd710a7e3eaa505/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/untagged-88abedd710a7e3eaa505/MEDIA_KOLFAT_macOS_Beta_2.4.0_SHA256.txt) |
+| 🍎 **macOS Apple Silicon (M-series)** | **Public Beta 2.4.0** | `.dmg` | [Download DMG](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-macos-beta/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-macos-beta/MEDIA_KOLFAT_macOS_Beta_2.4.0_SHA256.txt) |
 
 <p align="center"><img src="assets/official-downloads-security-notice-v2.svg" alt="Official downloads only: use trusted KOLFAT sources, avoid third-party installers and verify checksums" width="1000"></p>
 
@@ -382,8 +382,8 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
       <h3>🍎 macOS</h3>
       <sub>APPLE SILICON</sub>
       <p>
-        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/untagged-88abedd710a7e3eaa505">
-          <img alt="Live macOS DMG download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/untagged-88abedd710a7e3eaa505/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg?displayAssetName=false&amp;label=DOWNLOADS&amp;labelColor=263445&amp;color=8B5CF6&amp;style=for-the-badge" height="32">
+        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-macos-beta">
+          <img alt="Live macOS DMG download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-macos-beta/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg?displayAssetName=false&amp;label=DOWNLOADS&amp;labelColor=263445&amp;color=8B5CF6&amp;style=for-the-badge" height="32">
         </a>
       </p>
     </td>
