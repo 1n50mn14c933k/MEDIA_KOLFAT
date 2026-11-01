@@ -1,7 +1,7 @@
 """Source-level tests, no network, no real GitHub state changes."""
 import importlib.util
 import unittest
-from datetime import date
+from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
 SCRIPT=Path(__file__).resolve().parents[1]/"update_download_dashboard.py"
@@ -75,6 +75,30 @@ class DashboardTests(unittest.TestCase):
         self.assertIsNone(mod.daily_rate(h,"windows"))
         h2=mod.update_history(h,obs,date(2026,10,28))
         self.assertEqual(len(h2),2)
+    def test_hourly_rate_preserves_actual_observations(self):
+        now=datetime(2026,11,1,9,23,tzinfo=timezone.utc)
+        obs={"totals":{"windows":23,"linux":0,"macos":0},
+             "active":{"windows":True,"linux":True,"macos":False}}
+        old={"schema_version":2,"snapshots":[{"date":"2026-10-29",
+             "counts":{"windows":12,"linux":0,"macos":None}}]}
+        one=mod.record_hourly(old,obs,now)
+        self.assertEqual(len(one),1)
+        self.assertIsNone(mod.hourly_rate(one,"windows"))
+        obs["totals"]["windows"]=27
+        two=mod.record_hourly({"hourly_snapshots":one},obs,now+timedelta(hours=2))
+        self.assertEqual(mod.hourly_rate(two,"windows"),2.0)
+        self.assertEqual(mod.hourly_rate(two,"linux"),0.0)
+        self.assertIsNone(mod.hourly_rate(two,"macos"))
+        self.assertEqual(old["snapshots"][0]["counts"]["windows"],12)
+
+    def test_hourly_rate_suppresses_resets_and_short_intervals(self):
+        now=datetime(2026,11,1,9,23,tzinfo=timezone.utc)
+        sample=lambda t,c:{"timestamp":t.isoformat().replace("+00:00","Z"),
+                             "counts":{"windows":c,"linux":0,"macos":None}}
+        first=sample(now,25)
+        self.assertIsNone(mod.hourly_rate([first,sample(now+timedelta(minutes=10),26)],"windows"))
+        self.assertIsNone(mod.hourly_rate([first,sample(now+timedelta(hours=1),24)],"windows"))
+
     def test_invalid_asset_counts(self):
         for bad in (-1,True,"12"):
             with self.assertRaises(ValueError):
