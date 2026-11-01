@@ -380,7 +380,7 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
     </td>
     <td align="center" width="33%" valign="middle">
       <h3>🍎 macOS</h3>
-      <sub>APPLE SILICON</sub>
+      <sub>PUBLIC BETA · DMG</sub>
       <p>
         <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-macos-beta">
           <img alt="Live macOS DMG download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-macos-beta/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg?displayAssetName=false&amp;label=DOWNLOADS&amp;labelColor=263445&amp;color=8B5CF6&amp;style=for-the-badge" height="32">
