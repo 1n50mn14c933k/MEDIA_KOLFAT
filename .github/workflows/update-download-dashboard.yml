@@ -2,19 +2,26 @@ name: Update MEDIA KOLFAT downloads dashboard
 
 on:
   schedule:
-    - cron: "23 * * * *"
+    # Two off-peak opportunities per hour; missed GitHub schedule events remain possible.
+    - cron: "17,47 * * * *"
   workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/update-download-dashboard.yml"
+      - ".github/scripts/update_download_dashboard.py"
+      - ".github/scripts/tests/test_download_dashboard.py"
   push:
     branches: [main]
     paths:
       - ".github/workflows/update-download-dashboard.yml"
       - ".github/scripts/update_download_dashboard.py"
+      - ".github/scripts/tests/test_download_dashboard.py"
 
 permissions:
   contents: write
 
 concurrency:
-  group: media-kolfat-download-dashboard
+  group: media-kolfat-download-dashboard-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -23,10 +30,11 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          persist-credentials: true # Dashboard job commits refreshed counters to main.
+          persist-credentials: ${{ github.event_name != 'pull_request' }}
       - name: Test multi-platform asset classification and historical migration
         run: python3 -m unittest discover -s .github/scripts/tests -p "test_download_dashboard.py" -v
       - name: Collect real counters and render SVG
+        if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -40,6 +48,7 @@ jobs:
           grep -q "LINUX" assets/download-dashboard.svg
           grep -q "macOS" assets/download-dashboard.svg
       - name: Commit refreshed dashboard only
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           set -euo pipefail

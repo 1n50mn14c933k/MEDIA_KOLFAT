@@ -193,8 +193,10 @@ def step(peak):
     return next(v * scale for v in (1, 2, 5, 10) if v * scale >= raw)
 
 
-def draw(history, observation, hourly=None):
+def draw(history, observation, hourly=None, checked_at=None):
     latest = history[-1]
+    if checked_at is None:
+        checked_at = datetime.combine(date.fromisoformat(latest["date"]), datetime.min.time(), timezone.utc)
     samples = history[-90:]
     hourly = hourly or []
     totals, assets, active = (observation[k] for k in ("totals", "assets", "active"))
@@ -309,7 +311,7 @@ def draw(history, observation, hourly=None):
             box.append(f'<text x="50" y="853" fill="#aaa" font-family="Arial,sans-serif" '
                        f'font-size="12">+ {len(assets)-4} additional package(s) included in the totals</text>')
     box.append(f'<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" '
-               f'font-size="12">Last snapshot: {html.escape(latest["date"])} UTC  |  '
+               f'font-size="12">Last checked: {checked_at.strftime("%Y-%m-%d %H:%M UTC")}  |  '
                'Excludes checksums, source archives and draft releases  |  No in-app tracking</text>')
     box.append('</svg>')
     return "\n".join(box)+"\n"
@@ -322,7 +324,7 @@ def main():
     old=json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {}
     history=update_history(read_history(old),observation,today)
     hourly=record_hourly(old,observation,now)
-    svg=draw(history,observation,hourly)
+    svg=draw(history,observation,hourly,now)
     HISTORY.parent.mkdir(parents=True,exist_ok=True)
     HISTORY.write_text(json.dumps({"schema_version":2,"last_checked_at_utc":now.isoformat(timespec="seconds").replace("+00:00","Z"),"snapshots":history,"hourly_snapshots":hourly},indent=2)+"\n",
                        encoding="utf-8")

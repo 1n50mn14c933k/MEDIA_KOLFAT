@@ -1,7 +1,8 @@
 name: Monitor MEDIA KOLFAT downloads dashboard
 on:
   schedule:
-    - cron: "37 2,8,14,20 * * *"
+    # Independent hourly watchdog, staggered after the updater minute 17 slot.
+    - cron: "39 * * * *"
   workflow_run:
     workflows: ["Update MEDIA KOLFAT downloads dashboard"]
     types: [completed]

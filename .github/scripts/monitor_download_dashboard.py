@@ -10,11 +10,12 @@ from urllib.request import Request, urlopen
 REPO="1n50mn14c933k/MEDIA_KOLFAT"
 ROOT=Path(__file__).resolve().parents[2]
 
-def evaluate(history, svg, runs, now):
+def evaluate(history, svg, runs, now, live=None):
     errors=[]
     observed=None
     latest_date=None
     latest_run=None
+    latest_counts=None
     try:
         if history["schema_version"]!=2: raise ValueError("Unexpected history schema")
         snaps=history["snapshots"]
@@ -22,6 +23,7 @@ def evaluate(history, svg, runs, now):
         dates=[x["date"] for x in snaps]
         if dates!=sorted(set(dates)): raise ValueError("Unsorted/duplicate observations")
         latest_date=date.fromisoformat(dates[-1])
+        latest_counts=snaps[-1]["counts"]
         for osname in ("windows","linux","macos"):
             val=snaps[-1]["counts"][osname]
             if val is not None and (type(val) is not int or val<0):
@@ -31,13 +33,15 @@ def evaluate(history, svg, runs, now):
         if observed.tzinfo is None: raise ValueError("Refresh timestamp without timezone")
         observed=observed.astimezone(timezone.utc)
         if stamp and observed.date()!=latest_date: errors.append("Refresh timestamp and snapshot date disagree")
-        if now-observed>timedelta(hours=48):
-            errors.append("Latest dashboard refresh is %.1f hours old (limit 48h)"%((now-observed).total_seconds()/3600))
+        if now-observed>timedelta(minutes=110):
+            errors.append("Latest dashboard refresh is %.1f minutes old (limit 110m)"%((now-observed).total_seconds()/60))
         if stamp and observed-now>timedelta(minutes=10): errors.append("Refresh timestamp is in the future")
     except (KeyError,ValueError,TypeError,AttributeError,IndexError) as exc:
         errors.append("Missing or malformed download history: "+str(exc))
     if not svg: errors.append("Dashboard SVG missing")
-    elif latest_date and ("Last snapshot: "+latest_date.isoformat()+" UTC") not in svg:
+    elif observed and history.get("last_checked_at_utc") and ("Last checked: "+observed.strftime("%Y-%m-%d %H:%M UTC")) not in svg:
+        errors.append("SVG timestamp differs from latest dashboard JSON")
+    elif latest_date and not history.get("last_checked_at_utc") and ("Last snapshot: "+latest_date.isoformat()+" UTC") not in svg:
         errors.append("SVG date differs from latest dashboard JSON")
     if not isinstance(runs,list):
         errors.append("GitHub updater workflow status unavailable")
@@ -49,6 +53,17 @@ def evaluate(history, svg, runs, now):
             latest_run=completed[0]
             if latest_run.get("conclusion")!="success":
                 errors.append("Last completed dashboard updater failed: "+str(latest_run.get("conclusion")))
+            try:
+                run_at=datetime.fromisoformat(latest_run["created_at"].replace("Z","+00:00"))
+                if now-run_at>timedelta(minutes=110):
+                    errors.append("No recent updater run within 110 minutes")
+            except (KeyError,ValueError,AttributeError):
+                errors.append("Updater run timestamp missing or invalid")
+    if live is not None and latest_counts is not None and observed is not None and now-observed>timedelta(minutes=30):
+        for platform in ("windows","linux","macos"):
+            expected=live["totals"][platform] if live["active"][platform] else None
+            if latest_counts[platform]!=expected:
+                errors.append("Live "+platform+" count mismatch: saved="+str(latest_counts[platform])+" live="+str(expected))
     return {"healthy":not errors,"reasons":errors,
             "checked_at":now.isoformat(timespec="seconds"),
             "last_refresh":observed.isoformat(timespec="seconds") if observed else None,
@@ -61,7 +76,7 @@ def main():
     parser.add_argument("--issue-out",required=True)
     args=parser.parse_args()
     failures=[]
-    history=svg=runs=None
+    history=svg=runs=live=None
     try: history=json.loads((ROOT/"assets/download-dashboard-history.json").read_text(encoding="utf8"))
     except Exception as e: failures.append("History file unreadable: "+str(e))
     try: svg=(ROOT/"assets/download-dashboard.svg").read_text(encoding="utf8")
@@ -76,7 +91,12 @@ def main():
         with urlopen(Request(url,headers=headers),timeout=30) as reply:
             runs=json.load(reply)["workflow_runs"]
     except Exception as e: failures.append("Cannot query updater workflow: "+str(e))
-    report=evaluate(history,svg,runs,datetime.now(timezone.utc))
+    try:
+        from update_download_dashboard import collect, github_releases
+        live=collect(github_releases())
+    except Exception as e:
+        failures.append("Live GitHub release counts unavailable: "+str(e))
+    report=evaluate(history,svg,runs,datetime.now(timezone.utc),live)
     report["reasons"]=failures+report["reasons"]
     report["healthy"]=not report["reasons"]
     Path(args.json_out).write_text(json.dumps(report,indent=2)+"\n",encoding="utf8")
