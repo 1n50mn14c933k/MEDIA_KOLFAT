@@ -199,27 +199,6 @@ Thank you for supporting an independent project and helping shape what MEDIA KOL
 
 <p align="center"><a href="https://kolfat.app/"><strong>🌐 KOLFAT official website</strong></a> &nbsp; · &nbsp; <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases"><strong>🐙 Official GitHub Releases</strong></a> &nbsp; · &nbsp; <a href="https://apps.microsoft.com/detail/9p0x091t7mv4"><strong>🪟 Microsoft Store (Windows)</strong></a></p>
 
-## 🗓️ Development Timeline
-
-| Date | Platform | Milestone |
-|---|---|---|
-| **Sep 10, 2026** | Windows | **1.0.0** public launch |
-| **Sep–Oct 2026** | Windows | **1.2–1.8:** localization, Duplicate Finder, Guided/Advanced modes and MOVE safety |
-| **Oct 27, 2026** | Windows | **2.0.0 Stable**, Microsoft Store + EXE |
-| **Oct 2026** | Linux | Avalonia/.NET 10 port, secure COPY, EXIF and filesystem safety validation |
-| **Oct 28, 2026** | Linux | Earlier Beta: native Ubuntu Guided COPY of **101 sample photos** |
-| **Oct 28, 2026** | Linux | **2.4.0 Public Beta** AppImage + checksum published; reported **49 focused tests passed / 0 failed** |
-| **Nov 1, 2026** | macOS | **2.4.0 Public Beta** DMG + SHA-256 published for Apple Silicon (M-series), macOS 14+; unsigned experimental release |
-
-See the [full Development Timeline](docs/DEVELOPMENT_TIMELINE.md) and [Public Roadmap](ROADMAP.md).
-
-## 🐧 Linux Beta — Known Limitations
-
-- **MOVE is disabled.** Safe source-deletion guarantees are still being developed.
-- Some Linux settings, system-information labels and desktop integrations may need refinement.
-- Native 2.4.0 AppImage testing and broader distribution compatibility remain unverified.
-- Report problems through [GitHub Issues](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues), sharing only sanitized logs, not personal media or private file paths.
-
 <p align="center"><a href="https://ko-fi.com/kolfat_app"><img src="https://img.shields.io/badge/%F0%9F%A7%B9%F0%9F%AA%A3%E2%9D%A4%EF%B8%8F-Keep_Our_Maid_Alive%2C_Strong_%26_Cleaning%21-FF812E?style=for-the-badge&amp;labelColor=181818" alt="🧹🪣❤️ Keep Our Maid Alive, Strong &amp; Cleaning!" width="430"></a></p>
 
 ---
