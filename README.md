@@ -389,11 +389,13 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
 
 ## 📊 MEDIA KOLFAT | GitHub Downloads Dashboard
 
+[![Downloads dashboard health](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/monitor-download-dashboard.yml/badge.svg?branch=main)](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/monitor-download-dashboard.yml)
+
 ![MEDIA KOLFAT Windows, Linux and macOS GitHub package downloads dashboard](assets/download-dashboard.svg)
 
-**Automatic GitHub package-download tracking for 🪟 Windows, 🐧 Linux and 🍎 macOS.** The dashboard shows lifetime asset downloads, an observed downloads/day rate by platform and a package breakdown. Experimental Linux AppImage downloads are included; future macOS packages will appear automatically when published. **Not released** and **awaiting 2 observations** are shown when data is unavailable instead of fabricated statistics.
+**Scheduled GitHub package-download tracking for 🪟 Windows, 🐧 Linux and 🍎 macOS.** The dashboard shows lifetime asset downloads, an observed downloads/day rate by platform and a package breakdown. Experimental Linux AppImage downloads are included; future macOS packages will appear automatically when published. **Not released** and **awaiting 2 observations** are shown when data is unavailable instead of fabricated statistics.
 
-Counts reflect **GitHub Release downloads, not confirmed installations**. Microsoft Store, App Store and other external distribution channels are not included. No in-app telemetry or personal information is collected.
+**The badge reports the last completed health-monitor check, not uninterrupted uptime.** GitHub scheduled runs can be delayed or skipped; use the chart’s exact UTC last-check time. Counts reflect **GitHub Release downloads, not confirmed installations**. Microsoft Store, App Store and other external distribution channels are not included. No in-app telemetry or personal information is collected.
 
 [Windows stable release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0) · [Linux Public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) · [How the dashboard works](docs/DOWNLOAD_DASHBOARD.md)
 
