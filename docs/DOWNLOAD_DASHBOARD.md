@@ -37,7 +37,7 @@ from the actual release assets each day. Deleted/replaced assets can reset count
 negative daily rates are intentionally suppressed.
 
 The [GitHub Actions workflow](../.github/workflows/update-download-dashboard.yml)
-runs hourly at minute 23 UTC, can run manually and is triggered by changes to the
+has two scheduled opportunities per hour at minutes 17 and 47 UTC, can run manually and is triggered by changes to the
 script/workflow. It writes only `assets/download-dashboard.svg` and
 `assets/download-dashboard-history.json`. The dashboard shows the latest
 **90 daily snapshots** for the chart, plus up to **7 days of hourly snapshots** for rate calculations; historical unknown hours are never fabricated.
@@ -59,8 +59,15 @@ Rollback by reverting the dashboard script, workflow, README and documentation.
 The schema-v2 history should be preserved or intentionally migrated back, never
 silently overwritten. No application binaries, releases or product data are modified.
 
-## Independent 48-hour health monitoring
+## Independent hourly health monitoring
 
-The [monitor workflow](../.github/workflows/monitor-download-dashboard.yml) independently checks dashboard health every six hours (02:37, 08:37, 14:37, 20:37 UTC) and after every updater run. It verifies the last completed updater result, history/schema, SVG consistency, and exact last refresh timestamp. A failed, cancelled or missing updater, malformed data, or a snapshot older than 48 hours triggers one issue assigned to the repository owner. The existing issue is updated, rather than duplicated. Recovery automatically closes it with a comment.
+The [monitor workflow](../.github/workflows/monitor-download-dashboard.yml) independently checks dashboard health every hour at minute 39 UTC and after every updater run. It verifies the last completed updater result, history/schema, SVG consistency, and exact last refresh timestamp. A failed, cancelled or missing updater, malformed data, or a snapshot older than 110 minutes, a missing recent updater run, an inconsistent exact refresh timestamp, or stale counters against the live GitHub Releases API (after a 30-minute grace period) triggers one issue assigned to the repository owner. The existing issue is updated, rather than duplicated. Recovery automatically closes it with a comment.
 
-The updater now writes last_checked_at_utc in UTC ISO 8601 format alongside historical schema-v2 observations. Older date-only snapshots remain intact and use a conservative end-of-day fallback. No fabricated counters are created. GitHub notifications for assigned issues must be enabled to receive external alerts. The monitor cannot guarantee detection during a GitHub Actions/API outage; delayed scheduled runs can delay notification. A ChatGPT alert requires a free automation slot.
+The updater writes the exact UTC time to the chart and last_checked_at_utc in UTC ISO 8601 format alongside historical schema-v2 observations. Older date-only snapshots remain intact and use a conservative end-of-day fallback. No fabricated counters are created. GitHub notifications for assigned issues must be enabled to receive external alerts. The monitor cannot guarantee detection during a GitHub Actions/API outage; delayed scheduled runs can delay notification. A ChatGPT alert requires a free automation slot.
+
+
+## Visible health badge and limits
+
+The README uses GitHub's official [monitor workflow badge](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/monitor-download-dashboard.yml/badge.svg?branch=main). Red means the latest completed monitor run failed; green means that run passed, not that every future schedule is guaranteed to run. If GitHub misses the monitor itself, a status badge cannot autonomously switch to red. The SVG displays the precise last-check UTC timestamp to expose that limitation. The two offset updater schedules are redundant opportunities, not a claim of guaranteed exact-minute execution.
+
+The monitor independently checks live release counts, allowing 30 minutes after a successful refresh for any new downloads. No commercial service or additional paid infrastructure is required.
