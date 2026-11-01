@@ -389,6 +389,8 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
 
 ## 📊 MEDIA KOLFAT | GitHub Downloads Dashboard
 
+**[📊 Open the live MEDIA KOLFAT download statistics dashboard](https://kolfat.app/download-stats/)**. This page queries official GitHub Release counts directly when opened and every 10 minutes while visible, without waiting for GitHub Actions. It displays an error if live data is unavailable. The SVG below is only a saved historical snapshot.
+
 ### Current GitHub package-download counters
 
 These badges read the published release-asset download counts directly via Shields.io's GitHub service, **independently of the scheduled dashboard workflow**. The badge provider caches results, so small delays are normal. Check the linked GitHub release for the exact current number.
