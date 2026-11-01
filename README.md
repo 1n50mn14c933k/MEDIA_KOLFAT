@@ -393,20 +393,32 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
 
 <table width="100%">
   <tr>
-    <td align="center" width="33%">
-      <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0">
-        <img src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe?displayAssetName=false&label=WINDOWS%20%3A&labelColor=152a44&color=148ee7&style=for-the-badge" alt="WINDOWS: current GitHub EXE download count" width="260" height="32">
-      </a>
+    <td align="center" width="33%" valign="middle">
+      <h3>🪟 WINDOWS</h3>
+      <sub>STABLE · EXE</sub>
+      <p>
+        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0">
+          <img alt="Live Windows EXE download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe?displayAssetName=false&label=DOWNLOADS&labelColor=152B42&color=168FE5&style=for-the-badge" height="32">
+        </a>
+      </p>
     </td>
-    <td align="center" width="33%">
-      <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta">
-        <img src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage?displayAssetName=false&label=LINUX%20%3A&labelColor=3a281d&color=ff8e35&style=for-the-badge" alt="LINUX: current GitHub AppImage download count" width="260" height="32">
-      </a>
+    <td align="center" width="33%" valign="middle">
+      <h3>🐧 LINUX</h3>
+      <sub>PUBLIC BETA · APPIMAGE</sub>
+      <p>
+        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta">
+          <img alt="Live Linux AppImage download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage?displayAssetName=false&label=DOWNLOADS&labelColor=3C291D&color=FF913F&style=for-the-badge" height="32">
+        </a>
+      </p>
     </td>
-    <td align="center" width="33%">
-      <a href="https://kolfat.app/download-stats/">
-        <img src="https://img.shields.io/badge/macOS%20%3A-NOT%20RELEASED-8795a6?style=for-the-badge&labelColor=202c3b" alt="macOS: not released yet. Click for the live Mac download count once published." width="260" height="32">
-      </a>
+    <td align="center" width="33%" valign="middle">
+      <h3>🍎 macOS</h3>
+      <sub>APPLE SILICON</sub>
+      <p>
+        <a href="https://kolfat.app/download-stats/">
+          <img alt="macOS download count: not released; open live dashboard for automatic Mac updates" src="https://img.shields.io/badge/DOWNLOADS-NOT%20RELEASED-8E9AAB?labelColor=263445&style=for-the-badge" height="32">
+        </a>
+      </p>
     </td>
   </tr>
 </table>
