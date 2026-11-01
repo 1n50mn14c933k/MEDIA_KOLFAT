@@ -389,31 +389,28 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
 
 ## 📊 MEDIA KOLFAT | GitHub Downloads Dashboard
 
-**[📊 Open the live MEDIA KOLFAT download statistics dashboard](https://kolfat.app/download-stats/)**. This page queries official GitHub Release counts directly when opened and every 10 minutes while visible, without waiting for GitHub Actions. It displays an error if live data is unavailable. The SVG below is only a saved historical snapshot.
+### 🌐 [Open the futuristic LIVE dashboard for Windows, Linux & macOS](https://kolfat.app/download-stats/)
 
-### Current GitHub package-download counters
+**LIVE release totals**, refreshed directly from GitHub whenever the dashboard opens, with independent updates while the page stays open. **macOS Apple Silicon is included already** and automatically starts showing real downloads as soon as a supported macOS package is published. No invented Mac counts.
 
-These badges read the published release-asset download counts directly via Shields.io's GitHub service, **independently of the scheduled dashboard workflow**. The badge provider caches results, so small delays are normal. Check the linked GitHub release for the exact current number.
+[![Windows EXE](https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe?label=WINDOWS%20EXE&labelColor=152a44&color=148ee7&style=for-the-badge)](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0)
+[![Linux AppImage](https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage?label=LINUX%20APPIMAGE&labelColor=3a281d&color=ff8e35&style=for-the-badge)](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta)
+[![macOS Apple Silicon](https://img.shields.io/badge/macOS%20APPLE%20SILICON-NOT%20RELEASED-8795a6?style=for-the-badge&labelColor=202c3b)](https://kolfat.app/download-stats/)
 
-[![Windows EXE downloads](https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe?label=Windows%20EXE%20downloads&labelColor=181818&color=0078D4&style=for-the-badge)](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0)
-[![Linux AppImage downloads](https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage?label=Linux%20AppImage%20downloads&labelColor=181818&color=FF812E&style=for-the-badge)](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta)
+### ⏱️ Hourly snapshot update & independent monitor
 
-**macOS Apple Silicon:** Not released yet. A macOS download badge will be added when a public package exists. These badges count only the named application packages, not checksums or GitHub source archives.
+[![Hourly snapshot updater](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/update-download-dashboard.yml/badge.svg?branch=main)](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/update-download-dashboard.yml)
+[![Health monitor](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/monitor-download-dashboard.yml/badge.svg?branch=main)](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/monitor-download-dashboard.yml)
 
-<details>
-<summary><strong>📈 Show saved historical download chart (scheduled snapshot)</strong></summary>
+Workflow badges show the **latest completed run**, not proof that GitHub honored its hourly schedule. The historical image below is always visible and shows its last recorded UTC timestamp. For **current Windows, Linux, macOS and total numbers**, use the [live dashboard](https://kolfat.app/download-stats/) which does not depend on GitHub Actions scheduling.
 
-![MEDIA KOLFAT Windows, Linux and macOS historical GitHub downloads dashboard](assets/download-dashboard.svg)
+### 📈 MEDIA KOLFAT download history (visible snapshot)
 
-This SVG is a **saved historical snapshot**, not a live counter. Its footer displays the exact last successful collection time in UTC. GitHub Actions may delay or skip scheduled refreshes. If it is old, **do not rely on its totals**. Use the current asset badges or the GitHub release pages above.
+![MEDIA KOLFAT Windows, Linux and macOS GitHub historical download dashboard](assets/download-dashboard.svg)
 
-</details>
+**Counts:** published GitHub Release application-package download events, including beta releases. Checksums and GitHub source archives excluded. No in-app telemetry; Microsoft Store and other app-store installations excluded.
 
-**Scheduled snapshot monitoring:** [View last completed health check](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/actions/workflows/monitor-download-dashboard.yml). A successful past run is not proof that future hourly runs executed.
-
-Counts reflect **GitHub Release asset downloads, not confirmed installations or unique users**. Microsoft Store, Mac App Store and other distribution platforms are not included. No MEDIA KOLFAT in-app telemetry or personal information is collected.
-
-[Windows stable release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0) · [Linux Public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) · [How download tracking works](docs/DOWNLOAD_DASHBOARD.md)
+[🪟 Windows stable release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0) · [🐧 Linux Public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta) · [🍎 macOS release list](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) · [📖 Dashboard documentation](docs/DOWNLOAD_DASHBOARD.md)
 
 ---
 
