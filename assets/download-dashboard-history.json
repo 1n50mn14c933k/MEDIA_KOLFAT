@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_checked_at_utc": "2026-11-02T01:50:39Z",
+  "last_checked_at_utc": "2026-11-02T09:30:21Z",
   "snapshots": [
     {
       "date": "2026-10-27",
@@ -37,7 +37,7 @@
     {
       "date": "2026-11-02",
       "counts": {
-        "windows": 35,
+        "windows": 36,
         "linux": 3,
         "macos": 1
       }
@@ -88,6 +88,14 @@
       "timestamp": "2026-11-02T01:50:39Z",
       "counts": {
         "windows": 35,
+        "linux": 3,
+        "macos": 1
+      }
+    },
+    {
+      "timestamp": "2026-11-02T09:30:21Z",
+      "counts": {
+        "windows": 36,
         "linux": 3,
         "macos": 1
       }
