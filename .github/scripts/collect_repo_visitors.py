@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Archive factual MEDIA KOLFAT GitHub repository visitor counts.
+"""Publish factual MEDIA KOLFAT GitHub traffic badges for the previous complete UTC week.
 
-Daily = completed UTC day. Weekly = preceding completed Monday-Sunday UTC week.
-Weekly unique visitors are GitHub's own week aggregate, NEVER summed daily uniques.
-Requires a read-only fine-grained token with MEDIA_KOLFAT Administration: Read.
+Both metrics come from the SAME GitHub Traffic API weekly bucket. Do not sum
+daily uniques or infer visitors from page views. No website/download changes.
 """
 import json
 import os
@@ -11,105 +10,97 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from xml.sax.saxutils import escape
 
 REPO = "1n50mn14c933k/MEDIA_KOLFAT"
 OUTPUT = Path("assets/repository-visitors.json")
-URL = "https://api.github.com/repos/" + REPO + "/traffic/views"
+API_URL = "https://api.github.com/repos/" + REPO + "/traffic/views?per=week"
 
 
-def periods(now):
+def previous_complete_week(now):
     today = now.astimezone(timezone.utc).date()
-    yesterday = today - timedelta(days=1)
     this_monday = today - timedelta(days=today.weekday())
-    last_monday = this_monday - timedelta(days=7)
-    last_sunday = this_monday - timedelta(days=1)
-    return yesterday, last_monday, last_sunday
+    return this_monday - timedelta(days=7), this_monday - timedelta(days=1)
 
 
-def select_period(payload, field, date):
-    """Use GitHub's native unique count; a missing bucket remains unknown."""
-    if not isinstance(payload, dict) or not isinstance(payload.get(field), list):
-        raise ValueError("Invalid GitHub traffic response")
-    match = next((row for row in payload[field]
-                  if isinstance(row, dict) and str(row.get("timestamp", ""))[:10] == date.isoformat()), None)
+def weekly_metrics(payload, week_start):
+    """Use native GitHub weekly count/uniques. Missing data stays unavailable."""
+    if not isinstance(payload, dict) or not isinstance(payload.get("views"), list):
+        raise ValueError("Invalid GitHub weekly traffic response")
+    match = next((row for row in payload["views"]
+                  if isinstance(row, dict)
+                  and str(row.get("timestamp", ""))[:10] == week_start.isoformat()), None)
     if match is None:
         return {"unique_visitors": None, "views": None}
-    count = match.get("count")
-    unique = match.get("uniques")
-    if (type(count) is not int or type(unique) is not int
-            or count < 0 or unique < 0 or unique > count):
-        raise ValueError("Invalid visitor totals from GitHub")
-    return {"unique_visitors": unique, "views": count}
+    views, visitors = match.get("count"), match.get("uniques")
+    if (type(views) is not int or type(visitors) is not int
+            or views < 0 or visitors < 0 or visitors > views):
+        raise ValueError("Invalid GitHub weekly traffic counters")
+    return {"unique_visitors": visitors, "views": views}
 
 
-def get_views(token, per):
-    req = Request(URL + "?per=" + per, headers={
+def fetch_weekly_traffic(token):
+    request = Request(API_URL, headers={
         "Authorization": "Bearer " + token,
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2026-03-10",
-        "User-Agent": "media-kolfat-repository-visitor-collector",
+        "User-Agent": "media-kolfat-weekly-repository-traffic",
     })
     try:
-        with urlopen(req, timeout=25) as response:
+        with urlopen(request, timeout=25) as response:
             return json.load(response)
     except HTTPError as exc:
-        raise RuntimeError(f"GitHub traffic API denied request (HTTP {exc.code})") from None
+        raise RuntimeError(f"GitHub Traffic API returned HTTP {exc.code}") from None
     except URLError:
-        raise RuntimeError("Could not reach the GitHub traffic API") from None
+        raise RuntimeError("Could not reach GitHub Traffic API") from None
 
 
-def render_badge(label, unique_visitors, destination):
-    """Create small standalone SVG. Null means unavailable, never a made-up zero."""
-    from xml.sax.saxutils import escape
-    if unique_visitors is not None and (type(unique_visitors) is not int or unique_visitors < 0):
-        raise ValueError("Invalid unique visitor metric")
-    value = "—" if unique_visitors is None else f"{unique_visitors:,}"
-    title = escape("MEDIA KOLFAT GitHub repository: " + label + ": " + value)
-    label_xml = escape(label.upper())
-    value_xml = escape(value)
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="264" height="32" viewBox="0 0 264 32" role="img" aria-label="{title}">
-  <title>{title}</title>
-  <rect width="264" height="32" rx="6" fill="#171717"/>
-  <path d="M176 0h82a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6h-82z" fill="#3b3b3b"/>
-  <text x="14" y="21" fill="#e7e7e7" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" letter-spacing=".65">{label_xml}</text>
-  <text x="220" y="21" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">{value_xml}</text>
-</svg>
-"""
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(svg, encoding="utf-8")
-
-
-def build_snapshot(now, daily_response, weekly_response):
-    yesterday, previous_monday, previous_sunday = periods(now)
+def build_snapshot(now, weekly_payload):
+    monday, sunday = previous_complete_week(now)
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "repository": REPO,
         "generated_at_utc": now.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
-        "daily": {"date": yesterday.isoformat(),
-                  **select_period(daily_response, "views", yesterday)},
-        "weekly": {"week_start": previous_monday.isoformat(),
-                   "week_end": previous_sunday.isoformat(),
-                   **select_period(weekly_response, "views", previous_monday)},
+        "weekly": {
+            "week_start": monday.isoformat(),
+            "week_end": sunday.isoformat(),
+            **weekly_metrics(weekly_payload, monday),
+        },
     }
+
+
+def render_badge(label, metric, week_start, week_end, target):
+    """Create monochrome 370x32 badge; unavailable data must never appear as zero."""
+    if metric is not None and (type(metric) is not int or metric < 0):
+        raise ValueError("Invalid badge metric")
+    value = "—" if metric is None else f"{metric:,}"
+    accessible = escape(f"{label}: {value} (previous completed UTC week {week_start} to {week_end})")
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="370" height="32" viewBox="0 0 370 32" role="img" aria-label="{accessible}">
+  <title>{accessible}</title>
+  <rect width="370" height="32" rx="6" fill="#171717"/>
+  <rect x="306" width="64" height="32" rx="6" fill="#3b3b3b"/>
+  <text x="14" y="21" fill="#e7e7e7" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700">{escape(label)}</text>
+  <text x="338" y="21" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">{escape(value)}</text>
+</svg>
+"""
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(svg, encoding="utf-8")
 
 
 def main():
     token = os.getenv("KOLFAT_TRAFFIC_READ_TOKEN", "").strip()
     if not token:
-        raise SystemExit("KOLFAT_TRAFFIC_READ_TOKEN is missing; no visitor totals published.")
-    now = datetime.now(timezone.utc)
-    daily = get_views(token, "day")
-    weekly = get_views(token, "week")
-    result = build_snapshot(now, daily, weekly)
+        raise SystemExit("KOLFAT_TRAFFIC_READ_TOKEN missing: refusing to publish guessed data")
+    result = build_snapshot(datetime.now(timezone.utc), fetch_weekly_traffic(token))
+    weekly = result["weekly"]
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    render_badge("Daily visitors", result["daily"]["unique_visitors"],
-                 Path("assets/repository-visitors-daily.svg"))
-    render_badge("Weekly visitors", result["weekly"]["unique_visitors"],
-                 Path("assets/repository-visitors-weekly.svg"))
-    print("Published repository visitor snapshot for", result["daily"]["date"],
-          "and", result["weekly"]["week_start"], "through", result["weekly"]["week_end"],
-          "(UTC); unavailable periods remain null.")
+    render_badge("Unique GitHub repository visitors", weekly["unique_visitors"],
+                 weekly["week_start"], weekly["week_end"], Path("assets/repository-visitors-weekly.svg"))
+    render_badge("GitHub repository page views", weekly["views"],
+                 weekly["week_start"], weekly["week_end"], Path("assets/repository-pageviews-weekly.svg"))
+    print("Verified previous UTC week:", weekly["week_start"], "through", weekly["week_end"],
+          "; unique visitors:", weekly["unique_visitors"], "; page views:", weekly["views"])
 
 
 if __name__ == "__main__":
