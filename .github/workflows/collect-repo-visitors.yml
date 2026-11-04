@@ -1,0 +1,31 @@
+name: Collect repository visitors
+
+on:
+  schedule:
+    - cron: "17 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Run collector regression tests
+        run: python3 -m unittest discover -s .github/scripts/tests -p "test_collect_repo_visitors.py" -v
+      - name: Update verified daily and weekly visitor badges
+        env:
+          KOLFAT_TRAFFIC_READ_TOKEN: ${{ secrets.KOLFAT_TRAFFIC_READ_TOKEN }}
+        run: python3 .github/scripts/collect_repo_visitors.py
+      - name: Commit only visitor badges and counts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/repository-visitors.json assets/repository-visitors-daily.svg assets/repository-visitors-weekly.svg
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(stats): refresh verified visitor badges"
+            git push
+          fi
