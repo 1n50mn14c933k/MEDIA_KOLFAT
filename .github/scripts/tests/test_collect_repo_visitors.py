@@ -1,43 +1,53 @@
-"""Regression tests: do not fabricate views or sum unique visitors across days."""
+"""Regression tests for weekly GitHub-reported visitor and page-view badges."""
 import sys
+import tempfile
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from collect_repo_visitors import build_snapshot, periods, select_period
+from collect_repo_visitors import build_snapshot, previous_complete_week, weekly_metrics, render_badge
 
 
 class RepositoryVisitorTests(unittest.TestCase):
-    def test_completed_day_and_week(self):
-        self.assertEqual(tuple(map(str, periods(datetime(2026, 11, 4, 12, tzinfo=timezone.utc)))),
-                         ("2026-11-03", "2026-10-26", "2026-11-01"))
+    def test_previous_completed_week(self):
+        self.assertEqual(tuple(map(str, previous_complete_week(datetime(2026, 11, 4, 19, tzinfo=timezone.utc)))),
+                         ("2026-10-26", "2026-11-01"))
 
-    def test_monday_uses_previous_complete_week(self):
-        self.assertEqual(tuple(map(str, periods(datetime(2026, 11, 9, 12, tzinfo=timezone.utc)))),
-                         ("2026-11-08", "2026-11-02", "2026-11-08"))
+    def test_monday_week_boundary(self):
+        self.assertEqual(tuple(map(str, previous_complete_week(datetime(2026, 11, 9, 10, tzinfo=timezone.utc)))),
+                         ("2026-11-02", "2026-11-08"))
 
-    def test_weekly_unique_visitors_are_native_github_metric(self):
-        now = datetime(2026, 11, 4, 12, tzinfo=timezone.utc)
-        day = {"views": [{"timestamp": "2026-11-03T00:00:00Z", "count": 12, "uniques": 4}]}
-        week = {"views": [{"timestamp": "2026-10-26T00:00:00Z", "count": 48, "uniques": 9}]}
-        snapshot = build_snapshot(now, day, week)
-        self.assertEqual(snapshot["daily"]["unique_visitors"], 4)
-        self.assertEqual(snapshot["weekly"]["unique_visitors"], 9)
-        self.assertEqual(snapshot["weekly"]["views"], 48)
+    def test_one_week_one_source_for_both_metrics(self):
+        now = datetime(2026, 11, 4, 19, tzinfo=timezone.utc)
+        response = {"views": [{"timestamp": "2026-10-26T00:00:00Z", "uniques": 4, "count": 87}]}
+        result = build_snapshot(now, response)
+        self.assertEqual(result["weekly"]["unique_visitors"], 4)
+        self.assertEqual(result["weekly"]["views"], 87)
+        self.assertNotIn("daily", result)
 
-    def test_missing_data_is_unavailable_not_zero(self):
-        result = select_period({"views": []}, "views",
-                               datetime(2026, 11, 3, tzinfo=timezone.utc).date())
-        self.assertIsNone(result["unique_visitors"])
-        self.assertIsNone(result["views"])
+    def test_missing_week_is_unavailable(self):
+        day = previous_complete_week(datetime(2026, 11, 4, tzinfo=timezone.utc))[0]
+        self.assertEqual(weekly_metrics({"views": []}, day),
+                         {"unique_visitors": None, "views": None})
 
-    def test_reject_bad_or_ambiguous_traffic(self):
-        day = datetime(2026, 11, 3, tzinfo=timezone.utc).date()
-        for data in [{"count": 2, "uniques": 4}, {"count": -1, "uniques": 0},
-                     {"count": "3", "uniques": 1}, {"count": 2, "uniques": True}]:
-            with self.subTest(data=data), self.assertRaises(ValueError):
-                select_period({"views": [{"timestamp": "2026-11-03T00:00:00Z", **data}]}, "views", day)
+    def test_bad_counts_are_rejected(self):
+        day = previous_complete_week(datetime(2026, 11, 4, tzinfo=timezone.utc))[0]
+        for count, uniques in [(2, 4), (-1, 0), ("3", 1), (2, True)]:
+            with self.subTest(count=count, uniques=uniques), self.assertRaises(ValueError):
+                weekly_metrics({"views": [{"timestamp": day.isoformat() + "T00:00:00Z",
+                                           "count": count, "uniques": uniques}]}, day)
+
+    def test_badges_preserve_exact_labels_and_numbers(self):
+        with tempfile.TemporaryDirectory() as temp:
+            for label, number in [("Unique GitHub repository visitors", 4),
+                                  ("GitHub repository page views", 87)]:
+                path = Path(temp) / "badge.svg"
+                render_badge(label, number, "2026-10-26", "2026-11-01", path)
+                svg = path.read_text(encoding="utf-8")
+                self.assertIn(label, svg)
+                self.assertIn(f">{number}</text>", svg)
+                self.assertIn('width="370"', svg)
 
 
 if __name__ == "__main__":

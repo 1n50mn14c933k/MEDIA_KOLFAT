@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-visitors-daily.svg" alt="Daily unique visitors to the MEDIA KOLFAT GitHub repository (previous UTC day)" width="264" height="32"></a>
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-visitors-weekly.svg" alt="Weekly unique visitors to the MEDIA KOLFAT GitHub repository (previous completed UTC week)" width="264" height="32"></a>
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-visitors-weekly.svg" alt="Unique GitHub repository visitors, previous completed UTC week" width="370" height="32"></a>
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-pageviews-weekly.svg" alt="GitHub repository page views, previous completed UTC week" width="370" height="32"></a>
 </p>
 
 <p align="center">
