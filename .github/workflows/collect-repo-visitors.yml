@@ -14,6 +14,8 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Run collector regression tests
+        run: python3 -m unittest discover -s .github/scripts/tests -p "test_collect_repo_visitors.py" -v
       - name: Update verified daily and weekly visitor badges
         env:
           KOLFAT_TRAFFIC_READ_TOKEN: ${{ secrets.KOLFAT_TRAFFIC_READ_TOKEN }}
