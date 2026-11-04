@@ -58,6 +58,27 @@ def get_views(token, per):
         raise RuntimeError("Could not reach the GitHub traffic API") from None
 
 
+def render_badge(label, unique_visitors, destination):
+    """Create small standalone SVG. Null means unavailable, never a made-up zero."""
+    from xml.sax.saxutils import escape
+    if unique_visitors is not None and (type(unique_visitors) is not int or unique_visitors < 0):
+        raise ValueError("Invalid unique visitor metric")
+    value = "—" if unique_visitors is None else f"{unique_visitors:,}"
+    title = escape("MEDIA KOLFAT GitHub repository: " + label + ": " + value)
+    label_xml = escape(label.upper())
+    value_xml = escape(value)
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="264" height="32" viewBox="0 0 264 32" role="img" aria-label="{title}">
+  <title>{title}</title>
+  <rect width="264" height="32" rx="6" fill="#171717"/>
+  <path d="M176 0h82a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6h-82z" fill="#3b3b3b"/>
+  <text x="14" y="21" fill="#e7e7e7" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" letter-spacing=".65">{label_xml}</text>
+  <text x="220" y="21" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">{value_xml}</text>
+</svg>
+"""
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(svg, encoding="utf-8")
+
+
 def build_snapshot(now, daily_response, weekly_response):
     yesterday, previous_monday, previous_sunday = periods(now)
     return {
@@ -82,6 +103,10 @@ def main():
     result = build_snapshot(now, daily, weekly)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    render_badge("Daily visitors", result["daily"]["unique_visitors"],
+                 Path("assets/repository-visitors-daily.svg"))
+    render_badge("Weekly visitors", result["weekly"]["unique_visitors"],
+                 Path("assets/repository-visitors-weekly.svg"))
     print("Published repository visitor snapshot for", result["daily"]["date"],
           "and", result["weekly"]["week_start"], "through", result["weekly"]["week_end"],
           "(UTC); unavailable periods remain null.")
