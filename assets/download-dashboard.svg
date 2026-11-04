@@ -38,26 +38,29 @@
 <text x="83" y="468.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">30</text>
 <path d="M95 415.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
 <text x="83" y="420.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">40</text>
-<polyline points="95.0,549.4 284.0,549.4 473.0,549.4 662.0,443.8 851.0,434.2 1040.0,429.4" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="95.0,549.4 252.5,549.4 410.0,549.4 567.5,443.8 725.0,434.2 882.5,429.4 1040.0,429.4" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="95.0" cy="549.4" r="4.5" fill="#e8edf1"/>
-<circle cx="284.0" cy="549.4" r="4.5" fill="#e8edf1"/>
-<circle cx="473.0" cy="549.4" r="4.5" fill="#e8edf1"/>
-<circle cx="662.0" cy="443.8" r="4.5" fill="#e8edf1"/>
-<circle cx="851.0" cy="434.2" r="4.5" fill="#e8edf1"/>
+<circle cx="252.5" cy="549.4" r="4.5" fill="#e8edf1"/>
+<circle cx="410.0" cy="549.4" r="4.5" fill="#e8edf1"/>
+<circle cx="567.5" cy="443.8" r="4.5" fill="#e8edf1"/>
+<circle cx="725.0" cy="434.2" r="4.5" fill="#e8edf1"/>
+<circle cx="882.5" cy="429.4" r="4.5" fill="#e8edf1"/>
 <circle cx="1040.0" cy="429.4" r="4.5" fill="#e8edf1"/>
-<polyline points="284.0,607.0 473.0,607.0 662.0,592.6 851.0,592.6 1040.0,592.6" fill="none" stroke="#ff914d" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="284.0" cy="607.0" r="4.5" fill="#ff914d"/>
-<circle cx="473.0" cy="607.0" r="4.5" fill="#ff914d"/>
-<circle cx="662.0" cy="592.6" r="4.5" fill="#ff914d"/>
-<circle cx="851.0" cy="592.6" r="4.5" fill="#ff914d"/>
+<polyline points="252.5,607.0 410.0,607.0 567.5,592.6 725.0,592.6 882.5,592.6 1040.0,592.6" fill="none" stroke="#ff914d" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="252.5" cy="607.0" r="4.5" fill="#ff914d"/>
+<circle cx="410.0" cy="607.0" r="4.5" fill="#ff914d"/>
+<circle cx="567.5" cy="592.6" r="4.5" fill="#ff914d"/>
+<circle cx="725.0" cy="592.6" r="4.5" fill="#ff914d"/>
+<circle cx="882.5" cy="592.6" r="4.5" fill="#ff914d"/>
 <circle cx="1040.0" cy="592.6" r="4.5" fill="#ff914d"/>
-<polyline points="662.0,602.2 851.0,602.2 1040.0,602.2" fill="none" stroke="#9ca4ad" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="662.0" cy="602.2" r="4.5" fill="#9ca4ad"/>
-<circle cx="851.0" cy="602.2" r="4.5" fill="#9ca4ad"/>
+<polyline points="567.5,602.2 725.0,602.2 882.5,602.2 1040.0,602.2" fill="none" stroke="#9ca4ad" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="567.5" cy="602.2" r="4.5" fill="#9ca4ad"/>
+<circle cx="725.0" cy="602.2" r="4.5" fill="#9ca4ad"/>
+<circle cx="882.5" cy="602.2" r="4.5" fill="#9ca4ad"/>
 <circle cx="1040.0" cy="602.2" r="4.5" fill="#9ca4ad"/>
 <text x="95.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">27 Oct</text>
-<text x="662.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">01 Nov</text>
-<text x="1040.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">03 Nov</text>
+<text x="567.5" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">01 Nov</text>
+<text x="1040.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">04 Nov</text>
 <rect x="305" y="647" width="16" height="4" fill="#e8edf1"/>
 <text x="330" y="654" fill="#ddd" font-family="Arial,sans-serif" font-size="13">WINDOWS</text>
 <rect x="485" y="647" width="16" height="4" fill="#ff914d"/>
@@ -72,5 +75,5 @@
 <text x="1038" y="764" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">3</text>
 <text x="50" y="793" fill="#ddd" font-family="Arial,sans-serif" font-size="14">macOS  |  MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg</text>
 <text x="1038" y="793" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">1</text>
-<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last checked: 2026-11-03 23:23 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
+<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last checked: 2026-11-04 03:19 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
 </svg>
