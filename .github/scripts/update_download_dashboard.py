@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Multi-platform GitHub release-asset downloads. Public counters, no telemetry.
 
-Produces a timestamped historical snapshot. The README primary asset counters use
-Shields.io directly and do not depend on this scheduled GitHub Actions job.
+Produces a timestamped dashboard and three self-hosted README download badges.
+Counts originate from GitHub's official release-asset download_count field.
 """
 import html
 import json
@@ -18,6 +18,22 @@ HISTORY = ROOT / "assets/download-dashboard-history.json"
 SVG = ROOT / "assets/download-dashboard.svg"
 REPO = "1n50mn14c933k/MEDIA_KOLFAT"
 PLATFORMS = ("windows", "linux", "macos")
+# README badges track the named release package, not unrelated releases or checksums.
+README_PACKAGES = {
+    "windows": ("v2.0.0", "MEDIA_KOLFAT_2.0.0_Setup.exe"),
+    "linux": ("v2.4.0-linux-beta", "MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage"),
+    "macos": ("v2.4.0-macos-beta", "MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg"),
+}
+README_BADGES = {
+    "windows": ROOT / "assets/download-count-windows.svg",
+    "linux": ROOT / "assets/download-count-linux.svg",
+    "macos": ROOT / "assets/download-count-macos.svg",
+}
+README_BADGE_COLORS = {
+    "windows": ("#152b42", "#168fe5"),
+    "linux": ("#3c291d", "#ff913f"),
+    "macos": ("#263445", "#8b5cf6"),
+}
 LABELS = {"windows": "WINDOWS", "linux": "LINUX", "macos": "macOS"}
 COLORS = {"windows": "#e8edf1", "linux": "#ff914d", "macos": "#9ca4ad"}
 EXCLUDE = re.compile(r"(?:sha[-_]?256|checksum|checksums|signature|\.sig$|\.asc$|\.sha\d+$|sbom)", re.I)
@@ -321,6 +337,38 @@ def draw(history, observation, hourly=None, checked_at=None):
     return "\n".join(box)+"\n"
 
 
+
+def release_asset_count(observation, platform):
+    """Return the exact official package count; missing assets are UNKNOWN, never zero."""
+    tag, filename = README_PACKAGES[platform]
+    matching = [a for a in observation["assets"]
+                if a["os"] == platform and a["version"] == tag and a["name"] == filename]
+    if len(matching) > 1:
+        raise ValueError("Duplicate GitHub release asset identity: " + filename)
+    return matching[0]["count"] if matching else None
+
+
+def render_download_badge(platform, count, checked_at):
+    """Self-hosted SVG badge, independent of external badge/CDN APIs."""
+    if count is not None and (type(count) is not int or count < 0):
+        raise ValueError("Invalid GitHub download count for " + platform)
+    value = "N/A" if count is None else f"{count:,}"
+    tag, filename = README_PACKAGES[platform]
+    description = html.escape(
+        f"{LABELS[platform]} {tag} / {filename}: {value} GitHub package downloads, "
+        f"checked {checked_at.strftime('%Y-%m-%d %H:%M UTC')}", quote=True)
+    left, right = README_BADGE_COLORS[platform]
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="160" height="32" viewBox="0 0 160 32" role="img" aria-label="{description}">
+  <title>{description}</title>
+  <rect width="160" height="32" rx="3" fill="{left}"/>
+  <path d="M100 0h57a3 3 0 0 1 3 3v26a3 3 0 0 1-3 3h-57z" fill="{right}"/>
+  <text x="50" y="20" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="700" letter-spacing="1">DOWNLOADS</text>
+  <text x="130" y="21" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">{html.escape(value)}</text>
+</svg>
+"""
+
+
+
 def main():
     now=datetime.now(timezone.utc)
     today=now.date()
@@ -333,6 +381,10 @@ def main():
     HISTORY.write_text(json.dumps({"schema_version":2,"last_checked_at_utc":now.isoformat(timespec="seconds").replace("+00:00","Z"),"snapshots":history,"hourly_snapshots":hourly},indent=2)+"\n",
                        encoding="utf-8")
     SVG.write_text(svg,encoding="utf-8")
+    for platform in PLATFORMS:
+        count = release_asset_count(observation, platform)
+        README_BADGES[platform].write_text(
+            render_download_badge(platform, count, now), encoding="utf-8")
     print("GitHub package downloads:",observation["totals"],
           "assets:",len(observation["assets"]),"snapshots:",len(history))
 
