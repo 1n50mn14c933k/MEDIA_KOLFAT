@@ -99,6 +99,37 @@ class DashboardTests(unittest.TestCase):
         self.assertIsNone(mod.hourly_rate([first,sample(now+timedelta(minutes=10),26)],"windows"))
         self.assertIsNone(mod.hourly_rate([first,sample(now+timedelta(hours=1),24)],"windows"))
 
+    def test_readme_badges_use_exact_release_assets(self):
+        observation = mod.collect([
+            {"tag_name": "v2.0.0", "draft": False, "assets": [
+                {"id": 1, "name": "MEDIA_KOLFAT_2.0.0_Setup.exe", "download_count": 46},
+                {"id": 2, "name": "MEDIA_KOLFAT_2.0.0_SHA256.txt", "download_count": 999}]},
+            {"tag_name": "v2.4.0-linux-beta", "draft": False, "assets": [
+                {"id": 3, "name": "MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage", "download_count": 3}]},
+            {"tag_name": "v2.4.0-macos-beta", "draft": False, "assets": [
+                {"id": 4, "name": "MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg", "download_count": 1}]},
+        ])
+        self.assertEqual([mod.release_asset_count(observation, p) for p in mod.PLATFORMS],
+                         [46, 3, 1])
+        now = datetime(2026, 11, 5, 16, 0, tzinfo=timezone.utc)
+        for p, expected in zip(mod.PLATFORMS, (46, 3, 1)):
+            with self.subTest(platform=p):
+                svg = mod.render_download_badge(p, expected, now)
+                self.assertIn(f">{expected}</text>", svg)
+                self.assertIn("DOWNLOADS", svg)
+                self.assertIn("2026-11-05 16:00 UTC", svg)
+                self.assertIn('width="160" height="32"', svg)
+
+    def test_missing_asset_never_fabricates_zero(self):
+        observation = mod.collect([])
+        self.assertIsNone(mod.release_asset_count(observation, "windows"))
+        svg = mod.render_download_badge(
+            "windows", None, datetime(2026, 11, 5, tzinfo=timezone.utc))
+        self.assertIn(">N/A</text>", svg)
+        with self.assertRaises(ValueError):
+            mod.render_download_badge("windows", -1,
+                                      datetime(2026, 11, 5, tzinfo=timezone.utc))
+
     def test_invalid_asset_counts(self):
         for bad in (-1,True,"12"):
             with self.assertRaises(ValueError):
