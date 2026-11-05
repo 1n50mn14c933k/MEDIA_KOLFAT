@@ -370,7 +370,7 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
       <sub>STABLE · EXE</sub>
       <p>
         <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0">
-          <img alt="Live Windows EXE download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe?displayAssetName=false&amp;label=DOWNLOADS&amp;labelColor=152B42&amp;color=168FE5&amp;style=for-the-badge&amp;cacheSeconds=300&amp;v=kolfat-20261101-live-2" height="32">
+          <img alt="Live Windows EXE download count" src="assets/download-count-windows.svg" height="32">
         </a>
       </p>
     </td>
@@ -379,7 +379,7 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
       <sub>PUBLIC BETA · APPIMAGE</sub>
       <p>
         <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta">
-          <img alt="Live Linux AppImage download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage?displayAssetName=false&amp;label=DOWNLOADS&amp;labelColor=3C291D&amp;color=FF913F&amp;style=for-the-badge&amp;cacheSeconds=300&amp;v=kolfat-20261101-live-2" height="32">
+          <img alt="Live Linux AppImage download count" src="assets/download-count-linux.svg" height="32">
         </a>
       </p>
     </td>
@@ -388,7 +388,7 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
       <sub>PUBLIC BETA · DMG</sub>
       <p>
         <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-macos-beta">
-          <img alt="Live macOS DMG download count" src="https://img.shields.io/github/downloads/1n50mn14c933k/MEDIA_KOLFAT/v2.4.0-macos-beta/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg?displayAssetName=false&amp;label=DOWNLOADS&amp;labelColor=263445&amp;color=8B5CF6&amp;style=for-the-badge&amp;cacheSeconds=300&amp;v=kolfat-20261101-live-2" height="32">
+          <img alt="Live macOS DMG download count" src="assets/download-count-macos.svg" height="32">
         </a>
       </p>
     </td>
