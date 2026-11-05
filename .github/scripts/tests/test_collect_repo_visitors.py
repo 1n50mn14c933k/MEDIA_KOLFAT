@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from collect_repo_visitors import build_snapshot, previous_complete_week, weekly_metrics, render_badge
+from collect_repo_visitors import build_snapshot, previous_complete_week, weekly_metrics, render_badge, format_week_range
 
 
 class RepositoryVisitorTests(unittest.TestCase):
@@ -38,6 +38,18 @@ class RepositoryVisitorTests(unittest.TestCase):
                 weekly_metrics({"views": [{"timestamp": day.isoformat() + "T00:00:00Z",
                                            "count": count, "uniques": uniques}]}, day)
 
+    def test_date_range_across_year_boundary(self):
+        self.assertEqual(format_week_range("2026-12-28", "2027-01-03"),
+                         "28 Dec 2026 – 3 Jan 2027 · UTC")
+
+    def test_missing_metric_renders_dash_not_zero(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "missing.svg"
+            render_badge("GitHub repository page views", None, "2026-10-26", "2026-11-01", path)
+            svg = path.read_text(encoding="utf-8")
+            self.assertIn(">—</text>", svg)
+            self.assertIn("26 Oct – 1 Nov 2026 · UTC", svg)
+
     def test_badges_preserve_exact_labels_and_numbers(self):
         with tempfile.TemporaryDirectory() as temp:
             for label, number in [("Unique GitHub repository visitors", 4),
@@ -47,7 +59,9 @@ class RepositoryVisitorTests(unittest.TestCase):
                 svg = path.read_text(encoding="utf-8")
                 self.assertIn(label, svg)
                 self.assertIn(f">{number}</text>", svg)
-                self.assertIn('width="370"', svg)
+                self.assertIn('width="370" height="48"', svg)
+                self.assertIn("26 Oct – 1 Nov 2026 · UTC", svg)
+                self.assertIn('y="36"', svg)
 
 
 if __name__ == "__main__":

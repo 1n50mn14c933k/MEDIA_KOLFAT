@@ -69,18 +69,32 @@ def build_snapshot(now, weekly_payload):
     }
 
 
+def format_week_range(week_start, week_end):
+    """Human-readable UTC dates, unambiguous even across calendar years."""
+    from datetime import date
+    start = date.fromisoformat(week_start)
+    end = date.fromisoformat(week_end)
+    if start > end:
+        raise ValueError("Week starts after week ends")
+    if start.year == end.year:
+        return f"{start.day} {start:%b} – {end.day} {end:%b} {end.year} · UTC"
+    return f"{start.day} {start:%b} {start.year} – {end.day} {end:%b} {end.year} · UTC"
+
+
 def render_badge(label, metric, week_start, week_end, target):
-    """Create monochrome 370x32 badge; unavailable data must never appear as zero."""
+    """Create monochrome 370x48 badge with visible reporting dates."""
     if metric is not None and (type(metric) is not int or metric < 0):
         raise ValueError("Invalid badge metric")
     value = "—" if metric is None else f"{metric:,}"
+    period = escape(format_week_range(week_start, week_end))
     accessible = escape(f"{label}: {value} (previous completed UTC week {week_start} to {week_end})")
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="370" height="32" viewBox="0 0 370 32" role="img" aria-label="{accessible}">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="370" height="48" viewBox="0 0 370 48" role="img" aria-label="{accessible}">
   <title>{accessible}</title>
-  <rect width="370" height="32" rx="6" fill="#171717"/>
-  <rect x="306" width="64" height="32" rx="6" fill="#3b3b3b"/>
-  <text x="14" y="21" fill="#e7e7e7" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700">{escape(label)}</text>
-  <text x="338" y="21" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">{escape(value)}</text>
+  <rect width="370" height="48" rx="6" fill="#171717"/>
+  <rect x="306" width="64" height="48" rx="6" fill="#3b3b3b"/>
+  <text x="14" y="19" fill="#e7e7e7" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700">{escape(label)}</text>
+  <text x="14" y="36" fill="#bdbdbd" font-family="Arial,Helvetica,sans-serif" font-size="11">{period}</text>
+  <text x="338" y="29" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">{escape(value)}</text>
 </svg>
 """
     target.parent.mkdir(parents=True, exist_ok=True)
