@@ -6,13 +6,13 @@
 <text x="1060" y="74" fill="#b3b3b3" text-anchor="end" font-family="Arial,sans-serif" font-size="13">Official GitHub release assets | Hourly checks</text>
 <path d="M38 91H1062" stroke="#444"/>
 <text x="45" y="123" fill="#c9c9c9" font-family="Arial,sans-serif" font-size="16">ALL PLATFORMS - TOTAL PACKAGE DOWNLOADS</text>
-<text x="45" y="172" fill="#fff" font-family="Arial,sans-serif" font-size="48" font-weight="700">52</text>
+<text x="45" y="172" fill="#fff" font-family="Arial,sans-serif" font-size="48" font-weight="700">53</text>
 <text x="285" y="165" fill="#aaa" font-family="Arial,sans-serif" font-size="14">Each download counts a release asset, not an installation</text>
 <rect x="38" y="195" width="329" height="149" rx="14" fill="#171717" stroke="#555"/>
 <rect x="52" y="212" width="5" height="22" rx="2" fill="#e8edf1"/>
 <text x="66" y="231" fill="#ddd" font-family="Arial,sans-serif" font-size="17" font-weight="700">WINDOWS</text>
-<text x="54" y="285" fill="#fff" font-family="Arial,sans-serif" font-size="40" font-weight="700">48</text>
-<text x="54" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Hourly rate: +0.0 downloads/hour</text>
+<text x="54" y="285" fill="#fff" font-family="Arial,sans-serif" font-size="40" font-weight="700">49</text>
+<text x="54" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Hourly rate: +0.3 downloads/hour</text>
 <text x="54" y="332" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="11">1 downloadable package(s)</text>
 <rect x="385" y="195" width="329" height="149" rx="14" fill="#171717" stroke="#555"/>
 <rect x="399" y="212" width="5" height="22" rx="2" fill="#ff914d"/>
@@ -38,7 +38,7 @@
 <text x="83" y="468.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">60</text>
 <path d="M95 415.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
 <text x="83" y="420.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">80</text>
-<polyline points="95.0,578.2 200.0,578.2 305.0,578.2 410.0,525.4 515.0,520.6 620.0,518.2 725.0,503.8 830.0,491.8 935.0,491.8 1040.0,491.8" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="95.0,578.2 200.0,578.2 305.0,578.2 410.0,525.4 515.0,520.6 620.0,518.2 725.0,503.8 830.0,491.8 935.0,491.8 1040.0,489.4" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="95.0" cy="578.2" r="4.5" fill="#e8edf1"/>
 <circle cx="200.0" cy="578.2" r="4.5" fill="#e8edf1"/>
 <circle cx="305.0" cy="578.2" r="4.5" fill="#e8edf1"/>
@@ -48,7 +48,7 @@
 <circle cx="725.0" cy="503.8" r="4.5" fill="#e8edf1"/>
 <circle cx="830.0" cy="491.8" r="4.5" fill="#e8edf1"/>
 <circle cx="935.0" cy="491.8" r="4.5" fill="#e8edf1"/>
-<circle cx="1040.0" cy="491.8" r="4.5" fill="#e8edf1"/>
+<circle cx="1040.0" cy="489.4" r="4.5" fill="#e8edf1"/>
 <polyline points="200.0,607.0 305.0,607.0 410.0,599.8 515.0,599.8 620.0,599.8 725.0,599.8 830.0,599.8 935.0,599.8 1040.0,599.8" fill="none" stroke="#ff914d" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="200.0" cy="607.0" r="4.5" fill="#ff914d"/>
 <circle cx="305.0" cy="607.0" r="4.5" fill="#ff914d"/>
@@ -79,10 +79,10 @@
 <path d="M38 674H1062" stroke="#444"/>
 <text x="42" y="703" fill="#eee" font-family="Arial,sans-serif" font-size="19" font-weight="700">Published package downloads</text>
 <text x="50" y="735" fill="#ddd" font-family="Arial,sans-serif" font-size="14">WINDOWS  |  MEDIA_KOLFAT_2.0.0_Setup.exe</text>
-<text x="1038" y="735" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">48</text>
+<text x="1038" y="735" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">49</text>
 <text x="50" y="764" fill="#ddd" font-family="Arial,sans-serif" font-size="14">LINUX  |  MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage</text>
 <text x="1038" y="764" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">3</text>
 <text x="50" y="793" fill="#ddd" font-family="Arial,sans-serif" font-size="14">macOS  |  MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg</text>
 <text x="1038" y="793" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">1</text>
-<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last checked: 2026-11-07 15:44 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
+<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last checked: 2026-11-07 19:39 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
 </svg>
