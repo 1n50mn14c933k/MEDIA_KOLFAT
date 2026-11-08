@@ -254,7 +254,7 @@ Organize, protect and manage your photos and videos without subscriptions, compl
 | **🖥️ OS SUPPORT** | | | | | |
 | 🪟 Windows | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 🐧 Linux | 🧪 Beta | ❌ | ❌ | ❌ | ❌ |
-| 🍎 macOS | 🧪 Public Beta | ✅ | ❌ | ✅ | ✅ |
+| 🍎 macOS | 🧪 Beta | ✅ | ❌ | ✅ | ✅ |
 | 📱 iOS / Android | ❌ | ✅ | ◐ | ✅ | ✅ |
 | **💎 PRICING & PRIVACY** | | | | | |
 | Free forever | ✅ | ❌ | ❌ | ◐ | ❌ |
