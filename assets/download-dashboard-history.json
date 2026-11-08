@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_checked_at_utc": "2026-11-07T23:03:33Z",
+  "last_checked_at_utc": "2026-11-08T02:29:47Z",
   "snapshots": [
     {
       "date": "2026-10-27",
@@ -78,6 +78,14 @@
       "date": "2026-11-07",
       "counts": {
         "windows": 49,
+        "linux": 3,
+        "macos": 1
+      }
+    },
+    {
+      "date": "2026-11-08",
+      "counts": {
+        "windows": 50,
         "linux": 3,
         "macos": 1
       }
@@ -312,6 +320,14 @@
       "timestamp": "2026-11-07T23:03:33Z",
       "counts": {
         "windows": 49,
+        "linux": 3,
+        "macos": 1
+      }
+    },
+    {
+      "timestamp": "2026-11-08T02:29:47Z",
+      "counts": {
+        "windows": 50,
         "linux": 3,
         "macos": 1
       }
