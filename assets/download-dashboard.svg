@@ -12,7 +12,7 @@
 <rect x="52" y="212" width="5" height="22" rx="2" fill="#e8edf1"/>
 <text x="66" y="231" fill="#ddd" font-family="Arial,sans-serif" font-size="17" font-weight="700">WINDOWS</text>
 <text x="54" y="285" fill="#fff" font-family="Arial,sans-serif" font-size="40" font-weight="700">53</text>
-<text x="54" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Hourly rate: +0.2 downloads/hour</text>
+<text x="54" y="313" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="12">Hourly rate: +0.0 downloads/hour</text>
 <text x="54" y="332" fill="#aeb0b2" font-family="Arial,sans-serif" font-size="11">1 downloadable package(s)</text>
 <rect x="385" y="195" width="329" height="149" rx="14" fill="#171717" stroke="#555"/>
 <rect x="399" y="212" width="5" height="22" rx="2" fill="#ff914d"/>
@@ -38,41 +38,44 @@
 <text x="83" y="468.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">60</text>
 <path d="M95 415.0H1040" stroke="#383838" stroke-dasharray="4 6"/>
 <text x="83" y="420.0" text-anchor="end" fill="#aaa" font-family="Arial,sans-serif" font-size="13">80</text>
-<polyline points="95.0,578.2 189.5,578.2 284.0,578.2 378.5,525.4 473.0,520.6 567.5,518.2 662.0,503.8 756.5,491.8 851.0,491.8 945.5,489.4 1040.0,479.8" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="95.0,578.2 180.9,578.2 266.8,578.2 352.7,525.4 438.6,520.6 524.5,518.2 610.5,503.8 696.4,491.8 782.3,491.8 868.2,489.4 954.1,479.8 1040.0,479.8" fill="none" stroke="#e8edf1" stroke-width="3" stroke-linejoin="round"/>
 <circle cx="95.0" cy="578.2" r="4.5" fill="#e8edf1"/>
-<circle cx="189.5" cy="578.2" r="4.5" fill="#e8edf1"/>
-<circle cx="284.0" cy="578.2" r="4.5" fill="#e8edf1"/>
-<circle cx="378.5" cy="525.4" r="4.5" fill="#e8edf1"/>
-<circle cx="473.0" cy="520.6" r="4.5" fill="#e8edf1"/>
-<circle cx="567.5" cy="518.2" r="4.5" fill="#e8edf1"/>
-<circle cx="662.0" cy="503.8" r="4.5" fill="#e8edf1"/>
-<circle cx="756.5" cy="491.8" r="4.5" fill="#e8edf1"/>
-<circle cx="851.0" cy="491.8" r="4.5" fill="#e8edf1"/>
-<circle cx="945.5" cy="489.4" r="4.5" fill="#e8edf1"/>
+<circle cx="180.9" cy="578.2" r="4.5" fill="#e8edf1"/>
+<circle cx="266.8" cy="578.2" r="4.5" fill="#e8edf1"/>
+<circle cx="352.7" cy="525.4" r="4.5" fill="#e8edf1"/>
+<circle cx="438.6" cy="520.6" r="4.5" fill="#e8edf1"/>
+<circle cx="524.5" cy="518.2" r="4.5" fill="#e8edf1"/>
+<circle cx="610.5" cy="503.8" r="4.5" fill="#e8edf1"/>
+<circle cx="696.4" cy="491.8" r="4.5" fill="#e8edf1"/>
+<circle cx="782.3" cy="491.8" r="4.5" fill="#e8edf1"/>
+<circle cx="868.2" cy="489.4" r="4.5" fill="#e8edf1"/>
+<circle cx="954.1" cy="479.8" r="4.5" fill="#e8edf1"/>
 <circle cx="1040.0" cy="479.8" r="4.5" fill="#e8edf1"/>
-<polyline points="189.5,607.0 284.0,607.0 378.5,599.8 473.0,599.8 567.5,599.8 662.0,599.8 756.5,599.8 851.0,599.8 945.5,599.8 1040.0,599.8" fill="none" stroke="#ff914d" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="189.5" cy="607.0" r="4.5" fill="#ff914d"/>
-<circle cx="284.0" cy="607.0" r="4.5" fill="#ff914d"/>
-<circle cx="378.5" cy="599.8" r="4.5" fill="#ff914d"/>
-<circle cx="473.0" cy="599.8" r="4.5" fill="#ff914d"/>
-<circle cx="567.5" cy="599.8" r="4.5" fill="#ff914d"/>
-<circle cx="662.0" cy="599.8" r="4.5" fill="#ff914d"/>
-<circle cx="756.5" cy="599.8" r="4.5" fill="#ff914d"/>
-<circle cx="851.0" cy="599.8" r="4.5" fill="#ff914d"/>
-<circle cx="945.5" cy="599.8" r="4.5" fill="#ff914d"/>
+<polyline points="180.9,607.0 266.8,607.0 352.7,599.8 438.6,599.8 524.5,599.8 610.5,599.8 696.4,599.8 782.3,599.8 868.2,599.8 954.1,599.8 1040.0,599.8" fill="none" stroke="#ff914d" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="180.9" cy="607.0" r="4.5" fill="#ff914d"/>
+<circle cx="266.8" cy="607.0" r="4.5" fill="#ff914d"/>
+<circle cx="352.7" cy="599.8" r="4.5" fill="#ff914d"/>
+<circle cx="438.6" cy="599.8" r="4.5" fill="#ff914d"/>
+<circle cx="524.5" cy="599.8" r="4.5" fill="#ff914d"/>
+<circle cx="610.5" cy="599.8" r="4.5" fill="#ff914d"/>
+<circle cx="696.4" cy="599.8" r="4.5" fill="#ff914d"/>
+<circle cx="782.3" cy="599.8" r="4.5" fill="#ff914d"/>
+<circle cx="868.2" cy="599.8" r="4.5" fill="#ff914d"/>
+<circle cx="954.1" cy="599.8" r="4.5" fill="#ff914d"/>
 <circle cx="1040.0" cy="599.8" r="4.5" fill="#ff914d"/>
-<polyline points="378.5,604.6 473.0,604.6 567.5,604.6 662.0,604.6 756.5,604.6 851.0,604.6 945.5,604.6 1040.0,604.6" fill="none" stroke="#9ca4ad" stroke-width="3" stroke-linejoin="round"/>
-<circle cx="378.5" cy="604.6" r="4.5" fill="#9ca4ad"/>
-<circle cx="473.0" cy="604.6" r="4.5" fill="#9ca4ad"/>
-<circle cx="567.5" cy="604.6" r="4.5" fill="#9ca4ad"/>
-<circle cx="662.0" cy="604.6" r="4.5" fill="#9ca4ad"/>
-<circle cx="756.5" cy="604.6" r="4.5" fill="#9ca4ad"/>
-<circle cx="851.0" cy="604.6" r="4.5" fill="#9ca4ad"/>
-<circle cx="945.5" cy="604.6" r="4.5" fill="#9ca4ad"/>
+<polyline points="352.7,604.6 438.6,604.6 524.5,604.6 610.5,604.6 696.4,604.6 782.3,604.6 868.2,604.6 954.1,604.6 1040.0,604.6" fill="none" stroke="#9ca4ad" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="352.7" cy="604.6" r="4.5" fill="#9ca4ad"/>
+<circle cx="438.6" cy="604.6" r="4.5" fill="#9ca4ad"/>
+<circle cx="524.5" cy="604.6" r="4.5" fill="#9ca4ad"/>
+<circle cx="610.5" cy="604.6" r="4.5" fill="#9ca4ad"/>
+<circle cx="696.4" cy="604.6" r="4.5" fill="#9ca4ad"/>
+<circle cx="782.3" cy="604.6" r="4.5" fill="#9ca4ad"/>
+<circle cx="868.2" cy="604.6" r="4.5" fill="#9ca4ad"/>
+<circle cx="954.1" cy="604.6" r="4.5" fill="#9ca4ad"/>
 <circle cx="1040.0" cy="604.6" r="4.5" fill="#9ca4ad"/>
 <text x="95.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">27 Oct</text>
-<text x="567.5" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">03 Nov</text>
-<text x="1040.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">08 Nov</text>
+<text x="610.5" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">04 Nov</text>
+<text x="1040.0" y="627" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="12">09 Nov</text>
 <rect x="305" y="647" width="16" height="4" fill="#e8edf1"/>
 <text x="330" y="654" fill="#ddd" font-family="Arial,sans-serif" font-size="13">WINDOWS</text>
 <rect x="485" y="647" width="16" height="4" fill="#ff914d"/>
@@ -87,5 +90,5 @@
 <text x="1038" y="764" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">3</text>
 <text x="50" y="793" fill="#ddd" font-family="Arial,sans-serif" font-size="14">macOS  |  MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg</text>
 <text x="1038" y="793" fill="#fff" text-anchor="end" font-family="Arial,sans-serif" font-size="15" font-weight="700">1</text>
-<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last checked: 2026-11-08 20:47 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
+<text x="42" y="864" fill="#999" font-family="Arial,sans-serif" font-size="12">Last checked: 2026-11-09 00:07 UTC  |  Excludes checksums, source archives and draft releases  |  No in-app tracking</text>
 </svg>
