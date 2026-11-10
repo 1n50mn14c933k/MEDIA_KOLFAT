@@ -114,7 +114,7 @@ def readme_with_fresh_badge_urls(text, generated_at_utc):
     stamp = re.fullmatch(r"([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})Z", generated_at_utc)
     if not stamp:
         raise ValueError("Invalid verified UTC collection timestamp")
-    version = "".join(stamp.groups()) + "Z"
+    version = "".join(stamp.groups()[:3]) + "T" + "".join(stamp.groups()[3:]) + "Z"
     updated = text
     for asset in BADGE_ASSETS:
         pattern = r'(src="assets/' + re.escape(asset) + r')(?:\?v=[0-9TZ]+)?(")'
