@@ -39,12 +39,12 @@ jobs:
         env:
           KOLFAT_TRAFFIC_READ_TOKEN: ${{ secrets.KOLFAT_TRAFFIC_READ_TOKEN }}
         run: python3 .github/scripts/collect_repo_visitors.py
-      - name: Commit only visitor badges and counts
+      - name: Commit verified traffic badges, counts and refreshed README image URLs
         if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/repository-visitors.json assets/repository-visitors-weekly.svg assets/repository-pageviews-weekly.svg
+          git add README.md assets/repository-visitors.json assets/repository-visitors-weekly.svg assets/repository-pageviews-weekly.svg
           if ! git diff --cached --quiet; then
             git commit -m "chore(stats): refresh verified rolling 14-day traffic badges"
             git push

@@ -7,6 +7,7 @@ The visible 14-day period is inclusive of the snapshot's current UTC date.
 """
 import json
 import os
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -100,6 +101,37 @@ def render_badge(label, metric, start_iso, end_iso, target):
     target.write_text(svg, encoding="utf-8")
 
 
+
+BADGE_ASSETS = ("repository-visitors-weekly.svg", "repository-pageviews-weekly.svg")
+
+
+def readme_with_fresh_badge_urls(text, generated_at_utc):
+    """Force GitHub's image proxy to fetch each newly generated badge.
+
+    Filenames stay stable for external links, but README image source URLs get
+    a unique query string for every successful verified collection.
+    """
+    stamp = re.fullmatch(r"([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})Z", generated_at_utc)
+    if not stamp:
+        raise ValueError("Invalid verified UTC collection timestamp")
+    version = "".join(stamp.groups()[:3]) + "T" + "".join(stamp.groups()[3:]) + "Z"
+    updated = text
+    for asset in BADGE_ASSETS:
+        pattern = r'(src="assets/' + re.escape(asset) + r')(?:\?v=[0-9TZ]+)?(")'
+        matches = re.findall(pattern, updated)
+        if len(matches) != 1:
+            raise ValueError("Expected exactly one README image reference to " + asset)
+        updated = re.sub(pattern, lambda m: m.group(1) + "?v=" + version + m.group(2), updated, count=1)
+    return updated
+
+
+def refresh_readme_badge_urls(generated_at_utc, path=Path("README.md")):
+    current = path.read_text(encoding="utf-8")
+    changed = readme_with_fresh_badge_urls(current, generated_at_utc)
+    if changed != current:
+        path.write_text(changed, encoding="utf-8")
+
+
 def main():
     token = os.getenv("KOLFAT_TRAFFIC_READ_TOKEN", "").strip()
     if not token:
@@ -113,6 +145,7 @@ def main():
                  data["start_date"], data["end_date"], Path("assets/repository-visitors-weekly.svg"))
     render_badge("GitHub repository page views", data["views"],
                  data["start_date"], data["end_date"], Path("assets/repository-pageviews-weekly.svg"))
+    refresh_readme_badge_urls(result["generated_at_utc"])
     print("Verified rolling 14 days:", data["start_date"], "through", data["end_date"],
           "; unique visitors:", data["unique_visitors"], "; page views:", data["views"])
 

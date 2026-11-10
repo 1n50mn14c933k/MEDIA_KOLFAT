@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-visitors-weekly.svg" alt="Unique GitHub repository visitors with visible dates for GitHub's rolling last 14 days" width="370" height="48"></a>
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-pageviews-weekly.svg" alt="GitHub repository page views with visible dates for GitHub's rolling last 14 days" width="370" height="48"></a>
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-visitors-weekly.svg?v=20261110T195955Z" alt="Unique GitHub repository visitors with visible dates for GitHub's rolling last 14 days" width="370" height="48"></a>
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-pageviews-weekly.svg?v=20261110T195955Z" alt="GitHub repository page views with visible dates for GitHub's rolling last 14 days" width="370" height="48"></a>
 </p>
 
 <p align="center">
