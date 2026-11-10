@@ -8,7 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from collect_repo_visitors import (
     API_URL, build_snapshot, rolling_14_day_window, traffic_metrics,
-    render_badge, format_period,
+    render_badge, format_period, readme_with_fresh_badge_urls,
 )
 
 
@@ -92,6 +92,37 @@ class RepositoryVisitorTests(unittest.TestCase):
                 self.assertIn(f">{metric}</text>",svg)
                 self.assertIn('width="370" height="48"',svg)
                 self.assertIn("28 Oct – 10 Nov 2026 · UTC",svg)
+
+
+    def test_cache_version_changes_both_urls_without_changing_click_targets(self):
+        source = """<a href="https://github.com/owner/repo/graphs/traffic"><img src="assets/repository-visitors-weekly.svg"></a>
+<a href="https://github.com/owner/repo/graphs/traffic"><img src="assets/repository-pageviews-weekly.svg"></a>"""
+        updated = readme_with_fresh_badge_urls(source, "2026-11-10T19:59:55Z")
+        self.assertIn('src="assets/repository-visitors-weekly.svg?v=20261110T195955Z"', updated)
+        self.assertIn('src="assets/repository-pageviews-weekly.svg?v=20261110T195955Z"', updated)
+        self.assertEqual(updated.count('href="https://github.com/owner/repo/graphs/traffic"'), 2)
+        newer = readme_with_fresh_badge_urls(updated, "2026-11-11T10:17:00Z")
+        self.assertIn("weekly.svg?v=20261111T101700Z", newer)
+        self.assertNotIn("20261110T195955Z", newer)
+        self.assertEqual(readme_with_fresh_badge_urls(newer, "2026-11-11T10:17:00Z"), newer)
+
+    def test_cache_version_rejects_missing_or_duplicate_references(self):
+        with self.assertRaises(ValueError):
+            readme_with_fresh_badge_urls('<img src="assets/repository-visitors-weekly.svg">', "2026-11-10T19:59:55Z")
+        with self.assertRaises(ValueError):
+            readme_with_fresh_badge_urls(
+                '<img src="assets/repository-visitors-weekly.svg">' * 2
+                + '<img src="assets/repository-pageviews-weekly.svg">',
+                "2026-11-10T19:59:55Z"
+            )
+
+    def test_invalid_cache_timestamp_rejected(self):
+        with self.assertRaises(ValueError):
+            readme_with_fresh_badge_urls(
+                '<img src="assets/repository-visitors-weekly.svg">'
+                + '<img src="assets/repository-pageviews-weekly.svg">',
+                "wrong"
+            )
 
 
 if __name__ == "__main__":
