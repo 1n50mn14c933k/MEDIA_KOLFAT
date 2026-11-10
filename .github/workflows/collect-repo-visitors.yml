@@ -2,30 +2,50 @@ name: Collect repository visitors
 
 on:
   schedule:
-    - cron: "17 10 * * 1"
+    # GitHub's traffic API reports a rolling 14-day window, so refresh daily.
+    - cron: "17 10 * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/collect-repo-visitors.yml"
+      - ".github/scripts/collect_repo_visitors.py"
+      - ".github/scripts/tests/test_collect_repo_visitors.py"
+  pull_request:
+    paths:
+      - ".github/workflows/collect-repo-visitors.yml"
+      - ".github/scripts/collect_repo_visitors.py"
+      - ".github/scripts/tests/test_collect_repo_visitors.py"
 
 permissions:
   contents: write
+
+concurrency:
+  group: media-kolfat-repository-traffic-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   collect:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: ${{ github.event_name != 'pull_request' }}
       - name: Run collector regression tests
         run: python3 -m unittest discover -s .github/scripts/tests -p "test_collect_repo_visitors.py" -v
-      - name: Update verified weekly visitors and page views
+      - name: Update verified rolling 14-day visitors and page views
+        if: github.event_name != 'pull_request'
         env:
           KOLFAT_TRAFFIC_READ_TOKEN: ${{ secrets.KOLFAT_TRAFFIC_READ_TOKEN }}
         run: python3 .github/scripts/collect_repo_visitors.py
       - name: Commit only visitor badges and counts
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/repository-visitors.json assets/repository-visitors-weekly.svg assets/repository-pageviews-weekly.svg
           if ! git diff --cached --quiet; then
-            git commit -m "chore(stats): refresh verified visitor badges"
+            git commit -m "chore(stats): refresh verified rolling 14-day traffic badges"
             git push
           fi
