@@ -117,7 +117,7 @@ def readme_with_fresh_badge_urls(text, generated_at_utc):
     version = "".join(stamp.groups()) + "Z"
     updated = text
     for asset in BADGE_ASSETS:
-        pattern = r'(src="assets/' + re.escape(asset) + r')(?:\\?v=[0-9TZ]+)?(")'
+        pattern = r'(src="assets/' + re.escape(asset) + r')(?:\?v=[0-9TZ]+)?(")'
         matches = re.findall(pattern, updated)
         if len(matches) != 1:
             raise ValueError("Expected exactly one README image reference to " + asset)
