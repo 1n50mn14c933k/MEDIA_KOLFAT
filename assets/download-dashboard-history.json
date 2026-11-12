@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_checked_at_utc": "2026-11-11T23:43:41Z",
+  "last_checked_at_utc": "2026-11-12T04:20:13Z",
   "snapshots": [
     {
       "date": "2026-10-27",
@@ -113,17 +113,17 @@
         "linux": 3,
         "macos": 1
       }
-    }
-  ],
-  "hourly_snapshots": [
+    },
     {
-      "timestamp": "2026-11-05T00:22:44Z",
+      "date": "2026-11-12",
       "counts": {
-        "windows": 43,
+        "windows": 65,
         "linux": 3,
         "macos": 1
       }
-    },
+    }
+  ],
+  "hourly_snapshots": [
     {
       "timestamp": "2026-11-05T07:26:00Z",
       "counts": {
@@ -342,6 +342,14 @@
     },
     {
       "timestamp": "2026-11-11T23:43:41Z",
+      "counts": {
+        "windows": 65,
+        "linux": 3,
+        "macos": 1
+      }
+    },
+    {
+      "timestamp": "2026-11-12T04:20:13Z",
       "counts": {
         "windows": 65,
         "linux": 3,
