@@ -1,11 +1,11 @@
 {
   "schema_version": 3,
   "repository": "1n50mn14c933k/MEDIA_KOLFAT",
-  "generated_at_utc": "2026-11-11T17:54:35Z",
+  "generated_at_utc": "2026-11-12T18:21:26Z",
   "rolling_14_days": {
-    "start_date": "2026-10-29",
-    "end_date": "2026-11-11",
+    "start_date": "2026-10-30",
+    "end_date": "2026-11-12",
     "unique_visitors": 5,
-    "views": 15
+    "views": 8
   }
 }
