@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - name: Check published Windows and Linux tags and package digests
+      - name: Check published Windows, Linux and macOS tags and package digests
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -46,6 +46,13 @@ jobs:
                   "assets": {
                       "MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage": "sha256:c9342289afc0725eee453535833eb05141d24cc6576cd8b387cb3446351556f3",
                       "MEDIA_KOLFAT_Linux_Beta_2.4.0_SHA256.txt": "sha256:bbf32c0ace7d428e09b123f7d627e2315b5e8d69dcf5229f87719f1c60cf450e",
+                  },
+              },
+              "v2.4.0-macos-beta": {
+                  "tag_sha": "407e0f0ac7b1870f573b06b48cef9890898ad3c1",
+                  "assets": {
+                      "MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg": "sha256:4174b87b1ed09ca4502e80d6a3f7e77eaf8958141da728e0a2417ff674283d73",
+                      "MEDIA_KOLFAT_macOS_Beta_2.4.0_SHA256.txt": "sha256:03e31a8e98838ccde3bb21bfa6956b0ce2906050d4b5381eca72d9a73e662b0f",
                   },
               },
           }
@@ -91,5 +98,5 @@ jobs:
               for finding in findings:
                   print(f"::error::{finding}", file=sys.stderr)
               raise SystemExit(1)
-          print("Both historical MEDIA KOLFAT release identities verified.")
+          print("All three historical MEDIA KOLFAT release identities verified.")
           PY
