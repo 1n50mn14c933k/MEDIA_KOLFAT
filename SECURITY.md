@@ -43,7 +43,7 @@ Do not publish:
 
 - **Windows Stable:** MEDIA KOLFAT **2.0.0** (Microsoft Store package **2.0.0.0**).
 - **Linux Public Beta:** **2.4.0**, experimental AppImage with **MOVE disabled**; beta testing and support are more limited than Windows Stable.
-- **macOS:** No public release; planned Apple Silicon M-series only.
+- **macOS Public Beta:** **2.4.0**, Apple Silicon (M-series) DMG; beta testing and support are limited.
 
 The official [platform and download guide](docs/PLATFORMS_AND_DOWNLOADS.md) explains distribution and validation boundaries.
 
