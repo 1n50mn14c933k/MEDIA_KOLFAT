@@ -12,11 +12,13 @@ on:
     paths:
       - ".github/workflows/monitor-download-dashboard.yml"
       - ".github/scripts/monitor_download_dashboard.py"
+      - ".github/scripts/update_download_dashboard.py"
       - ".github/scripts/tests/test_monitor_download_dashboard.py"
   pull_request:
     paths:
       - ".github/workflows/monitor-download-dashboard.yml"
       - ".github/scripts/monitor_download_dashboard.py"
+      - ".github/scripts/update_download_dashboard.py"
       - ".github/scripts/tests/test_monitor_download_dashboard.py"
 permissions:
   contents: read

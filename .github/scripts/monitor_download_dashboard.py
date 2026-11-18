@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent check: failed updater, corrupt dashboard, or refresh older than 48h."""
+"""Independent lifetime-download health check for Windows, Linux and macOS."""
 import argparse
 import json
 import os
@@ -92,8 +92,13 @@ def main():
             runs=json.load(reply)["workflow_runs"]
     except Exception as e: failures.append("Cannot query updater workflow: "+str(e))
     try:
-        from update_download_dashboard import collect, github_releases
-        live=collect(github_releases())
+        from update_download_dashboard import collect, github_releases, build_ledger, lifetime_observation, LEDGER, read_history
+        saved=json.loads(LEDGER.read_text(encoding="utf-8"))
+        if saved.get("schema_version") != 1:
+            raise ValueError("Missing verified permanent download ledger")
+        live_assets=collect(github_releases())
+        checked_ledger=build_ledger(saved,live_assets,datetime.now(timezone.utc),read_history(history or {}))
+        live=lifetime_observation(live_assets,checked_ledger)
     except Exception as e:
         failures.append("Live GitHub release counts unavailable: "+str(e))
     report=evaluate(history,svg,runs,datetime.now(timezone.utc),live)
