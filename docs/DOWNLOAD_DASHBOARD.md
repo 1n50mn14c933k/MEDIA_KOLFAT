@@ -78,3 +78,14 @@ The monitor independently checks live release counts, allowing 30 minutes after 
 The Windows EXE and Linux AppImage badges on the README use the official Shields.io GitHub Downloads (specific asset, specific tag) endpoint. These independently read GitHub Release asset download counts without waiting for a GitHub Actions scheduler run. They deliberately exclude checksum assets and are cached by the badge provider; the GitHub Releases pages show authoritative counts. The macOS badge is intentionally absent until a public macOS package exists. When new versions are released, maintainers must update the tracked asset/tag URLs or add new badges.
 
 GitHub Actions scheduled jobs are **best effort**; missed schedule events do not automatically launch new runs. Therefore, the SVG chart is labeled as a historical snapshot and collapsed below the primary badges. The monitor's last-success workflow badge was removed from the README to avoid showing a misleading green state when no recent monitor job has run. This is a presentation fallback, not a guarantee that the hourly scheduler has recovered.
+
+
+## Permanent per-asset lifetime ledger (Windows, Linux, macOS)
+
+A protected, checked-in `assets/download-ledger.json` stores the latest **verified** GitHub `download_count` for **every known release asset ID**, including its OS, version and published/retired status. All future releases (stable and pre-release) enter the ledger automatically. When a package is deleted from GitHub, its last observed count remains frozen in the ledger and is included in the platform lifetime total. If that package returns under the same ID, its current GitHub counter replaces the frozen count, never adding it twice. New asset IDs are distinct package download events.
+
+The collector refuses to overwrite the ledger when an asset ID changes identity, when an existing asset count decreases, or when a platform lifetime total would fall below previously recorded daily totals. Each OS badge now displays the lifetime sum across all versions, **not a hardcoded old EXE/AppImage/DMG**. Existing historical snapshots are preserved.
+
+**Before deleting any release package**, run the dashboard updater and verify the new ledger contains the package's final current GitHub count. Downloads after the last successful observation but before deletion cannot be reconstructed. Removing an asset before its first recorded observation may permanently lose its count. No telemetry or external paid service is introduced.
+
+The live web dashboard merges official GitHub counts for assets still published with archived counts **only for asset IDs no longer returned by GitHub**, so it doesn't double count. A missing or malformed ledger makes lifetime totals unavailable instead of pretending the current release counts represent all-time downloads.
