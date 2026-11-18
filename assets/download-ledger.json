@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "repository": "1n50mn14c933k/MEDIA_KOLFAT",
+  "updated_at_utc": "2026-11-18T19:25:29Z",
+  "totals": {
+    "windows": 81,
+    "linux": 3,
+    "macos": 1
+  },
+  "assets": [
+    {
+      "id": 681244882,
+      "name": "MEDIA_KOLFAT_2.0.0_Setup.exe",
+      "os": "windows",
+      "version": "v2.0.0",
+      "download_count": 81,
+      "first_seen_at_utc": "2026-11-18T19:25:29Z",
+      "last_seen_at_utc": "2026-11-18T19:25:29Z",
+      "state": "published"
+    },
+    {
+      "id": 686264523,
+      "name": "MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage",
+      "os": "linux",
+      "version": "v2.4.0-linux-beta",
+      "download_count": 3,
+      "first_seen_at_utc": "2026-11-18T19:25:29Z",
+      "last_seen_at_utc": "2026-11-18T19:25:29Z",
+      "state": "published"
+    },
+    {
+      "id": 699547882,
+      "name": "MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg",
+      "os": "macos",
+      "version": "v2.4.0-macos-beta",
+      "download_count": 1,
+      "first_seen_at_utc": "2026-11-18T19:25:29Z",
+      "last_seen_at_utc": "2026-11-18T19:25:29Z",
+      "state": "published"
+    }
+  ]
+}
