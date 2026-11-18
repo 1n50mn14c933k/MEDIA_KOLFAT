@@ -68,4 +68,10 @@ class Tests(unittest.TestCase):
         s=state(0.1)
         live={"totals":{"windows":27,"linux":0,"macos":0},"active":{"windows":True,"linux":True,"macos":False}}
         self.assertTrue(m.evaluate(s,svg(s),runs(),now,live)["healthy"])
+    def test_retired_asset_lifetime_totals_match_snapshot(self):
+        s=state(1)
+        s["snapshots"][-1]["counts"]={"windows":81,"linux":3,"macos":1}
+        live={"totals":{"windows":81,"linux":3,"macos":1},
+              "active":{"windows":True,"linux":True,"macos":True}}
+        self.assertTrue(m.evaluate(s,svg(s),runs(),now,live)["healthy"])
 if __name__=="__main__":unittest.main()
