@@ -99,36 +99,89 @@ class DashboardTests(unittest.TestCase):
         self.assertIsNone(mod.hourly_rate([first,sample(now+timedelta(minutes=10),26)],"windows"))
         self.assertIsNone(mod.hourly_rate([first,sample(now+timedelta(hours=1),24)],"windows"))
 
-    def test_readme_badges_use_exact_release_assets(self):
-        observation = mod.collect([
-            {"tag_name": "v2.0.0", "draft": False, "assets": [
-                {"id": 1, "name": "MEDIA_KOLFAT_2.0.0_Setup.exe", "download_count": 46},
-                {"id": 2, "name": "MEDIA_KOLFAT_2.0.0_SHA256.txt", "download_count": 999}]},
-            {"tag_name": "v2.4.0-linux-beta", "draft": False, "assets": [
-                {"id": 3, "name": "MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage", "download_count": 3}]},
-            {"tag_name": "v2.4.0-macos-beta", "draft": False, "assets": [
-                {"id": 4, "name": "MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg", "download_count": 1}]},
+    def test_ledger_counts_all_versions_and_platforms_after_deletion(self):
+        now=datetime(2026,11,18,19,0,tzinfo=timezone.utc)
+        releases=[
+          {"tag_name":"v2.0.0","assets":[{"id":1,"name":"setup.exe","download_count":81}]},
+          {"tag_name":"v2.4.0-linux","assets":[{"id":2,"name":"media-linux.AppImage","download_count":3}]},
+          {"tag_name":"v2.4.0-macos","assets":[{"id":3,"name":"media-macos.dmg","download_count":1}]},
+        ]
+        current=mod.collect(releases)
+        prior=[{"date":"2026-11-17","counts":{"windows":81,"linux":3,"macos":1}}]
+        first=mod.build_ledger({},current,now,prior)
+        self.assertEqual(first["totals"],{"windows":81,"linux":3,"macos":1})
+        after=mod.collect([
+          {"tag_name":"v2.5.0","assets":[{"id":4,"name":"new-setup.exe","download_count":7}]},
+          {"tag_name":"v2.5.0-linux","assets":[{"id":5,"name":"new-linux.AppImage","download_count":4}]},
+          {"tag_name":"v2.5.0-macos","assets":[{"id":6,"name":"new-macos.dmg","download_count":2}]},
         ])
-        self.assertEqual([mod.release_asset_count(observation, p) for p in mod.PLATFORMS],
-                         [46, 3, 1])
-        now = datetime(2026, 11, 5, 16, 0, tzinfo=timezone.utc)
-        for p, expected in zip(mod.PLATFORMS, (46, 3, 1)):
-            with self.subTest(platform=p):
-                svg = mod.render_download_badge(p, expected, now)
-                self.assertIn(f">{expected}</text>", svg)
-                self.assertIn("DOWNLOADS", svg)
-                self.assertIn("2026-11-05 16:00 UTC", svg)
-                self.assertIn('width="160" height="32"', svg)
+        ledger=mod.build_ledger(first,after,now+timedelta(hours=1),prior)
+        self.assertEqual(ledger["totals"],{"windows":88,"linux":7,"macos":3})
+        self.assertEqual(len([x for x in ledger["assets"] if x["state"]=="retired"]),3)
+        self.assertEqual(len([x for x in ledger["assets"] if x["state"]=="published"]),3)
+        result=mod.lifetime_observation(after,ledger)
+        self.assertEqual(result["totals"]["windows"],88)
+        self.assertEqual(result["totals"]["linux"],7)
+        self.assertEqual(result["totals"]["macos"],3)
+        self.assertEqual(len(result["assets"]),3)
+        for osname,count in result["totals"].items():
+            svg=mod.render_download_badge(osname,count,now)
+            self.assertIn(str(count) + "</text>",svg)
 
-    def test_missing_asset_never_fabricates_zero(self):
-        observation = mod.collect([])
-        self.assertIsNone(mod.release_asset_count(observation, "windows"))
-        svg = mod.render_download_badge(
-            "windows", None, datetime(2026, 11, 5, tzinfo=timezone.utc))
-        self.assertIn(">N/A</text>", svg)
+    def test_ledger_reappearance_does_not_double_count(self):
+        now=datetime(2026,11,18,19,0,tzinfo=timezone.utc)
+        old=mod.collect([{"tag_name":"v2.0.0","assets":[
+            {"id":11,"name":"media.exe","download_count":9}]}])
+        saved=mod.build_ledger({},old,now)
+        gone=mod.build_ledger(saved,mod.collect([]),now+timedelta(minutes=5))
+        self.assertEqual(gone["totals"]["windows"],9)
+        self.assertEqual(gone["assets"][0]["state"],"retired")
+        returned=mod.build_ledger(gone,mod.collect([{"tag_name":"v2.0.0","assets":[
+            {"id":11,"name":"media.exe","download_count":11}]}]),now+timedelta(minutes=20))
+        self.assertEqual(returned["totals"]["windows"],11)
+        self.assertEqual(returned["assets"][0]["state"],"published")
+
+    def test_ledger_prevents_unverified_loss_and_counter_reset(self):
+        now=datetime(2026,11,18,19,0,tzinfo=timezone.utc)
+        old=mod.collect([{"tag_name":"v2.0.0","assets":[
+            {"id":11,"name":"media.exe","download_count":9}]}])
+        ledger=mod.build_ledger({},old,now)
         with self.assertRaises(ValueError):
-            mod.render_download_badge("windows", -1,
-                                      datetime(2026, 11, 5, tzinfo=timezone.utc))
+            mod.build_ledger(ledger,mod.collect([{"tag_name":"v2.0.0","assets":[
+                {"id":11,"name":"media.exe","download_count":8}]}]),now)
+        with self.assertRaises(ValueError):
+            mod.build_ledger({},mod.collect([]),now,[
+                {"date":"2026-11-17","counts":{"windows":9,"linux":None,"macos":None}}])
+        with self.assertRaises(ValueError):
+            mod.build_ledger({"schema_version":12,"assets":[]},old,now)
+        with self.assertRaises(ValueError):
+            mod.build_ledger(ledger,mod.collect([{"tag_name":"v2.0.0","assets":[
+                {"id":11,"name":"other.exe","download_count":9}]}]),now)
+
+    def test_checksum_and_draft_not_seeded_into_ledger(self):
+        now=datetime(2026,11,18,19,0,tzinfo=timezone.utc)
+        live=mod.collect([
+          {"tag_name":"v2.0.0","draft":False,"assets":[
+            {"id":10,"name":"app.exe","download_count":3},
+            {"id":11,"name":"app_SHA256.txt","download_count":100}]},
+          {"tag_name":"v2.6.0","draft":True,"assets":[
+            {"id":12,"name":"new-app.exe","download_count":20}]}
+        ])
+        ledger=mod.build_ledger({},live,now)
+        self.assertEqual([x["id"] for x in ledger["assets"]],[10])
+        self.assertEqual(ledger["totals"]["windows"],3)
+
+    def test_lifetime_badges_do_not_need_hardcoded_release_tags(self):
+        now=datetime(2026,11,18,19,0,tzinfo=timezone.utc)
+        for osname,num in (("windows",81),("linux",3),("macos",1)):
+            with self.subTest(platform=osname):
+                svg=mod.render_download_badge(osname,num,now)
+                self.assertIn("lifetime GitHub downloads",svg)
+                self.assertIn(f">{num}</text>",svg)
+                self.assertIn('width="160" height="32"',svg)
+        self.assertIn(">N/A</text>",mod.render_download_badge("macos",None,now))
+        with self.assertRaises(ValueError):
+            mod.render_download_badge("windows",-1,now)
 
     def test_invalid_asset_counts(self):
         for bad in (-1,True,"12"):

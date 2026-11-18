@@ -363,13 +363,15 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
 
 ### 🌐 [Open LIVE Dashboard · Windows | Linux | macOS](https://kolfat.app/download-stats/)
 
+*Lifetime downloads across **every published version** on all three operating systems, including preserved counts for retired release assets.*
+
 <table width="100%">
   <tr>
     <td align="center" width="33%" valign="middle">
       <h3>🪟 WINDOWS</h3>
       <sub>STABLE · EXE</sub>
       <p>
-        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0">
+        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases">
           <img alt="Live Windows EXE download count" src="assets/download-count-windows.svg" height="32">
         </a>
       </p>
@@ -378,7 +380,7 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
       <h3>🐧 LINUX</h3>
       <sub>PUBLIC BETA · APPIMAGE</sub>
       <p>
-        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta">
+        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases">
           <img alt="Live Linux AppImage download count" src="assets/download-count-linux.svg" height="32">
         </a>
       </p>
@@ -387,7 +389,7 @@ See [LICENSE.md](LICENSE.md) for the repository's proprietary rights notice and 
       <h3>🍎 macOS</h3>
       <sub>PUBLIC BETA · DMG</sub>
       <p>
-        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-macos-beta">
+        <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases">
           <img alt="Live macOS DMG download count" src="assets/download-count-macos.svg" height="32">
         </a>
       </p>

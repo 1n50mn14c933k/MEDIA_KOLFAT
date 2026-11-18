@@ -16,14 +16,9 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[2]
 HISTORY = ROOT / "assets/download-dashboard-history.json"
 SVG = ROOT / "assets/download-dashboard.svg"
+LEDGER = ROOT / "assets/download-ledger.json"
 REPO = "1n50mn14c933k/MEDIA_KOLFAT"
 PLATFORMS = ("windows", "linux", "macos")
-# README badges track the named release package, not unrelated releases or checksums.
-README_PACKAGES = {
-    "windows": ("v2.0.0", "MEDIA_KOLFAT_2.0.0_Setup.exe"),
-    "linux": ("v2.4.0-linux-beta", "MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage"),
-    "macos": ("v2.4.0-macos-beta", "MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg"),
-}
 README_BADGES = {
     "windows": ROOT / "assets/download-count-windows.svg",
     "linux": ROOT / "assets/download-count-linux.svg",
@@ -89,6 +84,71 @@ def collect(releases):
     active = {p: any(a["os"] == p for a in assets) for p in PLATFORMS}
     return {"totals": totals, "assets": assets, "active": active}
 
+
+
+def build_ledger(previous, live, now, history=None):
+    """Keep the last verified count of every GitHub asset ID, across all OS versions.
+
+    A retired asset is preserved at the last count actually observed before
+    deletion. Missing observations cannot be guessed or reconstructed.
+    """
+    timestamp = now.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    if previous and (previous.get("schema_version") != 1 or
+                     previous.get("repository") != REPO or
+                     not isinstance(previous.get("assets"), list)):
+        raise ValueError("Invalid download ledger; refusing to replace historical counters")
+    by_id = {}
+    for item in previous.get("assets", []):
+        ident = item.get("id")
+        if type(ident) is not int or ident in by_id:
+            raise ValueError("Duplicate or invalid archived asset ID")
+        if item.get("os") not in PLATFORMS or not isinstance(item.get("version"), str) or not isinstance(item.get("name"), str):
+            raise ValueError("Invalid archived release metadata")
+        count = item.get("download_count")
+        if type(count) is not int or count < 0:
+            raise ValueError("Invalid archived download count")
+        by_id[ident] = dict(item)
+    present_ids = set()
+    for asset in live["assets"]:
+        ident = asset["id"]
+        if ident in present_ids:
+            raise ValueError("Duplicate live asset ID")
+        present_ids.add(ident)
+        old = by_id.get(ident)
+        if old is not None:
+            if (old["name"], old["os"], old["version"]) != (asset["name"], asset["os"], asset["version"]):
+                raise ValueError("GitHub asset identity changed: " + str(ident))
+            if asset["count"] < old["download_count"]:
+                raise ValueError("GitHub asset count unexpectedly decreased: " + str(ident))
+            old["download_count"] = asset["count"]
+            old["last_seen_at_utc"] = timestamp
+            old["state"] = "published"
+        else:
+            by_id[ident] = {
+                "id": ident, "name": asset["name"], "os": asset["os"],
+                "version": asset["version"], "download_count": asset["count"],
+                "first_seen_at_utc": timestamp, "last_seen_at_utc": timestamp,
+                "state": "published"
+            }
+    for ident, asset in by_id.items():
+        if ident not in present_ids:
+            asset["state"] = "retired"
+    totals = {p: sum(a["download_count"] for a in by_id.values() if a["os"] == p)
+              for p in PLATFORMS}
+    if history:
+        for p in PLATFORMS:
+            old_peak = max((row["counts"].get(p) or 0) for row in history)
+            if totals[p] < old_peak:
+                raise ValueError("Ledger would erase prior observed " + p +
+                                 " downloads; restore the missing asset counts before publishing")
+    return {"schema_version": 1, "repository": REPO, "updated_at_utc": timestamp,
+            "totals": totals, "assets": sorted(by_id.values(), key=lambda a: a["id"])}
+
+
+def lifetime_observation(live, ledger):
+    """Historical totals include retired assets; current asset list remains live."""
+    return {"totals": dict(ledger["totals"]), "assets": live["assets"],
+            "active": {p: any(a["os"] == p for a in ledger["assets"]) for p in PLATFORMS}}
 
 def github_releases():
     if os.environ.get("GITHUB_REPOSITORY", REPO).lower() != REPO.lower():
@@ -338,24 +398,13 @@ def draw(history, observation, hourly=None, checked_at=None):
 
 
 
-def release_asset_count(observation, platform):
-    """Return the exact official package count; missing assets are UNKNOWN, never zero."""
-    tag, filename = README_PACKAGES[platform]
-    matching = [a for a in observation["assets"]
-                if a["os"] == platform and a["version"] == tag and a["name"] == filename]
-    if len(matching) > 1:
-        raise ValueError("Duplicate GitHub release asset identity: " + filename)
-    return matching[0]["count"] if matching else None
-
-
 def render_download_badge(platform, count, checked_at):
     """Self-hosted SVG badge, independent of external badge/CDN APIs."""
     if count is not None and (type(count) is not int or count < 0):
         raise ValueError("Invalid GitHub download count for " + platform)
     value = "N/A" if count is None else f"{count:,}"
-    tag, filename = README_PACKAGES[platform]
     description = html.escape(
-        f"{LABELS[platform]} {tag} / {filename}: {value} GitHub package downloads, "
+        f"{LABELS[platform]}: {value} lifetime GitHub downloads across all published and retired versions, "
         f"checked {checked_at.strftime('%Y-%m-%d %H:%M UTC')}", quote=True)
     left, right = README_BADGE_COLORS[platform]
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="160" height="32" viewBox="0 0 160 32" role="img" aria-label="{description}">
@@ -370,23 +419,33 @@ def render_download_badge(platform, count, checked_at):
 
 
 def main():
-    now=datetime.now(timezone.utc)
-    today=now.date()
-    observation=collect(github_releases())
-    old=json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {}
-    history=update_history(read_history(old),observation,today)
-    hourly=record_hourly(old,observation,now)
-    svg=draw(history,observation,hourly,now)
-    HISTORY.parent.mkdir(parents=True,exist_ok=True)
-    HISTORY.write_text(json.dumps({"schema_version":2,"last_checked_at_utc":now.isoformat(timespec="seconds").replace("+00:00","Z"),"snapshots":history,"hourly_snapshots":hourly},indent=2)+"\n",
-                       encoding="utf-8")
-    SVG.write_text(svg,encoding="utf-8")
+    now = datetime.now(timezone.utc)
+    old = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {}
+    previous_history = read_history(old)
+    previous_ledger = json.loads(LEDGER.read_text(encoding="utf-8")) if LEDGER.exists() else {}
+    live = collect(github_releases())
+    ledger = build_ledger(previous_ledger, live, now, previous_history)
+    observation = lifetime_observation(live, ledger)
+    history = update_history(previous_history, observation, now.date())
+    hourly = record_hourly(old, observation, now)
+    svg = draw(history, observation, hourly, now)
+    HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    # Ledger is validated before any output is written. Never prune retired IDs.
+    LEDGER.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
+    HISTORY.write_text(json.dumps({
+        "schema_version": 2,
+        "last_checked_at_utc": now.isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "snapshots": history, "hourly_snapshots": hourly
+    }, indent=2) + "\n", encoding="utf-8")
+    SVG.write_text(svg, encoding="utf-8")
     for platform in PLATFORMS:
-        count = release_asset_count(observation, platform)
         README_BADGES[platform].write_text(
-            render_download_badge(platform, count, now), encoding="utf-8")
-    print("GitHub package downloads:",observation["totals"],
-          "assets:",len(observation["assets"]),"snapshots:",len(history))
+            render_download_badge(platform, observation["totals"][platform], now),
+            encoding="utf-8")
+    print("All-version lifetime GitHub downloads:", observation["totals"],
+          "current assets:", len(live["assets"]),
+          "retired assets:", sum(a["state"] == "retired" for a in ledger["assets"]),
+          "historical snapshots:", len(history))
 
 
 if __name__ == "__main__":
