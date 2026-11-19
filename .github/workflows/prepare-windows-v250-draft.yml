@@ -64,5 +64,5 @@ jobs:
           PY
           gh release edit v2.5.0 -R "$GH_REPO" --notes-file "$RUNNER_TEMP/v250-notes.md"
           gh api "repos/$GH_REPO/releases/451187190" >"$RUNNER_TEMP/v250-verify.json"
-          jq -e '.draft == true and .prerelease == false and .name == "MEDIA KOLFAT 2.5.0 | Windows 🪟" and (.body | contains("### ⚙️ Redesigned Settings") and contains("### 🏷️ Smart Batch Renaming") and contains("### 📦 Safer COPY, MOVE & Organization") and contains("### 📊 Reports & Results") and contains("### 🛡️ Quality & Compatibility"))' "$RUNNER_TEMP/v250-verify.json"
+          jq -e '.draft == true and .prerelease == false and .name == "MEDIA KOLFAT 2.5.0 | Windows 🪟" and (.body | contains("**Redesigned Settings:**") and contains("**Smart Batch Renaming:**") and contains("**Safer COPY & MOVE:**") and contains("**HTML Reports:**") and contains("**UI & Reliability:**"))' "$RUNNER_TEMP/v250-verify.json"
           echo 'PASS: Expanded changelog saved to the existing draft; old releases and assets untouched.'
