@@ -23,63 +23,23 @@ jobs:
         run: |
           set -euo pipefail
           cat >"$RUNNER_TEMP/v250-whats-new.md" <<'CHANGELOG'
-          ## ✨ What's New in 2.5.0
+          ## ✨ What's New
           
-          ### 🧭 Smarter Guided Mode
-          - **Automatic Media Discovery:** Read-only discovery recommends folders containing at least 10 photos of 1 MB or larger, or 10 videos of 10 MB or larger. Media in subfolders counts toward the recommendation.
-          - **Show All Folders Fallback:** Browse the complete discovered folder list when the smart recommendations do not show the location you need.
-          - **Automatic Library Scanning:** Selecting a discovered source starts the relevant library/catalog scan without an unnecessary extra step.
-          - **Better Guided Library Browsing:** Browse photos and videos by folder, date and date range; combine available search and media filters; open photos and play videos directly.
-          - **Simplified Guided Tools:** Clearer access to Photos Health Check and Duplicate Finder without introducing Advanced-only complexity.
-          - **Clearer Organization Setup:** Improved destination selection and a directly accessible organization-pattern dropdown, with a clearer example and Continue action.
-          - **COPY-Only Guided Workflow:** Guided Mode retains original files; MOVE remains an Advanced Windows operation.
+          - 🧭 **Smarter Guided Mode:** Automatic media discovery, recommended folders, a Show All Folders option and fewer scanning steps.
+          - 🖼️ **Better Library Browsing:** Improved folder and date navigation, filtering and media previews.
+          - 🗂️ **Advanced Navigation:** Cleaner menus, improved folder management and smoother page transitions.
+          - 📅 **Timeline:** Browse media by year, month and day, including Unknown Dates.
+          - 🔍 **Advanced Search:** Combine folder, date, media-type and search filters.
+          - 🏷️ **Smart Batch Renaming:** Rename multiple files with improved pattern controls and confirmations.
+          - ⚙️ **Redesigned Settings:** Six organized categories for easier configuration.
+          - 📦 **Safer COPY & MOVE:** Clearer readiness checks, improved collision handling and stronger Windows Advanced MOVE safeguards.
+          - 📁 **Organization Improvements:** Better folder selection, organization patterns and operation feedback.
+          - 📊 **HTML Reports:** Readable offline reports alongside TXT and existing JSON/CSV exports.
+          - ➡️ **Navigation Fixes:** More reliable Next buttons and Guided/Advanced workflow transitions.
+          - 🌍 **Localization:** Refinements for English, German, Spanish and Persian (RTL).
+          - ✨ **UI & Reliability:** More consistent controls, compact layouts, clearer confirmations and bug fixes.
           
-          ### 🗂️ Advanced Workspace, Timeline & Search
-          - **Reorganized Advanced Navigation:** A more compact menu and clearer hierarchy for Sources, Manage Folders, Timeline, Advanced Search and related tools.
-          - **Source and Folder Management:** Improved folder selection, source management and transitions between related windows.
-          - **Timeline Browsing:** Narrow media by year, month and day, including an **Unknown Dates** grouping for items without usable date metadata.
-          - **Combined Advanced Filters:** Apply supported search, folder, media-type and date filters together to narrow results.
-          - **Photos & Videos Tools:** More coherent navigation to existing library, organization and media-management functions.
-          
-          ### 🏷️ Smart Batch Renaming
-          - **Smart Batch Renaming Workflow:** Dedicated controls for naming multiple selected items with an organized renaming workflow.
-          - **Pattern Selection Improvements:** Clearer pattern-selection controls and examples in the relevant workflows.
-          - **Confirmation Before Changes:** More consistent confirmation and operation feedback around renaming actions.
-          
-          ### 📦 Safer COPY, MOVE & Organization
-          - **Improved Organization Planning:** Clearer plan state, editability and readiness feedback before starting a transfer.
-          - **Actionable Prerequisite Messages:** Disabled or unavailable COPY/MOVE actions explain what is missing instead of silently blocking progress.
-          - **Advanced MOVE Restored and Hardened:** Windows Advanced Mode retains MOVE, with the established verification-before-source-deletion safeguards.
-          - **Stronger File-Operation Handling:** Improvements around destination validation, name collisions, cancellation and interrupted-operation handling.
-          - **More Reliable Folder Choosers:** Better consistency between Guided and Advanced source/destination selection.
-          - **Clearer Safety Confirmations:** Refined dialogs and feedback for Guided COPY, Advanced MOVE, Smart Batch Renaming, resets and folder-removal actions.
-          
-          ### 📊 Reports & Results
-          - **Offline HTML Reports:** A more readable HTML report for supported organization operations, designed to be opened locally.
-          - **Companion TXT Reports:** Factual text reports remain available alongside HTML output.
-          - **Existing Data Exports Preserved:** JSON/CSV report and export options remain available where supported.
-          - **Localization Improvements:** Refinements to report wording and regional date/time presentation across supported languages.
-          
-          ### ⚙️ Redesigned Settings
-          Settings are now organized into six clearer categories:
-          1. **General**
-          2. **Privacy & Safety**
-          3. **Organization**
-          4. **Photos & Videos Library**
-          5. **Guidance & Accessibility**
-          6. **Maintenance**
-          
-          ### ✨ Usability, Navigation & Localization
-          - **Step-by-Step Navigation Fixes:** Added, repaired or aligned 18 Next controls and their workflow destinations across Guided and Advanced Mode.
-          - **More Predictable Workflow Transitions:** Improved navigation readiness and transitions between organization stages.
-          - **Refined Visual Layout:** Targeted adjustments to spacing, control alignment, menus and visual hierarchy.
-          - **Four-Language Refinements:** Updates to English, German, Spanish and Persian, including right-to-left navigation behavior for Persian.
-          
-          ### 🛡️ Quality & Compatibility
-          - **Automated Regression Coverage:** The final reported Windows validation ran 358 tests with no failures or skipped tests and completed a Release build with zero warnings or errors.
-          - **Windows Release:** Version 2.5.0 targets Windows x64. The GitHub EXE is a separate, unsigned distribution from the Microsoft Store edition.
-          
-          **Scope note:** This Windows 2.5.0 update does not include the separately planned Date Repair or Similar Photo Finder features. Linux and macOS remain on their separate 2.4.0 Public Beta releases.
+          *Windows 2.5.0 is a separate release from the Linux and macOS 2.4.0 Public Betas.*
           CHANGELOG
           python3 - "$RUNNER_TEMP/v250-whats-new.md" "$RUNNER_TEMP/v250-notes.md" <<'PY'
           import json, pathlib, subprocess, sys
