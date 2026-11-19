@@ -208,50 +208,46 @@ Thank you for supporting an independent project and helping shape what MEDIA KOL
 
 ---
 
-## Core capabilities
+## MEDIA KOLFAT Core Capabilities
 
-### What's new in Windows 2.5.0
+The Windows edition combines guided organization with advanced tools for local photo and video libraries.
 
-- 🧭 **Smarter Guided Mode:** Automatic folder recommendations, easier scanning and improved library browsing.
-- 📅 **Timeline & Advanced Search:** Browse by date, handle Unknown Dates and combine filters.
-- 🏷️ **Smart Batch Renaming:** Rename multiple files using flexible patterns.
-- ⚙️ **Redesigned Settings:** Six clearer configuration categories.
-- 📦 **Safer COPY & MOVE:** Improved readiness checks, workflow controls and Advanced MOVE safeguards.
-- 📊 **HTML Reports:** Readable offline reports alongside TXT and existing JSON/CSV exports.
-- ✨ **Navigation & Localization:** Refined controls, workflows and English, Persian (RTL), German and Spanish.
-
-[Read the Windows 2.5.0 release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0).
-
-### Core Windows capabilities
-
-- 🧭 **Guided and Advanced experiences** for different user needs
-- 📁 **Media Folder Browser** and automatic computer scanning for photo and video discovery
-- 🔎 **Duplicate Finder** for identifying duplicate media
-- 🖼️ **Browse Library** with improved layout, previews and thumbnail fallback handling
+- 🧭 **Guided and Advanced Modes** for different user needs, with simpler Guided steps and richer Advanced controls
+- 🔍 **Automatic Computer Scan** with read-only folder discovery and smarter recommendations for photos and videos
+- 📁 **Media Folder Browser** to choose and manage source folders, including a Show All Folders fallback
+- 🖼️ **Browse Library** with previews, thumbnails and fallback handling
 - 📊 **Library Overview** with media, health, duplicate and organization information
-- 🩺 **Photos Health Check** and metadata/date handling, including media without usable EXIF dates
-- 📅 **Organize by Date** for predictable file organization
-- 📋 **COPY and MOVE modes** with automatic operation reports; use COPY when originals should remain in place and select MOVE intentionally when transferring originals
+- 🩺 **Photos Health Check** for media analysis and quality-related review
+- 🔎 **Duplicate Finder** for identifying duplicate media
+- 📅 **Timeline** for browsing by year, month and day, including Unknown Dates
+- 🔍 **Advanced Search** with combined folder, date, media-type and text filters
+- 🗂️ **Metadata & Unknown Dates** handling when reliable capture dates are unavailable
+- 🗃️ **Organize by Date** for predictable media folder structures
+- 🏷️ **Smart Batch Renaming** with naming-pattern selection and confirmation
+- 📋 **COPY and MOVE workflows:** Guided Mode uses COPY; Windows Advanced Mode offers opt-in MOVE with safeguards
+- 📄 **Offline HTML organization reports**, plus factual **TXT reports** and existing **JSON/CSV exports** where supported
 - 🕘 **Activity History** for completed scans and organization operations
-- 🔄 **Manual photo rotation**, including multi-select, batch rotation, Rotate Left, Rotate Right, 180°, and batch Undo in Browse Library
-- 🔐 **Privacy & Local Processing** information inside the app
-- 🌍 **English, Persian (Farsi), German and Spanish** language support, including Persian right-to-left (RTL) presentation
-- 🌑 Dedicated dark interface and stability, safety and performance improvements
-- ⏯️ **Pause, Resume and Cancel** controls with improved handling of interrupted operations
-- 📊 **Detailed organization progress**, including the current file, processing stage, completed items and percentage
-- 👁️ **Improved organized-file visibility**, including hidden and system attribute handling on network drives
-- 🛡️ **Additional MOVE safeguards** to help protect original files
-- ✨ Improved activity indicator, **Select All Visible** selection and error handling
-- 🗂️ **File Type Selection** with extension counts and optional Other Files
-- 📁 **Seven conditional destination categories**, created only when needed
-- 🌐 **Improved SMB/NAS-to-NAS MOVE** behavior
-- 🔗 **Safer symbolic-link handling**
+- 🔄 **Manual Photo Rotation** with multi-select, batch rotation, left, right, 180° and batch Undo
+- ⚙️ **Settings organized into six categories:** General; Privacy & Safety; Organization; Photos & Videos Library; Guidance & Accessibility; Maintenance
+- ⏯️ **Pause, Resume and Cancel** controls for supported operations
+- 📊 **Detailed Organization Progress** including the current file, processing stage, completed items and percentage
+- 👁️ **File visibility improvements** for hidden and system attributes, including files on network drives
+- 🛡️ **MOVE safety safeguards** to reduce the risk of accidental source deletion
+- ✨ **Improved navigation and confirmations** including clearer prerequisites, Next controls and workflow feedback
+- ✅ **Select All Visible** support in library browsing
+- 📂 **File Type Selection** with extension counts and optional Other Files
+- 🗄️ **Seven conditional destination categories**, created only when required
+- 🌐 **SMB/NAS-to-NAS MOVE improvements** for Windows network storage
+- 🔗 **Safer symbolic-link handling** and file-operation validation
+- 🔐 **Privacy & Local Processing** information in the application
+- 🌍 **English, Persian (Farsi), German and Spanish**, including right-to-left (RTL) presentation for Persian
+- 🌑 **Dedicated dark interface** with ongoing usability, stability and performance improvements
 
-MEDIA KOLFAT uses local-first processing. Windows is the stable edition; Linux and macOS Apple Silicon are separate experimental public betas. Routine organization does not require media-library uploads.
+MEDIA KOLFAT uses local-first processing. **Windows is the stable edition**; Linux and macOS Apple Silicon have separate experimental public betas with a smaller feature set. Routine organization does not require media-library uploads.
 
-**Important when organizing files:** COPY and MOVE have different consequences for source files. Review the selected mode and destination carefully, and keep an independent backup of irreplaceable media.
+**Important:** COPY preserves source files; MOVE can remove source files after a successful transfer. Verify your destination and keep independent backups of irreplaceable media.
 
-See the [official Windows 2.5.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0) for the latest highlights and [CHANGELOG.md](CHANGELOG.md) for release history.
+For version-specific additions and fixes, see the [Windows 2.5.0 release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0) and [CHANGELOG.md](CHANGELOG.md).
 
 ## Why choose MEDIA KOLFAT?
 
