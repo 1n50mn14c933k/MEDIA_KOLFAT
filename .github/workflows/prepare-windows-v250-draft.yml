@@ -1,0 +1,87 @@
+name: Prepare MEDIA KOLFAT 2.5.0 Windows draft (one-time)
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/prepare-windows-v250-draft.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: media-kolfat-v250-draft-preparation
+  cancel-in-progress: false
+jobs:
+  draft:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Create or verify unpublished Windows 2.5.0 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view v2.5.0 -R "$GH_REPO" --json isDraft --jq .isDraft >"$RUNNER_TEMP/v250-status" 2>/dev/null; then
+            test "$(cat "$RUNNER_TEMP/v250-status")" = true || {
+              echo "::error::v2.5.0 is already published. Refusing to alter it."
+              exit 1
+            }
+            echo 'Draft v2.5.0 already exists; leaving its notes and assets unchanged.'
+            exit 0
+          fi
+          cat >"$RUNNER_TEMP/v250-notes.md" <<'RELEASE_NOTES'
+          MEDIA KOLFAT **2.5.0** brings smarter media discovery, improved navigation, Timeline & Search, richer reports, and safer, clearer organization workflows to Windows.
+          
+          **Published:** November 19, 2026  
+          **Platform:** Windows x64  
+          **Microsoft Store package version:** `2.5.0.0` (Store availability may differ from GitHub)  
+          **Languages:** English, Persian (RTL), German, Spanish  
+          **Price:** Free
+          
+          Version 2.5.0 helps users find their media more easily, move through Guided and Advanced workflows with clearer navigation, and review organization results in readable reports.
+          
+          ## ✨ What's New
+          
+          - 📂 **Smarter Guided Media Discovery:** Automatic read-only scanning recommends folders containing substantial photo or video collections, with a Show All Folders option when needed.
+          - 🧭 **Improved Advanced Navigation:** Streamlined menu navigation, clearer page grouping, and more consistent workflow controls.
+          - 🕘 **Timeline & Search:** Browse media by year, month, and day, including Unknown Dates, with combinable search and date filters.
+          - 📊 **Readable HTML Reports:** Offline HTML reports for organization results, alongside factual TXT reports and existing JSON/CSV exports where supported.
+          - 📦 **Safer COPY & MOVE Workflows:** Improved readiness checks, clearer explanations for missing prerequisites, and Windows Advanced MOVE safeguards.
+          - 🗂️ **Folder Selection Improvements:** Refined folder selection and automatic scanning behavior in Guided and Advanced workflows.
+          - ➡️ **Better Step-by-Step Navigation:** More predictable Next-button behavior and workflow transitions.
+          - 🌍 **Localization & Interface Refinements:** Improvements for English, Persian right-to-left layout, German, and Spanish, plus spacing and visual consistency.
+          
+          ---
+          
+          ## ⬇️ Download MEDIA KOLFAT
+          
+          > ### 💻 Official GitHub Windows EXE Download
+          >
+          > **[Download MEDIA KOLFAT 2.5.0 for Windows x64](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.5.0/MEDIA_KOLFAT_2.5.0_Setup.exe)**
+          >
+          > **[SHA-256 checksum file](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.5.0/MEDIA_KOLFAT_2.5.0_SHA256.txt)**
+          
+          > ### 🛍️ Official Microsoft Store Download
+          >
+          > **[Get MEDIA KOLFAT for Windows](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)**
+          
+          ## 🔐 Privacy and Local Processing
+          
+          MEDIA KOLFAT is designed for local photo and video management. Normal organization workflows process files on your Windows computer without requiring your library to be uploaded to KOLFAT servers. MEDIA KOLFAT is free and contains no advertising.
+          
+          ---
+          
+          Thank you for using MEDIA KOLFAT! 🖤
+          
+          **ORDER FROM CHAOS.**
+          
+          <p align="center">
+            <a href="https://ko-fi.com/kolfat_app">
+              <img src="https://img.shields.io/badge/%F0%9F%A7%B9%F0%9F%AA%A3%E2%9D%A4%EF%B8%8F-Keep_Our_Maid_Alive%2C_Strong_%26_Cleaning%21-FF812E?style=for-the-badge&amp;labelColor=181818" alt="🧹🪣❤️ Keep Our Maid Alive, Strong &amp; Cleaning!" width="720">
+            </a>
+          </p>
+          RELEASE_NOTES
+          gh release create v2.5.0 -R "$GH_REPO" --draft --title 'MEDIA KOLFAT 2.5.0 | Windows 🪟' --notes-file "$RUNNER_TEMP/v250-notes.md" --target main
+          test "$(gh release view v2.5.0 -R "$GH_REPO" --json isDraft --jq .isDraft)" = true
+          echo 'PASS: Windows 2.5.0 release created as a draft. No packages uploaded; nothing published.'
