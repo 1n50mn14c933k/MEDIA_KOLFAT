@@ -5,7 +5,7 @@
 <p align="center"><strong>Every memory, right where it belongs.</strong><br>Free, local-first photo and video organization for Windows, Linux and macOS Apple Silicon.</p>
 
 <p align="center">
-  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0"><img src="https://img.shields.io/badge/Windows-2.0.0_Stable-0078D4?style=flat-square&labelColor=181818" alt="Windows Stable 2.0.0"></a>
+  <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0"><img src="https://img.shields.io/badge/Windows-2.5.0_Stable-0078D4?style=flat-square&labelColor=181818" alt="Windows Stable 2.5.0"></a>
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta"><img src="https://img.shields.io/badge/Linux-2.4.0_Beta-FF812E?style=flat-square&labelColor=181818" alt="Linux Beta 2.4.0"></a>
   <img src="https://img.shields.io/badge/macOS-2.4.0_Beta-8B5CF6?style=flat-square&labelColor=181818" alt="macOS Apple Silicon 2.4.0 Beta released">
   <img src="https://img.shields.io/badge/Price-FREE-16A34A?style=flat-square&labelColor=181818" alt="Free">
@@ -196,7 +196,7 @@ Thank you for supporting an independent project and helping shape what MEDIA KOL
 
 | Platform | Release | Format | Official downloads |
 |---|---|---|---|
-| 🪟 **Windows x64** | **Stable 2.0.0** | `.exe` / Store | [Windows installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
+| 🪟 **Windows x64** | **Stable 2.5.0** | `.exe` / Store | [Windows installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.5.0/MEDIA_KOLFAT_2.5.0_Setup.exe) · [SHA-256](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.5.0/MEDIA_KOLFAT_2.5.0_SHA256.txt) · [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) |
 | 🐧 **Linux x64** | **Public Beta 2.4.0** | `.AppImage` | [Download AppImage](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_x86_64.AppImage) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-linux-beta/MEDIA_KOLFAT_Linux_Beta_2.4.0_SHA256.txt) |
 | 🍎 **macOS Apple Silicon (M-series)** | **Public Beta 2.4.0** | `.dmg` | [Download DMG](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-macos-beta/MEDIA_KOLFAT_macOS_Beta_2.4.0_arm64.dmg) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.4.0-macos-beta/MEDIA_KOLFAT_macOS_Beta_2.4.0_SHA256.txt) |
 
@@ -210,7 +210,19 @@ Thank you for supporting an independent project and helping shape what MEDIA KOL
 
 ## Core capabilities
 
-### What's available in version 2.0.0 (Windows Stable)
+### What's new in Windows 2.5.0
+
+- 🧭 **Smarter Guided Mode:** Automatic folder recommendations, easier scanning and improved library browsing.
+- 📅 **Timeline & Advanced Search:** Browse by date, handle Unknown Dates and combine filters.
+- 🏷️ **Smart Batch Renaming:** Rename multiple files using flexible patterns.
+- ⚙️ **Redesigned Settings:** Six clearer configuration categories.
+- 📦 **Safer COPY & MOVE:** Improved readiness checks, workflow controls and Advanced MOVE safeguards.
+- 📊 **HTML Reports:** Readable offline reports alongside TXT and existing JSON/CSV exports.
+- ✨ **Navigation & Localization:** Refined controls, workflows and English, Persian (RTL), German and Spanish.
+
+[Read the Windows 2.5.0 release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0).
+
+### Core Windows capabilities
 
 - 🧭 **Guided and Advanced experiences** for different user needs
 - 📁 **Media Folder Browser** and automatic computer scanning for photo and video discovery
@@ -235,11 +247,11 @@ Thank you for supporting an independent project and helping shape what MEDIA KOL
 - 🌐 **Improved SMB/NAS-to-NAS MOVE** behavior
 - 🔗 **Safer symbolic-link handling**
 
-MEDIA KOLFAT uses local-first processing. Windows is the stable edition, and Linux is an experimental Beta. Routine organization does not require media-library uploads.
+MEDIA KOLFAT uses local-first processing. Windows is the stable edition; Linux and macOS Apple Silicon are separate experimental public betas. Routine organization does not require media-library uploads.
 
 **Important when organizing files:** COPY and MOVE have different consequences for source files. Review the selected mode and destination carefully, and keep an independent backup of irreplaceable media.
 
-See the [official version 2.0.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest) for published release highlights.
+See the [official Windows 2.5.0 release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0) for the latest highlights and [CHANGELOG.md](CHANGELOG.md) for release history.
 
 ## Why choose MEDIA KOLFAT?
 
@@ -291,7 +303,7 @@ Organize, protect and manage your photos and videos without subscriptions, compl
 
 **MEDIA KOLFAT focuses on media organization rather than professional photo editing.** Guided workflows, duplicate detection, date-based organization and safety controls help you manage your collection without unnecessary complexity.
 
-*Platform note:* The comparison highlights **Windows 2.0.0 Stable** features. Linux 2.4.0 is an experimental beta with a smaller feature set and **MOVE disabled**. macOS Apple Silicon 2.4.0 is a publicly available experimental beta for macOS 14+ on M-series Macs only; it is unsigned and not notarized, and MOVE remains disabled. The documented 20,000+ photo workload is a Windows NAS transfer test, **not** a system benchmark score.
+*Platform note:* The comparison highlights **Windows 2.5.0 Stable** features. Linux 2.4.0 is an experimental beta with a smaller feature set and **MOVE disabled**. macOS Apple Silicon 2.4.0 is a publicly available experimental beta for macOS 14+ on M-series Macs only; it is unsigned and not notarized, and MOVE remains disabled. The documented 20,000+ photo workload is a Windows NAS transfer test, **not** a system benchmark score.
 
 *Feature note:* System Benchmark / Performance Check is included in this comparison as requested, but is **not currently documented on the official product page**. Competitor features are high-level comparisons and may use different workflows; a dash does not prove the feature is absent.
 
@@ -330,7 +342,7 @@ Do **not** publish suspected security vulnerabilities in public Issues. See [SEC
 
 MEDIA KOLFAT is publicly available through Microsoft Store and official GitHub Releases.
 
-Current **stable Windows release**: **2.0.0** (Store package **2.0.0.0**). Linux has a separate pre-release. Release notes and version history are tracked through [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
+Current **stable Windows release**: **2.5.0** ([GitHub EXE and checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0)). The Microsoft Store is a separate distribution channel and may offer a different package version. Linux and macOS Apple Silicon remain on separate 2.4.0 Public Beta tracks. Earlier Windows versions remain documented in [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) and [CHANGELOG.md](CHANGELOG.md).
 
 ## Roadmap
 
