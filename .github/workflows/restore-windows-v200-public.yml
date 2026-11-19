@@ -1,0 +1,40 @@
+name: Restore Windows v2.0.0 public release (one-time)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/restore-windows-v200-public.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: kolfat-restore-windows-v200
+  cancel-in-progress: false
+jobs:
+  restore:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Restore original release visibility without changing its assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          test "$GH_REPO" = '1n50mn14c933k/MEDIA_KOLFAT'
+          release="$(gh api "repos/$GH_REPO/releases/425297008")"
+          test "$(jq -r '.id' <<<"$release")" = '425297008'
+          test "$(jq -r '.tag_name' <<<"$release")" = 'v2.0.0'
+          test "$(jq -r '.name' <<<"$release")" = 'MEDIA KOLFAT 2.0.0 | Windows 🪟'
+          test "$(jq -r '.prerelease' <<<"$release")" = 'false'
+          test "$(jq -r '.assets | map(.name) | sort | join(",")' <<<"$release")" = 'MEDIA_KOLFAT_2.0.0_SHA256.txt,MEDIA_KOLFAT_2.0.0_Setup.exe'
+          if [[ "$(jq -r '.draft' <<<"$release")" == 'true' ]]; then
+            gh api --method PATCH "repos/$GH_REPO/releases/425297008" -F draft=false -f make_latest=false >/dev/null
+          fi
+          restored="$(gh api "repos/$GH_REPO/releases/425297008")"
+          test "$(jq -r '.draft' <<<"$restored")" = 'false'
+          test "$(jq -r '.tag_name' <<<"$restored")" = 'v2.0.0'
+          test "$(jq -r '.assets | map(.name) | sort | join(",")' <<<"$restored")" = 'MEDIA_KOLFAT_2.0.0_SHA256.txt,MEDIA_KOLFAT_2.0.0_Setup.exe'
+          test "$(gh api "repos/$GH_REPO/releases/latest" --jq '.tag_name')" = 'v2.5.0'
+          echo 'PASS: Windows 2.0.0 release public again, old assets preserved, 2.5.0 stays Latest.'
