@@ -15,73 +15,94 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - name: Create or verify unpublished Windows 2.5.0 release
+      - name: Replace only the What's New section of the existing unpublished release
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
-          if gh release view v2.5.0 -R "$GH_REPO" --json isDraft --jq .isDraft >"$RUNNER_TEMP/v250-status" 2>/dev/null; then
-            test "$(cat "$RUNNER_TEMP/v250-status")" = true || {
-              echo "::error::v2.5.0 is already published. Refusing to alter it."
-              exit 1
-            }
-            echo 'Draft v2.5.0 already exists; leaving its notes and assets unchanged.'
-            exit 0
-          fi
-          cat >"$RUNNER_TEMP/v250-notes.md" <<'RELEASE_NOTES'
-          MEDIA KOLFAT **2.5.0** brings smarter media discovery, improved navigation, Timeline & Search, richer reports, and safer, clearer organization workflows to Windows.
+          cat >"$RUNNER_TEMP/v250-whats-new.md" <<'CHANGELOG'
+          ## ✨ What's New in 2.5.0
           
-          **Published:** November 19, 2026  
-          **Platform:** Windows x64  
-          **Microsoft Store package version:** `2.5.0.0` (Store availability may differ from GitHub)  
-          **Languages:** English, Persian (RTL), German, Spanish  
-          **Price:** Free
+          ### 🧭 Smarter Guided Mode
+          - **Automatic Media Discovery:** Read-only discovery recommends folders containing at least 10 photos of 1 MB or larger, or 10 videos of 10 MB or larger. Media in subfolders counts toward the recommendation.
+          - **Show All Folders Fallback:** Browse the complete discovered folder list when the smart recommendations do not show the location you need.
+          - **Automatic Library Scanning:** Selecting a discovered source starts the relevant library/catalog scan without an unnecessary extra step.
+          - **Better Guided Library Browsing:** Browse photos and videos by folder, date and date range; combine available search and media filters; open photos and play videos directly.
+          - **Simplified Guided Tools:** Clearer access to Photos Health Check and Duplicate Finder without introducing Advanced-only complexity.
+          - **Clearer Organization Setup:** Improved destination selection and a directly accessible organization-pattern dropdown, with a clearer example and Continue action.
+          - **COPY-Only Guided Workflow:** Guided Mode retains original files; MOVE remains an Advanced Windows operation.
           
-          Version 2.5.0 helps users find their media more easily, move through Guided and Advanced workflows with clearer navigation, and review organization results in readable reports.
+          ### 🗂️ Advanced Workspace, Timeline & Search
+          - **Reorganized Advanced Navigation:** A more compact menu and clearer hierarchy for Sources, Manage Folders, Timeline, Advanced Search and related tools.
+          - **Source and Folder Management:** Improved folder selection, source management and transitions between related windows.
+          - **Timeline Browsing:** Narrow media by year, month and day, including an **Unknown Dates** grouping for items without usable date metadata.
+          - **Combined Advanced Filters:** Apply supported search, folder, media-type and date filters together to narrow results.
+          - **Photos & Videos Tools:** More coherent navigation to existing library, organization and media-management functions.
           
-          ## ✨ What's New
+          ### 🏷️ Smart Batch Renaming
+          - **Smart Batch Renaming Workflow:** Dedicated controls for naming multiple selected items with an organized renaming workflow.
+          - **Pattern Selection Improvements:** Clearer pattern-selection controls and examples in the relevant workflows.
+          - **Confirmation Before Changes:** More consistent confirmation and operation feedback around renaming actions.
           
-          - 📂 **Smarter Guided Media Discovery:** Automatic read-only scanning recommends folders containing substantial photo or video collections, with a Show All Folders option when needed.
-          - 🧭 **Improved Advanced Navigation:** Streamlined menu navigation, clearer page grouping, and more consistent workflow controls.
-          - 🕘 **Timeline & Search:** Browse media by year, month, and day, including Unknown Dates, with combinable search and date filters.
-          - 📊 **Readable HTML Reports:** Offline HTML reports for organization results, alongside factual TXT reports and existing JSON/CSV exports where supported.
-          - 📦 **Safer COPY & MOVE Workflows:** Improved readiness checks, clearer explanations for missing prerequisites, and Windows Advanced MOVE safeguards.
-          - 🗂️ **Folder Selection Improvements:** Refined folder selection and automatic scanning behavior in Guided and Advanced workflows.
-          - ➡️ **Better Step-by-Step Navigation:** More predictable Next-button behavior and workflow transitions.
-          - 🌍 **Localization & Interface Refinements:** Improvements for English, Persian right-to-left layout, German, and Spanish, plus spacing and visual consistency.
+          ### 📦 Safer COPY, MOVE & Organization
+          - **Improved Organization Planning:** Clearer plan state, editability and readiness feedback before starting a transfer.
+          - **Actionable Prerequisite Messages:** Disabled or unavailable COPY/MOVE actions explain what is missing instead of silently blocking progress.
+          - **Advanced MOVE Restored and Hardened:** Windows Advanced Mode retains MOVE, with the established verification-before-source-deletion safeguards.
+          - **Stronger File-Operation Handling:** Improvements around destination validation, name collisions, cancellation and interrupted-operation handling.
+          - **More Reliable Folder Choosers:** Better consistency between Guided and Advanced source/destination selection.
+          - **Clearer Safety Confirmations:** Refined dialogs and feedback for Guided COPY, Advanced MOVE, Smart Batch Renaming, resets and folder-removal actions.
           
-          ---
+          ### 📊 Reports & Results
+          - **Offline HTML Reports:** A more readable HTML report for supported organization operations, designed to be opened locally.
+          - **Companion TXT Reports:** Factual text reports remain available alongside HTML output.
+          - **Existing Data Exports Preserved:** JSON/CSV report and export options remain available where supported.
+          - **Localization Improvements:** Refinements to report wording and regional date/time presentation across supported languages.
           
-          ## ⬇️ Download MEDIA KOLFAT
+          ### ⚙️ Redesigned Settings
+          Settings are now organized into six clearer categories:
+          1. **General**
+          2. **Privacy & Safety**
+          3. **Organization**
+          4. **Photos & Videos Library**
+          5. **Guidance & Accessibility**
+          6. **Maintenance**
           
-          > ### 💻 Official GitHub Windows EXE Download
-          >
-          > **[Download MEDIA KOLFAT 2.5.0 for Windows x64](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.5.0/MEDIA_KOLFAT_2.5.0_Setup.exe)**
-          >
-          > **[SHA-256 checksum file](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.5.0/MEDIA_KOLFAT_2.5.0_SHA256.txt)**
+          ### ✨ Usability, Navigation & Localization
+          - **Step-by-Step Navigation Fixes:** Added, repaired or aligned 18 Next controls and their workflow destinations across Guided and Advanced Mode.
+          - **More Predictable Workflow Transitions:** Improved navigation readiness and transitions between organization stages.
+          - **Refined Visual Layout:** Targeted adjustments to spacing, control alignment, menus and visual hierarchy.
+          - **Four-Language Refinements:** Updates to English, German, Spanish and Persian, including right-to-left navigation behavior for Persian.
           
-          > ### 🛍️ Official Microsoft Store Download
-          >
-          > **[Get MEDIA KOLFAT for Windows](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)**
+          ### 🛡️ Quality & Compatibility
+          - **Automated Regression Coverage:** The final reported Windows validation ran 358 tests with no failures or skipped tests and completed a Release build with zero warnings or errors.
+          - **Windows Release:** Version 2.5.0 targets Windows x64. The GitHub EXE is a separate, unsigned distribution from the Microsoft Store edition.
           
-          ## 🔐 Privacy and Local Processing
-          
-          MEDIA KOLFAT is designed for local photo and video management. Normal organization workflows process files on your Windows computer without requiring your library to be uploaded to KOLFAT servers. MEDIA KOLFAT is free and contains no advertising.
-          
-          ---
-          
-          Thank you for using MEDIA KOLFAT! 🖤
-          
-          **ORDER FROM CHAOS.**
-          
-          <p align="center">
-            <a href="https://ko-fi.com/kolfat_app">
-              <img src="https://img.shields.io/badge/%F0%9F%A7%B9%F0%9F%AA%A3%E2%9D%A4%EF%B8%8F-Keep_Our_Maid_Alive%2C_Strong_%26_Cleaning%21-FF812E?style=for-the-badge&amp;labelColor=181818" alt="🧹🪣❤️ Keep Our Maid Alive, Strong &amp; Cleaning!" width="720">
-            </a>
-          </p>
-          RELEASE_NOTES
-          gh release create v2.5.0 -R "$GH_REPO" --draft --title 'MEDIA KOLFAT 2.5.0 | Windows 🪟' --notes-file "$RUNNER_TEMP/v250-notes.md" --target main
-          test "$(gh release view v2.5.0 -R "$GH_REPO" --json isDraft --jq .isDraft)" = true
-          echo 'PASS: Windows 2.5.0 release created as a draft. No packages uploaded; nothing published.'
+          **Scope note:** This Windows 2.5.0 update does not include the separately planned Date Repair or Similar Photo Finder features. Linux and macOS remain on their separate 2.4.0 Public Beta releases.
+          CHANGELOG
+          python3 - "$RUNNER_TEMP/v250-whats-new.md" "$RUNNER_TEMP/v250-notes.md" <<'PY'
+          import json, pathlib, subprocess, sys
+          new_section = pathlib.Path(sys.argv[1]).read_text(encoding='utf-8').rstrip()
+          release = json.loads(subprocess.check_output(['gh', 'api', f'repos/1n50mn14c933k/MEDIA_KOLFAT/releases/tags/v2.5.0'], text=True))
+          assert release['draft'] is True, 'Refusing to edit a published release'
+          assert release['tag_name'] == 'v2.5.0'
+          assert release['name'] == 'MEDIA KOLFAT 2.5.0 | Windows 🪟'
+          body = release['body']
+          start_marker = '## ✨ What\'s New'
+          end_marker = '\n---\n\n## ⬇️ Download MEDIA KOLFAT'
+          assert body.count(start_marker) == 1 and body.count(end_marker) == 1, 'Release layout unexpectedly changed'
+          start = body.index(start_marker)
+          end = body.index(end_marker, start)
+          original_section = body[start:end]
+          assert 'Smart Batch Renaming' in original_section or 'Smarter Guided Media Discovery' in original_section, 'Unexpected prior release content'
+          updated = body[:start] + new_section + '\n' + body[end:]
+          pathlib.Path(sys.argv[2]).write_text(updated, encoding='utf-8')
+          print('Previous bullets:', original_section.count('\n- '))
+          print('Updated bullets:', new_section.count('\n- '))
+          print('Release draft:', release['id'])
+          PY
+          gh release edit v2.5.0 -R "$GH_REPO" --notes-file "$RUNNER_TEMP/v250-notes.md"
+          gh api "repos/$GH_REPO/releases/tags/v2.5.0" >"$RUNNER_TEMP/v250-verify.json"
+          jq -e '.draft == true and .prerelease == false and .name == "MEDIA KOLFAT 2.5.0 | Windows 🪟" and (.body | contains("### ⚙️ Redesigned Settings") and contains("### 🏷️ Smart Batch Renaming") and contains("### 📦 Safer COPY, MOVE & Organization") and contains("### 📊 Reports & Results") and contains("### 🛡️ Quality & Compatibility"))' "$RUNNER_TEMP/v250-verify.json"
+          echo 'PASS: Expanded changelog saved to the existing draft; old releases and assets untouched.'
