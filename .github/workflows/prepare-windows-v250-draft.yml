@@ -88,7 +88,7 @@ jobs:
           assert release['draft'] is True, 'Refusing to edit a published release'
           assert release['tag_name'] == 'v2.5.0'
           assert release['name'] == 'MEDIA KOLFAT 2.5.0 | Windows 🪟'
-          body = release['body']
+          body = release['body'].replace('\\r\\n', '\\n')
           start_marker = '## ✨ What\'s New'
           end_marker = '\n---\n\n## ⬇️ Download MEDIA KOLFAT'
           assert body.count(start_marker) == 1 and body.count(end_marker) == 1, 'Release layout unexpectedly changed'
