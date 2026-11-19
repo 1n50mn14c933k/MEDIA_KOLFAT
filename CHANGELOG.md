@@ -8,7 +8,28 @@ Public GitHub releases use `MAJOR.MINOR.PATCH` versioning. Microsoft Store packa
 
 ## [Unreleased]
 
-Future production changes will be documented here before publication. **MEDIA KOLFAT remains free forever.** Linux experimental releases use a separate version/tag track from Windows Stable; the planned macOS port targets Apple Silicon M-series only and is not released.
+Future production changes will be documented here before publication. **MEDIA KOLFAT remains free forever.** Linux and macOS Apple Silicon are available as separate experimental 2.4.0 Public Beta releases.
+
+---
+
+## [2.5.0] — 2026-11-19 (Windows Stable)
+
+**Platform:** Windows x64 · **GitHub version:** `v2.5.0` · **Price:** Free
+
+### New and improved
+- Smarter Guided Mode with automatic folder recommendations, simpler scans and improved browsing
+- Timeline browsing by year, month and day, including Unknown Dates
+- Advanced Search with combinable folder, date and media filters
+- Smart Batch Renaming and improved naming-pattern controls
+- Redesigned Settings organized into six categories
+- Safer COPY/MOVE workflows, improved readiness feedback and Windows Advanced MOVE safeguards
+- Readable offline HTML organization reports alongside TXT and existing JSON/CSV options
+- Navigation, usability and localization refinements for English, Persian (RTL), German and Spanish
+
+### Distribution
+- [Windows 2.5.0 EXE installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.5.0/MEDIA_KOLFAT_2.5.0_Setup.exe) · [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.5.0/MEDIA_KOLFAT_2.5.0_SHA256.txt)
+- [Official Windows 2.5.0 release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0)
+- [Microsoft Store listing](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) (Store package version may differ)
 
 ---
 
@@ -38,7 +59,7 @@ Future production changes will be documented here before publication. **MEDIA KO
 
 ### Distribution
 
-- [Windows x64 EXE installer](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_Setup.exe) and [SHA-256 checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/download/v2.0.0/MEDIA_KOLFAT_2.0.0_SHA256.txt)
+- Historical Windows 2.0.0 installer and checksum were published with this release; see the [original 2.0.0 release page](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0).
 - [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare)
 - [Version 2.0.0 release notes](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0)
 
