@@ -1,69 +1,38 @@
 # MEDIA KOLFAT Public Roadmap
 
-This roadmap intentionally contains only public-facing product goals. Internal implementation details, security work and proprietary engineering plans are maintained privately.
-
-The roadmap is directional, not contractual. Items may change, move or be removed as the product develops.
+**Updated: 2026-11-20.** This is a directional, public-facing roadmap. Items may change; unreleased capabilities are not commitments.
 
 ## Current release status
 
-MEDIA KOLFAT **2.0.0** (Microsoft Store package **2.0.0.0**) is **available now on Microsoft Store and GitHub Releases**:
+- **Windows x64:** [2.5.0 Stable](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0), published November 19, 2026. The official GitHub release provides a standalone EXE and SHA-256 checksum. [Microsoft Store listing](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare); Store version/publication status should be verified separately.
+- **Linux x86_64:** [2.4.0 Public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta), AppImage and SHA-256 checksum.
+- **macOS Apple Silicon (arm64):** [2.4.0 Public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-macos-beta), DMG and SHA-256 checksum. Intel Macs are not targeted.
 
-https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare
+**MEDIA KOLFAT is free forever.** There is no paid edition announced or available. Do not describe a future PRO edition as an active commitment.
 
-The current priorities are maintaining **Windows Stable 2.0.0** and improving the separate **Linux 2.4.0 Public Beta**. Linux is an experimental AppImage release; **MOVE is disabled** pending further source-deletion safety work.
+## Delivered in Windows 2.5.0
 
-## Delivered in the current Windows release
+- Smarter Guided Mode: read-only computer discovery, automatic folder recommendations, simplified scans, and Show All Folders fallback.
+- Timeline by year/month/day with Unknown Dates.
+- Advanced Search with combined folder, date and media filters.
+- Smart Batch Renaming and improved pattern selection.
+- Redesigned Settings grouped into six categories.
+- Guided COPY and safeguarded Windows Advanced MOVE.
+- Offline HTML organization reports, factual TXT, and existing JSON/CSV export options where supported.
+- Navigation, language and interface refinements (English, Persian RTL, German and Spanish).
 
-- Guided and Advanced experiences
-- Media Folder Browser and automatic computer scanning
-- Duplicate Finder and Photos Health Check
-- Metadata and date handling, date-based organization, and fallback handling
-- COPY and MOVE organization with automatic operation reports
-- Library Overview and Activity History
-- Browse Library improvements and manual rotation with multi-select, batch rotation and batch Undo
-- English, Persian (RTL), German and Spanish language support
-- Pause, Resume and Cancel during organization, with improved progress tracking
-- Improved MOVE safeguards and organized-file attribute visibility
-- Better activity feedback and Browse Library Select All Visible behavior
-- Local media processing and in-app privacy information
-- File Type Selection with extension counts and optional Other Files
-- Seven conditional destination folders
-- Improved SMB/NAS-to-NAS MOVE and symbolic-link handling
+See [the 2.5.0 changelog](CHANGELOG.md) and [release page](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0) for published changes.
 
-## Ongoing Windows priorities
+## Ongoing priorities
 
-- Improve reliability, usability and performance with large libraries
-- Refine media discovery, thumbnails, metadata handling and workflow guidance
-- Address reproducible issues reported by users
-- Keep documentation, support information and release notes current
+- Maintain Windows 2.5.0 stability, accessible Guided Mode, larger-library reliability, and safe COPY/MOVE behavior.
+- Test and stabilize Linux and macOS Public Betas on their native target operating systems.
+- Keep **MOVE disabled** on both beta platforms pending platform-specific safety verification.
+- Prioritize reproducible user bugs, accurate localized guides, packaging and compatibility testing.
+- Explore further backup verification, undo/restore and media discovery enhancements without promising dates or specific behavior.
 
-## Free forever and future PRO plans
+## Distribution and limitations
 
-**MEDIA KOLFAT remains free forever.** A separate, optional MEDIA KOLFAT PRO product may be developed in the future for advanced functionality; it is not released and does not change the free application's availability.
+Only official [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) channels should be trusted. The GitHub Windows EXE is not Store-signed and does not receive Store auto-updates; both beta packages have platform-specific installation and security limitations. Keep independent backups of valuable media.
 
-Specific PRO functionality will be announced only when it is sufficiently defined and ready to be publicly committed to.
-
-## Future development
-
-**Linux is already available as an experimental Public Beta.** Native AppImage 2.4.0 GUI testing, Settings Reset, platform integration and broader distribution compatibility remain priorities. **macOS Apple Silicon (M-series, arm64) only** is planned; Intel Macs are not targeted. No macOS build or launch date has been announced.
-
-Future development may also include additional organization, discovery, automation and intelligent media-management capabilities.
-
-No unreleased feature, platform or capability listed or discussed publicly should be interpreted as a guaranteed commitment or release date.
-
-## Distribution
-
-See the [official platform and download guide](docs/PLATFORMS_AND_DOWNLOADS.md) for exact packages, verification and known limitations.
-
-
-Windows Stable is distributed via [Microsoft Store](https://apps.microsoft.com/detail/9p0x091t7mv4?ocid=webpdpshare) and its [Windows GitHub release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0). Standalone EXE installations do not receive Store updates.
-
-Linux Public Beta is distributed separately via [GitHub AppImage and checksum](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta). Other Linux packages, if offered, belong in their appropriate app stores or distro repositories.
-
-## Development timeline
-
-See [DEVELOPMENT_TIMELINE.md](docs/DEVELOPMENT_TIMELINE.md) for dated Windows and Linux milestones, Beta test scope and outstanding limitations.
-
-## Release history
-
-See [CHANGELOG.md](CHANGELOG.md) and [GitHub Releases](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases) for public version history, including [v1.6.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0) and the [latest release](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/latest).
+See [platform/download guide](docs/PLATFORMS_AND_DOWNLOADS.md), [development timeline](docs/DEVELOPMENT_TIMELINE.md), and [support](SUPPORT.md).
