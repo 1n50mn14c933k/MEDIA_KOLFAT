@@ -1,6 +1,6 @@
 # MEDIA KOLFAT | Development Timeline
 
-**Updated:** October 29, 2026. Public milestones and verified testing scope; future priorities are not release promises.
+**Updated:** November 20, 2026. Public milestones and verified testing scope; future priorities are not release promises.
 
 ## Windows — Stable
 
@@ -11,7 +11,7 @@
 | 2026-09-17 | [1.4.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.4.0) | Duplicate Finder and computer scanning |
 | 2026-10-01 | [1.6.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.6.0) | Guided/Advanced modes, MOVE, reports and activity history |
 | 2026-10-19 | [1.8.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v1.8.0) | COPY/MOVE safeguards, pause/resume/cancel and progress |
-| **2026-10-27** | **[2.0.0 Stable](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0)** | Microsoft Store 2.0.0.0 and standalone Windows EXE |
+| 2026-10-27 | [2.0.0 Stable](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0) | Microsoft Store 2.0.0.0 and standalone Windows EXE |\n| **2026-11-19** | **[2.5.0 Stable](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0)** | Smarter Guided discovery, Timeline, Advanced Search, Smart Batch Renaming, redesigned Settings and offline HTML reporting |
 
 ## Linux — Experimental Beta
 
@@ -25,17 +25,25 @@
 
 **Testing boundary:** Successful native Ubuntu COPY applies to an **earlier Beta**, not the 2.4.0 AppImage. The 2.4.0 AppImage has not been independently tested interactively on native Ubuntu 26.04 and remains experimental.
 
+## macOS Apple Silicon — Experimental Beta
+
+| Date | Version | Milestone |
+|---|---|---|
+| **2026-11-01** | **[2.4.0 Public Beta](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-macos-beta)** | Apple Silicon DMG and SHA-256 checksum published; unsigned/not notarized; COPY-only operation with MOVE disabled |
+
+macOS native compatibility and beta safety testing remain ongoing. Intel Macs are not targeted.
+
 ## Current priorities
 
 - **Linux MOVE:** Disabled. Source deletion requires safety guarantees that have not yet been established.
 - **Linux compatibility:** Native AppImage 2.4.0 testing; settings reset, desktop integration and broader distribution testing.
-- **Windows:** Maintain stable 2.0.0 and respond to user feedback without compromising existing releases.
-- **macOS:** Apple Silicon (M-series, arm64) only is planned. Intel Macs are not targeted; no public build or release schedule.
+- **Windows:** Maintain stable 2.5.0 and respond to user feedback without compromising existing releases.
+- **macOS:** Public Beta 2.4.0 is available for Apple Silicon. Further validation and stable-release criteria remain open.
 
 ## Distribution and support
 
-- [Windows Stable 2.0.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.0.0): EXE and Microsoft Store.
+- [Windows Stable 2.5.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.5.0): EXE and Microsoft Store.
 - [Linux Beta 2.4.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-linux-beta): AppImage and SHA-256 checksum **only** on GitHub; other package formats belong in appropriate stores or distro repositories.
-- [Report bugs](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues): include OS, desktop environment, version, steps and sanitized errors. Keep independent backups of important media.
+- [macOS Apple Silicon Beta 2.4.0](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/releases/tag/v2.4.0-macos-beta): DMG and checksum on GitHub; MOVE disabled.\n- [Report bugs](https://github.com/1n50mn14c933k/MEDIA_KOLFAT/issues): include OS, desktop environment, version, steps and sanitized errors. Keep independent backups of important media.
 
 [Platform and download guide](PLATFORMS_AND_DOWNLOADS.md) · [README](../README.md) · [Roadmap](../ROADMAP.md) · [Product website](https://kolfat.app/en/Media_Kolfat/)
