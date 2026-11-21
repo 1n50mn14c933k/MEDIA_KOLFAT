@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "1n50mn14c933k/MEDIA_KOLFAT",
-  "updated_at_utc": "2026-11-21T19:15:43Z",
+  "updated_at_utc": "2026-11-21T23:49:50Z",
   "totals": {
     "windows": 88,
     "linux": 3,
@@ -15,7 +15,7 @@
       "version": "v2.0.0",
       "download_count": 84,
       "first_seen_at_utc": "2026-11-18T19:25:29Z",
-      "last_seen_at_utc": "2026-11-21T19:15:43Z",
+      "last_seen_at_utc": "2026-11-21T23:49:50Z",
       "state": "published"
     },
     {
@@ -25,7 +25,7 @@
       "version": "v2.4.0-linux-beta",
       "download_count": 3,
       "first_seen_at_utc": "2026-11-18T19:25:29Z",
-      "last_seen_at_utc": "2026-11-21T19:15:43Z",
+      "last_seen_at_utc": "2026-11-21T23:49:50Z",
       "state": "published"
     },
     {
@@ -35,7 +35,7 @@
       "version": "v2.4.0-macos-beta",
       "download_count": 1,
       "first_seen_at_utc": "2026-11-18T19:25:29Z",
-      "last_seen_at_utc": "2026-11-21T19:15:43Z",
+      "last_seen_at_utc": "2026-11-21T23:49:50Z",
       "state": "published"
     },
     {
@@ -45,7 +45,7 @@
       "version": "v2.5.0",
       "download_count": 4,
       "first_seen_at_utc": "2026-11-19T17:23:15Z",
-      "last_seen_at_utc": "2026-11-21T19:15:43Z",
+      "last_seen_at_utc": "2026-11-21T23:49:50Z",
       "state": "published"
     }
   ]
