@@ -12,6 +12,8 @@
   <img src="https://img.shields.io/badge/Privacy-Local--First-0F766E?style=flat-square&labelColor=181818" alt="Local-first">
 </p>
 
+<p align="center"><strong>🌐 Available app languages (Windows Stable)</strong><br>English · Deutsch (German) · Español (Spanish) · فارسی (Persian / Farsi, RTL)</p>
+
 <p align="center">
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-visitors-weekly.svg?v=20261125T195724Z" alt="Unique GitHub repository visitors with visible dates for GitHub's rolling last 14 days" width="370" height="48"></a>
   <a href="https://github.com/1n50mn14c933k/MEDIA_KOLFAT/graphs/traffic"><img src="assets/repository-pageviews-weekly.svg?v=20261125T195724Z" alt="GitHub repository page views with visible dates for GitHub's rolling last 14 days" width="370" height="48"></a>
