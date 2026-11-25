@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "repository": "1n50mn14c933k/MEDIA_KOLFAT",
-  "updated_at_utc": "2026-11-25T10:30:21Z",
+  "updated_at_utc": "2026-11-25T20:12:43Z",
   "totals": {
-    "windows": 91,
+    "windows": 92,
     "linux": 3,
     "macos": 1
   },
@@ -15,7 +15,7 @@
       "version": "v2.0.0",
       "download_count": 86,
       "first_seen_at_utc": "2026-11-18T19:25:29Z",
-      "last_seen_at_utc": "2026-11-25T10:30:21Z",
+      "last_seen_at_utc": "2026-11-25T20:12:43Z",
       "state": "published"
     },
     {
@@ -25,7 +25,7 @@
       "version": "v2.4.0-linux-beta",
       "download_count": 3,
       "first_seen_at_utc": "2026-11-18T19:25:29Z",
-      "last_seen_at_utc": "2026-11-25T10:30:21Z",
+      "last_seen_at_utc": "2026-11-25T20:12:43Z",
       "state": "published"
     },
     {
@@ -35,7 +35,7 @@
       "version": "v2.4.0-macos-beta",
       "download_count": 1,
       "first_seen_at_utc": "2026-11-18T19:25:29Z",
-      "last_seen_at_utc": "2026-11-25T10:30:21Z",
+      "last_seen_at_utc": "2026-11-25T20:12:43Z",
       "state": "published"
     },
     {
@@ -43,9 +43,9 @@
       "name": "MEDIA_KOLFAT_2.5.0_Setup.exe",
       "os": "windows",
       "version": "v2.5.0",
-      "download_count": 5,
+      "download_count": 6,
       "first_seen_at_utc": "2026-11-19T17:23:15Z",
-      "last_seen_at_utc": "2026-11-25T10:30:21Z",
+      "last_seen_at_utc": "2026-11-25T20:12:43Z",
       "state": "published"
     }
   ]
