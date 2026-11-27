@@ -293,18 +293,6 @@ Organize, protect and manage your photos and videos without subscriptions, compl
 
 **Legend:** ✅ Available · 🧪 Public Beta · 🚧 Planned · ◐ Partial, optional or different workflow · ❌ Not supported · — No directly verified equivalent.
 
-### Built for real-world media collections
-
-| **20,000+ photos** | **30 documented Windows features** |
-|:---:|:---:|
-| NAS-to-NAS MOVE workload tested | Feature descriptions on the [official product page](https://kolfat.app/en/Media_Kolfat/) |
-
-**MEDIA KOLFAT focuses on media organization rather than professional photo editing.** Guided workflows, duplicate detection, date-based organization and safety controls help you manage your collection without unnecessary complexity.
-
-*Platform note:* The comparison highlights **Windows 2.5.0 Stable** features. Linux 2.4.0 is an experimental beta with a smaller feature set and **MOVE disabled**. macOS Apple Silicon 2.4.0 is a publicly available experimental beta for macOS 14+ on M-series Macs only; it is unsigned and not notarized, and MOVE remains disabled. The documented 20,000+ photo workload is a Windows NAS transfer test, **not** a system benchmark score.
-
-*Feature note:* System Benchmark / Performance Check is included in this comparison as requested, but is **not currently documented on the official product page**. Competitor features are high-level comparisons and may use different workflows; a dash does not prove the feature is absent.
-
 ## What this repository is for
 
 This is the public home of MEDIA KOLFAT on GitHub. Use it to:
